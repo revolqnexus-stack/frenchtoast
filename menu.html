@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — French Toast · Kochi</title>
+  <meta name="description" content="Explore the French Toast menu — French toast, eggs, salads, pizza, pasta, burgers, sandwiches, pancakes and cakes. Freshly made in Kochi." />
+  <meta property="og:title" content="Menu — French Toast · Kochi" />
+  <meta property="og:description" content="Explore the French Toast menu — freshly made French toast, eggs, salads, pizza, pasta, burgers and sweets in Panampilly Nagar, Kochi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thefrenchtoast.in/menu" />
+  <meta name="theme-color" content="#35251F" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/menu-page.css" />
+  <link rel="stylesheet" href="assets/css/motion.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────────────────── -->
+  <nav class="site-nav site-nav--solid" aria-label="Primary navigation">
+    <a href="index.html" class="nav-wordmark" aria-label="French Toast — Home">french toast</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="visit.html">Visit Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="order.html" class="nav-order">Order Online</a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <p class="drawer-meta">Panampilly Nagar · Kochi</p>
+    <nav class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="visit.html">Visit Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="order.html" class="drawer-order">Order Online</a>
+  </div>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+    <header class="menu-page-hero">
+      <div class="container">
+        <p class="eyebrow">Our Menu</p>
+        <h1>Freshly made,<br><em>always.</em></h1>
+        <p>Classic favourites, creative specials and a wide range of breakfast, lunch and dessert options — all made to order, with care.</p>
+        <p class="menu-caveat">Prices as listed for delivery. Taxes, packaging and delivery extra. Dine-in prices may differ.</p>
+      </div>
+    </header>
+
+    <!-- ── Filter Bar ────────────────────────────────────────────────────── -->
+    <div class="menu-filters-bar" role="navigation" aria-label="Filter menu by category">
+      <div class="container">
+        <div id="menu-filter-bar" class="filter-group" role="group" aria-label="Category filters"></div>
+        <div class="menu-search-wrap">
+          <label for="menu-search" class="sr-only">Search the menu</label>
+          <input
+            type="search"
+            id="menu-search"
+            class="menu-search"
+            placeholder="Search dishes…"
+            autocomplete="off"
+            aria-label="Search the menu"
+          />
+          <button
+            id="menu-search-clear"
+            class="menu-search-clear"
+            aria-label="Clear search"
+            tabindex="-1"
+          >✕</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Menu Items ─────────────────────────────────────────────────────── -->
+    <section class="menu-body">
+      <div class="container">
+        <div id="menu-root" aria-live="polite" aria-label="Menu items"></div>
+      </div>
+    </section>
+
+    <!-- ── Item Modal ─────────────────────────────────────────────────────── -->
+    <div
+      id="item-modal-backdrop"
+      class="item-modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-item-name"
+    >
+      <div id="item-modal" class="item-modal">
+        <button
+          id="item-modal-close"
+          class="item-modal-close"
+          aria-label="Close"
+        >✕</button>
+        <div class="item-modal-img" aria-hidden="true"></div>
+        <div class="item-modal-info">
+          <h2 id="modal-item-name" class="item-modal-name"></h2>
+          <p class="item-modal-price"></p>
+          <p class="item-modal-desc"></p>
+          <div class="item-modal-tags"></div>
+          <a href="order.html" class="btn btn--primary">Order This</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark">French<br>Toast</a>
+        <p>A cosy breakfast café in Panampilly Nagar, Kochi. Good food, great coffee, warm conversations.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="visit.html">Visit Us</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <address>Mon – Sun<br>8:00 AM – 10:00 PM<br><br><a href="tel:+914842025618">0484 202 5618</a></address>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <address>8th Cross Street B,<br>Ambikupuram Rd,<br>Panampilly Nagar,<br>Ernakulam, Kerala 682036</address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 French Toast, Kochi. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="assets/data/menu.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/motion.js"></script>
+</body>
+</html>

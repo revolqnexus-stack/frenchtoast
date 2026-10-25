@@ -1,0 +1,349 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FRENCH TOAST — Navigation
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding-inline: var(--margin-h);
+  transition:
+    background-color var(--t-med) var(--ease-out),
+    backdrop-filter  var(--t-med) var(--ease-out),
+    box-shadow       var(--t-med) var(--ease-out),
+    top              var(--t-med) var(--ease-out),
+    left             var(--t-med) var(--ease-out),
+    right            var(--t-med) var(--ease-out),
+    border-radius    var(--t-med) var(--ease-out),
+    height           var(--t-med) var(--ease-out),
+    opacity          var(--mo-nav) var(--ease-out);
+}
+
+/* ── Transparent state — full width on dark hero ──────────────────────────── */
+.site-nav--transparent {
+  background-color: transparent;
+}
+
+/* ── Solid / glass pill state ─────────────────────────────────────────────── */
+.site-nav--solid {
+  /* Float in from edges as a pill */
+  top: 12px;
+  left: 20px;
+  right: 20px;
+  height: 54px;
+  border-radius: 999px;
+  padding-inline: var(--sp-8);
+
+  /* Liquid glass surface */
+  background: rgba(247, 242, 232, 0.70);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 2px 16px rgba(53, 37, 31, 0.10),
+    0 1px 4px  rgba(53, 37, 31, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* On dark hero pages — espresso-tinted glass */
+.site-nav--solid.site-nav--on-dark {
+  background: rgba(53, 37, 31, 0.55);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-color: rgba(247, 242, 232, 0.14);
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(247, 242, 232, 0.08);
+}
+
+/* ── Wordmark ─────────────────────────────────────────────────────────────── */
+.nav-wordmark {
+  font-family: var(--font-logo);
+  font-size: 1.22rem;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: var(--espresso);
+  flex-shrink: 0;
+  transition:
+    color   var(--t-fast) var(--ease-out),
+    opacity var(--t-fast) var(--ease-out);
+}
+
+.site-nav--on-dark .nav-wordmark {
+  color: var(--warm-white);
+}
+
+.nav-wordmark:hover {
+  opacity: 0.72;
+}
+
+/* ── Nav links ───────────────────────────────────────────────────────────── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  margin-inline: auto;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  position: relative;
+  padding-block: 3px;
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+.site-nav--on-dark .nav-links a {
+  color: rgba(247,242,232,0.72);
+}
+
+/* Underline — draws in from left */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--strawberry);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active {
+  color: var(--espresso);
+}
+
+.site-nav--on-dark .nav-links a:hover,
+.site-nav--on-dark .nav-links a.active {
+  color: var(--warm-white);
+}
+
+/* ── Order CTA — pill button in nav ──────────────────────────────────────── */
+.nav-order {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  background: var(--espresso);
+  padding: 9px var(--sp-5);
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--espresso);
+  transition:
+    background-color var(--t-fast) var(--ease-out),
+    border-color     var(--t-fast) var(--ease-out),
+    transform        var(--t-fast) var(--ease-out),
+    box-shadow       var(--t-fast) var(--ease-out);
+  line-height: 1;
+  box-shadow:
+    0 1px 3px rgba(53,37,31,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.site-nav--on-dark .nav-order {
+  background: rgba(247,242,232,0.12);
+  border-color: rgba(247,242,232,0.22);
+  color: var(--warm-white);
+  box-shadow: none;
+}
+
+.site-nav--on-dark .nav-order:hover {
+  background: var(--warm-white);
+  color: var(--espresso);
+  border-color: var(--warm-white);
+}
+
+.nav-order:hover {
+  background: var(--roasted);
+  border-color: var(--roasted);
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 14px rgba(53,37,31,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.nav-order:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 3px rgba(53,37,31,0.18),
+    inset 0 2px 4px rgba(53,37,31,0.15);
+}
+
+/* ── Mobile toggle ───────────────────────────────────────────────────────── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: var(--sp-3);
+  padding: 4px;
+  border-radius: var(--r-pill);
+  background: rgba(53,37,31,0.06);
+  transition: background var(--t-fast) var(--ease-out);
+}
+
+.nav-toggle:hover {
+  background: rgba(53,37,31,0.12);
+}
+
+.site-nav--on-dark .nav-toggle {
+  background: rgba(247,242,232,0.1);
+}
+
+.site-nav--on-dark .nav-toggle:hover {
+  background: rgba(247,242,232,0.18);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--espresso);
+  transition:
+    transform var(--t-med) var(--ease-out),
+    opacity   var(--t-fast) var(--ease-out);
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+.site-nav--on-dark .nav-toggle span {
+  background: var(--warm-white);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ───────────────────────────────────────────────────────── */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--espresso);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--sp-20) var(--margin-h);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease-out);
+}
+
+.nav-drawer.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.nav-drawer .drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-12);
+}
+
+.nav-drawer .drawer-links a {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  font-weight: 400;
+  color: rgba(247,242,232,0.85);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  transition: color var(--t-fast) var(--ease-out);
+}
+
+.nav-drawer .drawer-links a:hover {
+  color: var(--butter);
+}
+
+.nav-drawer .drawer-meta {
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.25);
+  margin-bottom: var(--sp-8);
+}
+
+.nav-drawer .drawer-order {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  background: var(--butter);
+  padding: var(--sp-4) var(--sp-8);
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  transition: background-color var(--t-fast);
+  box-shadow: 0 2px 10px rgba(53,37,31,0.18);
+}
+
+.nav-drawer .drawer-order:hover {
+  background: var(--warm-white);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-order {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-drawer {
+    display: flex;
+  }
+
+  /* On mobile, solid nav fills full width — no floating pill */
+  .site-nav--solid {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    border-radius: 0;
+    padding-inline: var(--sp-5);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+}

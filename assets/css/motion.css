@@ -1,0 +1,671 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FRENCH TOAST — Motion Design System
+   All animation utilities, load sequences and scroll-reveal classes.
+
+   Namespaced with .mo- prefix to avoid collisions with existing styles.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   01. REDUCED-MOTION GUARD
+   All animations are skipped when the user prefers reduced motion.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Kill every motion class before it has any effect */
+  .mo-hero-nav,
+  .mo-hero-eyebrow,
+  .mo-hero-headline,
+  .mo-hero-image,
+  .mo-hero-copy,
+  .mo-hero-cta,
+  .mo-hero-meta,
+  .mo-line-wrap,
+  .mo-reveal-up,
+  .mo-reveal-image,
+  .mo-reveal-stagger > *,
+  .mo-parallax,
+  .mo-rule-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Ensure line-reveal text is always visible */
+  .mo-line-inner {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   02. HERO PAGE-LOAD SEQUENCE
+   Applied by JS on DOMContentLoaded (homepage only, first visit only).
+   Each class starts hidden; JS adds .mo-ready to <body> which triggers them.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Initial hidden states — only when JS is available (html.js class set by inline script)
+   and before .mo-ready fires. This prevents content being hidden when JS is disabled. */
+html.js body:not(.mo-ready) .mo-hero-nav     { opacity: 0; }
+html.js body:not(.mo-ready) .mo-hero-eyebrow { opacity: 0; transform: translateY(8px); }
+html.js body:not(.mo-ready) .mo-hero-image   { clip-path: inset(0 0 100% 0); }
+html.js body:not(.mo-ready) .mo-hero-copy    { opacity: 0; transform: translateY(12px); }
+html.js body:not(.mo-ready) .mo-hero-cta     { opacity: 0; transform: translateY(8px); }
+html.js body:not(.mo-ready) .mo-hero-meta    { opacity: 0; }
+
+/* Transitions that animate when .mo-ready is added to <body> */
+body.mo-ready .mo-hero-nav {
+  opacity: 1;
+  transition:
+    opacity var(--mo-nav) var(--ease-out) var(--mo-delay-nav);
+}
+
+body.mo-ready .mo-hero-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--mo-eyebrow) var(--ease-out) var(--mo-delay-eyebrow),
+    transform var(--mo-eyebrow) var(--ease-reveal) var(--mo-delay-eyebrow);
+}
+
+/* Hero image: clip-path reveal from bottom */
+body.mo-ready .mo-hero-image {
+  clip-path: inset(0 0 0% 0);
+  transition:
+    clip-path var(--mo-image) var(--ease-reveal) var(--mo-delay-image);
+}
+
+body.mo-ready .mo-hero-copy {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--mo-copy) var(--ease-out) var(--mo-delay-copy),
+    transform var(--mo-copy) var(--ease-reveal) var(--mo-delay-copy);
+}
+
+body.mo-ready .mo-hero-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--mo-cta) var(--ease-out) var(--mo-delay-cta),
+    transform var(--mo-cta) var(--ease-reveal) var(--mo-delay-cta);
+}
+
+body.mo-ready .mo-hero-meta {
+  opacity: 1;
+  transition:
+    opacity 500ms var(--ease-out) var(--mo-delay-meta);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   03. EDITORIAL LINE REVEAL
+   Wraps each display line in overflow:hidden + animates inner span upward.
+   Applied by JS which splits headlines into .mo-line-wrap > .mo-line-inner.
+
+   Accessibility: the original element keeps its text for screen readers.
+   The visual structure is handled by aria-hidden wrappers.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mo-line-wrap {
+  display: block;
+  overflow: hidden;
+  /* Prevent descenders being clipped */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* Guard with html.js — only hidden when JS is running */
+html.js .mo-line-inner {
+  display: block;
+  transform: translateY(var(--mo-line-travel));
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    transform var(--mo-headline) var(--ease-reveal),
+    opacity    calc(var(--mo-headline) * 0.65) var(--ease-out);
+}
+
+/* Stagger each line by --mo-stagger-step via inline custom property set by JS */
+.mo-line-inner {
+  transition-delay: var(--mo-line-delay, 0ms);
+}
+
+/* Revealed state — JS adds .mo-lines-visible to the parent element */
+html.js .mo-lines-visible .mo-line-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   04. SCROLL-REVEAL UTILITIES
+   All start as invisible; IntersectionObserver adds .mo-in when visible.
+   Content is never permanently hidden: .mo-reveal-* only sets opacity/transform,
+   never display:none, so no content is lost if JS fails.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Base: subtle upward fade
+   Guard with html.js so no content is hidden if JS doesn't complete init */
+html.js .mo-reveal-up {
+  opacity: 0;
+  transform: translateY(var(--mo-reveal-travel));
+  transition:
+    opacity  var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-reveal);
+  will-change: transform, opacity;
+}
+
+.mo-reveal-up.mo-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Image reveal — two-step arm/reveal ──────────────────────────────────────
+   .mo-reveal-image        → overflow:hidden container (images visible)
+   .mo-reveal-armed        → clip-path initial state applied (images hidden)
+   .mo-in                  → clip-path animates to revealed
+
+   The "armed" class is added by the IntersectionObserver callback, not at
+   class-add time. This means images are NEVER hidden until the IO fires,
+   so a script error or a non-firing observer leaves images visible.
+   ─────────────────────────────────────────────────────────────────────────── */
+.mo-reveal-image {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Step 1: arm — initial hidden states */
+.mo-reveal-image.mo-reveal-armed > img,
+.mo-reveal-image.mo-reveal-armed .img-frame > img {
+  clip-path: inset(100% 0 0 0);
+  transform: scale(1.06);
+  transition:
+    clip-path var(--t-xslow) var(--ease-reveal),
+    transform  var(--t-xslow) var(--ease-out);
+  will-change: clip-path, transform;
+}
+
+.mo-reveal-image.mo-reveal-armed > .img-frame {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path var(--t-xslow) var(--ease-reveal);
+  will-change: clip-path;
+}
+
+.mo-reveal-image.mo-reveal-armed > .img-frame img {
+  transform: scale(1.06);
+  transition: transform var(--t-xslow) var(--ease-out);
+  will-change: transform;
+}
+
+/* Step 2: reveal — final visible states */
+.mo-reveal-image.mo-in > img,
+.mo-reveal-image.mo-in .img-frame > img {
+  clip-path: inset(0% 0 0 0);
+  transform: scale(1);
+}
+
+.mo-reveal-image.mo-in > .img-frame {
+  clip-path: inset(0% 0 0 0);
+}
+
+.mo-reveal-image.mo-in > .img-frame img {
+  transform: scale(1);
+}
+
+/* Stagger reveal: children animate sequentially */
+html.js .mo-reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity  var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-reveal);
+  will-change: transform, opacity;
+}
+
+.mo-reveal-stagger.mo-in > *:nth-child(1) { transition-delay: 0ms; }
+.mo-reveal-stagger.mo-in > *:nth-child(2) { transition-delay: var(--mo-stagger-step); }
+.mo-reveal-stagger.mo-in > *:nth-child(3) { transition-delay: calc(var(--mo-stagger-step) * 2); }
+.mo-reveal-stagger.mo-in > *:nth-child(4) { transition-delay: calc(var(--mo-stagger-step) * 3); }
+.mo-reveal-stagger.mo-in > *:nth-child(5) { transition-delay: calc(var(--mo-stagger-step) * 4); }
+.mo-reveal-stagger.mo-in > *:nth-child(6) { transition-delay: calc(var(--mo-stagger-step) * 5); }
+.mo-reveal-stagger.mo-in > *:nth-child(n+7) { transition-delay: calc(var(--mo-stagger-step) * 6); }
+
+.mo-reveal-stagger.mo-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   05. PARALLAX
+   Applied inline via JS (requestAnimationFrame). The class just marks
+   the element and sets will-change.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mo-parallax {
+  will-change: transform;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   06. PROGRESSIVE RULE REVEAL
+   Horizontal rules that draw in as section enters viewport.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mo-rule-reveal {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 700ms var(--ease-reveal);
+}
+
+.mo-rule-reveal.mo-in {
+  transform: scaleX(1);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   07. ENHANCED EXISTING COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Nav entrance on page load ───────────────────────────────────────────── */
+.site-nav {
+  /* Enhanced transition for solid/transparent switch */
+  transition:
+    background-color var(--t-med) var(--ease-out),
+    box-shadow       var(--t-med) var(--ease-out),
+    opacity          var(--mo-nav) var(--ease-out);
+}
+
+/* ── Mobile drawer — staggered link entrance ─────────────────────────────── */
+html.js .nav-drawer .drawer-links a {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity   var(--t-slow) var(--ease-reveal),
+    transform var(--t-slow) var(--ease-reveal),
+    color     var(--t-fast) var(--ease-out);
+}
+
+html.js .nav-drawer.open .drawer-links a:nth-child(1) { opacity: 1; transform: none; transition-delay: 60ms; }
+html.js .nav-drawer.open .drawer-links a:nth-child(2) { opacity: 1; transform: none; transition-delay: 110ms; }
+html.js .nav-drawer.open .drawer-links a:nth-child(3) { opacity: 1; transform: none; transition-delay: 160ms; }
+html.js .nav-drawer.open .drawer-links a:nth-child(4) { opacity: 1; transform: none; transition-delay: 210ms; }
+html.js .nav-drawer.open .drawer-links a:nth-child(5) { opacity: 1; transform: none; transition-delay: 260ms; }
+html.js .nav-drawer.open .drawer-links a:nth-child(n+6) { opacity: 1; transform: none; transition-delay: 310ms; }
+
+html.js .nav-drawer .drawer-order {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity   var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-reveal),
+    background-color var(--t-fast);
+}
+
+html.js .nav-drawer.open .drawer-order {
+  opacity: 1;
+  transform: none;
+  transition-delay: 340ms;
+}
+
+html.js .nav-drawer .drawer-meta {
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease-out);
+}
+
+html.js .nav-drawer.open .drawer-meta {
+  opacity: 1;
+  transition-delay: 40ms;
+}
+
+/* ── Gallery tile hover caption ───────────────────────────────────────────── */
+.gallery-tile-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--sp-4) var(--sp-5);
+  background: linear-gradient(transparent, rgba(53,37,31,0.72));
+  color: var(--warm-white);
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity  var(--t-med) var(--ease-out),
+    transform var(--t-med) var(--ease-out);
+  pointer-events: none;
+}
+
+.gallery-tile:hover .gallery-tile-caption,
+.gallery-tile:focus-visible .gallery-tile-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gallery tile index badge */
+.gallery-tile-index {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(247,242,232,0.55);
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease-out) 40ms;
+  pointer-events: none;
+}
+
+.gallery-tile:hover .gallery-tile-index {
+  opacity: 1;
+}
+
+/* ── Lightbox enhanced transitions ───────────────────────────────────────── */
+.lightbox {
+  /* Override existing with more refined transition */
+  transition:
+    opacity var(--t-med) var(--ease-out);
+}
+
+.lightbox-img {
+  transition:
+    transform var(--t-slow) var(--ease-reveal),
+    opacity   var(--t-med)  var(--ease-out);
+}
+
+/* Previous/next navigation arrows */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(247,242,232,0.5);
+  border: 1px solid rgba(247,242,232,0.15);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background var(--t-fast);
+  z-index: 2;
+}
+
+.lightbox-prev { left: var(--sp-6); }
+.lightbox-next { right: calc(var(--sp-6) + 56px); } /* clear the close button */
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  color: var(--warm-white);
+  border-color: rgba(247,242,232,0.5);
+  background: rgba(247,242,232,0.08);
+}
+
+/* ── Scroll cue animation — more precise tick ─────────────────────────────── */
+@keyframes mo-scrollTick {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.hero-scroll-line::after {
+  animation: mo-scrollTick 2.2s var(--ease-in-out) infinite;
+  top: 0;
+}
+
+/* ── Page-hero entrance (inner pages) ────────────────────────────────────── */
+html.js .page-hero .eyebrow,
+html.js .menu-page-hero .eyebrow {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity   380ms var(--ease-out) 80ms,
+    transform 400ms var(--ease-reveal) 80ms;
+}
+
+html.js .page-hero h1,
+html.js .menu-page-hero h1 {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity   600ms var(--ease-out) 180ms,
+    transform 680ms var(--ease-reveal) 180ms;
+}
+
+html.js .page-hero p,
+html.js .menu-page-hero p {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity   500ms var(--ease-out) 320ms,
+    transform 540ms var(--ease-reveal) 320ms;
+}
+
+/* Triggered once fonts + layout are ready */
+html.js body.mo-page-ready .page-hero .eyebrow,
+html.js body.mo-page-ready .menu-page-hero .eyebrow,
+html.js body.mo-page-ready .page-hero h1,
+html.js body.mo-page-ready .menu-page-hero h1,
+html.js body.mo-page-ready .page-hero p,
+html.js body.mo-page-ready .menu-page-hero p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Dish card enhanced hover ────────────────────────────────────────────── */
+.dish-card {
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+.dish-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Arrow on dish card hover */
+.dish-info::after {
+  content: '→';
+  position: absolute;
+  bottom: var(--sp-6);
+  right: var(--sp-5);
+  font-size: 0.75rem;
+  color: var(--butter);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity   var(--t-fast) var(--ease-out) 80ms,
+    transform var(--t-med)  var(--ease-out) 80ms;
+}
+
+.dish-card:hover .dish-info::after {
+  opacity: 0.7;
+  transform: translateX(0);
+}
+
+/* ── Menu item card enhanced hover ───────────────────────────────────────── */
+.menu-item-img {
+  overflow: hidden;
+}
+
+/* ── Section eyebrow line draw ───────────────────────────────────────────── */
+.section-eyebrow::before {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 500ms var(--ease-reveal) 120ms;
+}
+
+/* The eyebrow itself gets mo-reveal-up, so when .mo-in is added to it,
+   the ::before line draws in simultaneously */
+.section-eyebrow.mo-in::before,
+.mo-reveal-up.mo-in .section-eyebrow::before {
+  transform: scaleX(1);
+}
+
+/* ── Pillar middle has a subtle entrance scale ───────────────────────────── */
+.pillar {
+  transition:
+    transform var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out);
+}
+
+.pillar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(53,37,31,0.08);
+}
+
+/* ── Collage items staggered entrance ────────────────────────────────────── */
+html.js .collage-item {
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    opacity   var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-reveal);
+  transform: translateY(16px);
+}
+
+.collage.mo-in .collage-item:nth-child(1) { opacity:1; transform:none; transition-delay: 0ms; }
+.collage.mo-in .collage-item:nth-child(2) { opacity:1; transform:none; transition-delay: 60ms; }
+.collage.mo-in .collage-item:nth-child(3) { opacity:1; transform:none; transition-delay: 110ms; }
+.collage.mo-in .collage-item:nth-child(4) { opacity:1; transform:none; transition-delay: 160ms; }
+.collage.mo-in .collage-item:nth-child(5) { opacity:1; transform:none; transition-delay: 210ms; }
+.collage.mo-in .collage-item:nth-child(6) { opacity:1; transform:none; transition-delay: 260ms; }
+
+/* ── Category chip hover ──────────────────────────────────────────────────── */
+.category-chip {
+  border-radius: var(--r-pill);
+  transition:
+    background-color 160ms var(--ease-out),
+    border-color     160ms var(--ease-out),
+    color            160ms var(--ease-out),
+    transform        160ms var(--ease-spring),
+    box-shadow       160ms var(--ease-out);
+  box-shadow: 0 1px 3px rgba(53,37,31,0.05), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.category-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(53,37,31,0.10), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.category-chip:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(53,37,31,0.10);
+}
+
+/* ── Filter pill active state — handled in components.css ─────────────────── */
+
+/* ── Link underline draw — improved ──────────────────────────────────────── */
+.link-underline .arrow {
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.link-underline:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ── Button active press — handled in components.css ─────────────────────── */
+
+/* ── Story float label entrance ───────────────────────────────────────────── */
+/* Initial hidden state — JS sets opacity:1/transform:none via revealFloatLabel()
+   once the parent image reveals. Falls back to visible if JS never fires. */
+html.js .story-float-label {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity   var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-reveal);
+}
+
+/* ── Moment quote — slower, weightier line reveal ─────────────────────────── */
+/* The stagger (130ms) is set in JS; here we extend the per-line duration */
+.moment .mo-line-inner {
+  transition-duration: 1100ms, 720ms; /* transform, opacity */
+}
+
+/* ── Fine rule reveal for category headers ───────────────────────────────── */
+/* Keep border always visible — don't hide it behind animation state */
+.menu-category-header {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── Gallery masonry tile — reveal stagger ───────────────────────────────── */
+html.js .gallery-tile {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity   var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-reveal),
+    clip-path var(--t-xslow) var(--ease-out);
+}
+
+.gallery-tile.mo-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger gallery tiles by their --mo-tile-index set in JS */
+.gallery-tile {
+  transition-delay: var(--mo-tile-delay, 0ms);
+}
+
+/* ── Page hero dark tile image reveal ────────────────────────────────────── */
+.page-hero {
+  overflow: hidden;
+}
+
+/* ── Order step accent ───────────────────────────────────────────────────── */
+.order-step {
+  transition:
+    transform var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out);
+}
+
+.order-step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(53,37,31,0.07);
+}
+
+/* ── Visit info row subtle hover ─────────────────────────────────────────── */
+.visit-info-row {
+  transition: background-color var(--t-fast) var(--ease-out);
+  border-radius: var(--r-xs);
+  padding-inline: var(--sp-2);
+}
+
+.visit-info-row:hover {
+  background-color: var(--cream-mid);
+}
+
+/* ── Form input focus ring enhancement ───────────────────────────────────── */
+.form-input,
+.form-textarea {
+  transition:
+    border-color var(--t-fast) var(--ease-out),
+    box-shadow   var(--t-fast) var(--ease-out);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--espresso);
+  box-shadow: 0 0 0 3px rgba(53,37,31,0.07);
+}
+
+/* ── Moment quote parallax wrapper ───────────────────────────────────────── */
+.moment-bg img {
+  transition: none; /* parallax is JS-driven */
+  will-change: transform;
+}
+

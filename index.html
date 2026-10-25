@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>French Toast — Breakfast, Brunch & Beyond · Panampilly Nagar, Kochi</title>
+  <meta name="description" content="French Toast is a beloved breakfast café in Panampilly Nagar, Kochi. Freshly made French toast, creative brunch dishes, coffee and sweets — a cosy nook of joy." />
+  <meta property="og:title" content="French Toast — Kochi's Favourite Breakfast Café" />
+  <meta property="og:description" content="A cosy spot for French toast, brunch, coffee and sweets in Panampilly Nagar, Kochi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thefrenchtoast.in/" />
+  <meta name="theme-color" content="#35251F" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "French Toast",
+    "description": "Breakfast café specialising in French toast, brunch and coffee.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8th Cross Street B, Ambikupuram Rd, Panampilly Nagar",
+      "addressLocality": "Ernakulam",
+      "addressRegion": "Kerala",
+      "postalCode": "682036",
+      "addressCountry": "IN"
+    },
+    "telephone": "+914842025618",
+    "openingHours": "Mo-Su 08:00-22:00",
+    "servesCuisine": ["Breakfast", "Brunch", "Café"],
+    "priceRange": "₹₹"
+  }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/motion.css" />
+  <!-- Prevent hero FOUC: mark body as having a JS-capable environment early -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────────────────── -->
+  <nav class="site-nav site-nav--transparent site-nav--on-dark" aria-label="Primary navigation">
+    <a href="index.html" class="nav-wordmark" aria-label="French Toast — Home">french toast</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="visit.html">Visit Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="order.html" class="nav-order">Order Online</a>
+    <button
+      class="nav-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="nav-drawer"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <p class="drawer-meta">Panampilly Nagar · Kochi</p>
+    <nav class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="visit.html">Visit Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="order.html" class="drawer-order">Order Online</a>
+  </div>
+
+  <main>
+
+    <!-- ── A: Hero ──────────────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Welcome to French Toast">
+      <div class="hero-visual" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
+          alt="Strawberry French Toast with whipped cream and maple syrup"
+          fetchpriority="high"
+          width="1400"
+          height="933"
+        />
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Panampilly Nagar, Kochi</p>
+
+        <h1 class="hero-headline">
+          Good mornings<br>
+          start <em>here.</em>
+        </h1>
+
+        <p class="hero-sub">
+          A cosy nook for slow breakfasts, spontaneous brunches and very good coffee.
+        </p>
+
+        <div class="hero-actions">
+          <a href="menu.html" class="btn btn--light">Explore the Menu</a>
+          <a href="visit.html" class="btn btn--ghost-light">Find Us</a>
+        </div>
+
+        <ul class="hero-meta" aria-label="Dining options">
+          <li class="hero-meta-item">Dine-In</li>
+          <li class="hero-meta-item">Takeaway</li>
+          <li class="hero-meta-item">Delivery</li>
+        </ul>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ── B: Signature Dishes ──────────────────────────────────────────── -->
+    <section class="signatures section" aria-labelledby="sig-heading">
+      <div class="container">
+        <div class="signatures-header reveal">
+          <h2 class="signatures-headline" id="sig-heading">
+            The dishes people<br><em>come back for</em>
+          </h2>
+          <a href="menu.html" class="link-underline">See the full menu</a>
+        </div>
+
+        <div class="dish-grid">
+          <!-- Featured — different image from hero -->
+          <article class="dish-card reveal">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=85"
+                alt="Strawberry French Toast with cream"
+                loading="lazy"
+                width="800"
+                height="1066"
+              />
+            </div>
+            <div class="dish-info" aria-hidden="true">
+              <p class="dish-info-name">
+                Strawberry French Toast
+                <span class="dish-price-inline">₹ 475</span>
+              </p>
+              <p class="dish-info-desc">French toast with fresh strawberry sauce, served with pouring cream.</p>
+            </div>
+            <div class="dish-static">
+              <p class="dish-static-name">Strawberry French Toast</p>
+              <p class="dish-static-price">₹ 475</p>
+            </div>
+          </article>
+
+          <article class="dish-card reveal reveal-delay-1">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=85"
+                alt="Banoffee French Toast"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+            </div>
+            <div class="dish-info" aria-hidden="true">
+              <p class="dish-info-name">
+                Banoffee
+                <span class="dish-price-inline">₹ 418</span>
+              </p>
+              <p class="dish-info-desc">Caramelised banana and toffee sauce, served with pouring cream.</p>
+            </div>
+            <div class="dish-static">
+              <p class="dish-static-name">Banoffee</p>
+              <p class="dish-static-price">₹ 418</p>
+            </div>
+          </article>
+
+          <article class="dish-card reveal reveal-delay-2">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=85"
+                alt="Classic French Toast"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+            </div>
+            <div class="dish-info" aria-hidden="true">
+              <p class="dish-info-name">
+                Classic French Toast
+                <span class="dish-price-inline">₹ 303</span>
+              </p>
+              <p class="dish-info-desc">Brioche with seasonal fruits, served with pouring cream.</p>
+            </div>
+            <div class="dish-static">
+              <p class="dish-static-name">Classic French Toast</p>
+              <p class="dish-static-price">₹ 303</p>
+            </div>
+          </article>
+
+          <article class="dish-card reveal reveal-delay-1">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1481070555726-e2fe8357725c?w=600&q=85"
+                alt="Herb Poached Chicken sandwich"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+            </div>
+            <div class="dish-info" aria-hidden="true">
+              <p class="dish-info-name">
+                Herb Poached Chicken
+                <span class="dish-price-inline">₹ 475</span>
+              </p>
+              <p class="dish-info-desc">Basil pesto, olives, oven-dried tomatoes and mozzarella on sourdough.</p>
+            </div>
+            <div class="dish-static">
+              <p class="dish-static-name">Herb Poached Chicken</p>
+              <p class="dish-static-price">₹ 475</p>
+            </div>
+          </article>
+
+          <article class="dish-card reveal reveal-delay-2">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?w=600&q=85"
+                alt="Mac N Cheese with fried chicken"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+            </div>
+            <div class="dish-info" aria-hidden="true">
+              <p class="dish-info-name">
+                Mac N Cheese With Fried Chicken
+                <span class="dish-price-inline">₹ 475</span>
+              </p>
+              <p class="dish-info-desc">Three-cheese mac, Parmesan dust and fried chicken.</p>
+            </div>
+            <div class="dish-static">
+              <p class="dish-static-name">Mac N Cheese With Fried Chicken</p>
+              <p class="dish-static-price">₹ 475</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── C: Breakfast Moment ──────────────────────────────────────────── -->
+    <section class="moment" aria-labelledby="moment-heading">
+      <div class="moment-bg" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1600&q=80"
+          alt=""
+          loading="lazy"
+          width="1600"
+          height="900"
+        />
+      </div>
+      <div class="moment-content">
+        <blockquote class="moment-quote reveal" id="moment-heading">
+          "The best mornings<br>have no <strong>agenda.</strong>"
+        </blockquote>
+        <ul class="moment-details" aria-label="What makes us special">
+          <li class="moment-detail reveal reveal-delay-1">Fresh ingredients daily</li>
+          <li class="moment-detail reveal reveal-delay-2">Cosy indoor seating</li>
+          <li class="moment-detail reveal reveal-delay-3">Mon–Sun, 8am–10pm</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── D: Menu Preview ──────────────────────────────────────────────── -->
+    <section class="menu-preview section" aria-labelledby="menu-preview-heading">
+      <div class="container">
+        <div class="menu-preview-inner">
+          <div class="menu-preview-text">
+            <p class="ghost-label" aria-hidden="true">Menu</p>
+            <p class="section-eyebrow">Our Menu</p>
+            <h2 id="menu-preview-heading">
+              Freshly made,<br>always.
+            </h2>
+            <p>
+              From golden French toast and hearty sandwiches to rich pastas and indulgent desserts — every dish is made to order, with care.
+            </p>
+            <nav class="category-chips" aria-label="Menu categories">
+              <a href="menu.html#french-toast" class="category-chip">French Toast</a>
+              <a href="menu.html#eggs" class="category-chip">Eggs</a>
+              <a href="menu.html#sandwiches" class="category-chip">Sandwiches</a>
+              <a href="menu.html#pizza-pasta" class="category-chip">Pizza &amp; Pasta</a>
+              <a href="menu.html#burgers" class="category-chip">Burgers</a>
+              <a href="menu.html#pancakes-cakes" class="category-chip">Pancakes &amp; Cakes</a>
+            </nav>
+            <a href="menu.html" class="btn btn--primary">View Full Menu</a>
+          </div>
+
+          <div class="menu-preview-image reveal">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=700&q=85"
+                alt="Banana toast — menu highlight"
+                loading="lazy"
+                width="700"
+                height="875"
+              />
+            </div>
+            <p class="menu-preview-annotation vertical-label" aria-hidden="true">Made with love · Every morning</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── E: Atmosphere ────────────────────────────────────────────────── -->
+    <section class="atmosphere section" aria-labelledby="atm-heading">
+      <div class="container">
+        <div class="atmosphere-header reveal">
+          <div>
+            <p class="section-eyebrow">The Space</p>
+            <h2 id="atm-heading">A place worth<br><em>lingering in</em></h2>
+          </div>
+          <a href="gallery.html" class="link-underline">View the gallery</a>
+        </div>
+
+        <div class="collage" aria-label="Gallery of French Toast café">
+          <div class="collage-item">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Café dining area" loading="lazy" width="700" height="560" />
+          </div>
+          <div class="collage-item">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Coffee pour over" loading="lazy" width="500" height="400" />
+          </div>
+          <div class="collage-item">
+            <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=500&q=80" alt="Eggs Benedict" loading="lazy" width="500" height="400" />
+          </div>
+          <div class="collage-item">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=80" alt="Chocolate cake dessert" loading="lazy" width="700" height="560" />
+          </div>
+          <div class="collage-item">
+            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&q=80" alt="Tiramisu" loading="lazy" width="500" height="400" />
+          </div>
+          <div class="collage-item">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" alt="Flat white coffee" loading="lazy" width="500" height="400" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── F: Story Teaser ──────────────────────────────────────────────── -->
+    <section class="story-teaser section" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="story-teaser-inner">
+          <div class="story-teaser-img reveal">
+            <div class="img-frame">
+              <img
+                src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=700&q=85"
+                alt="Eggs Benedict at French Toast"
+                loading="lazy"
+                width="700"
+                height="933"
+              />
+            </div>
+          </div>
+
+          <div class="story-teaser-content reveal">
+            <p class="eyebrow">Our Story</p>
+            <h2 id="story-heading">
+              A little nook<br>of <em>joy</em>
+            </h2>
+            <p>
+              French Toast started as a simple dream — to make people feel at home over a beautifully made breakfast. Today it's a favourite gathering spot for food lovers, early risers and anyone who believes a good meal is worth slowing down for.
+            </p>
+            <a href="about.html" class="btn btn--ghost-light">Read Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── G: Visit ─────────────────────────────────────────────────────── -->
+    <section class="visit section" aria-labelledby="visit-heading">
+      <div class="container">
+        <div class="visit-inner">
+          <div class="visit-details reveal">
+            <p class="section-eyebrow">Find Us</p>
+            <h2 id="visit-heading">Come say hello.</h2>
+
+          <div class="visit-info-row">
+              <div class="visit-info-content">
+                <p class="visit-info-label">Address</p>
+                <p class="visit-info-value">
+                  8th Cross Street B, Ambikupuram Rd,<br>
+                  Panampilly Nagar, Ernakulam,<br>
+                  Kerala 682036
+                </p>
+              </div>
+            </div>
+
+            <div class="visit-info-row">
+              <div class="visit-info-content">
+                <p class="visit-info-label">Hours</p>
+                <p class="visit-info-value">Monday – Sunday<br>8:00 AM – 10:00 PM</p>
+              </div>
+            </div>
+
+            <div class="visit-info-row">
+              <div class="visit-info-content">
+                <p class="visit-info-label">Phone</p>
+                <p class="visit-info-value">
+                  <a href="tel:+914842025618">0484 202 5618</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="visit-info-row">
+              <div class="visit-info-content">
+                <p class="visit-info-label">Price Range</p>
+                <p class="visit-info-value">₹200 – ₹1,000 per person</p>
+              </div>
+            </div>
+
+            <div class="visit-actions">
+              <a
+                href="https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--primary"
+              >Get Directions</a>
+              <a href="tel:+914842025618" class="btn btn--outline">Call Now</a>
+            </div>
+          </div>
+
+          <div class="visit-map reveal reveal-delay-1">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0!2d76.298!3d9.967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0872949f4a2d09%3A0x9c80eba54b0b1b3b!2sPanampilly+Nagar%2C+Ernakulam%2C+Kerala!5e0!3m2!1sen!2sin!4v1"
+              title="French Toast location on Google Maps"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── H: CTA Closer ─────────────────────────────────────────────────── -->
+    <section class="cta-close" aria-labelledby="cta-heading">
+      <div class="container" style="position:relative;z-index:1;">
+        <p class="cta-close-eyebrow reveal">Don't wait for the weekend</p>
+        <h2 class="cta-close-headline reveal">
+          Your next favourite<br>breakfast is waiting.
+        </h2>
+        <div class="cta-close-actions reveal">
+          <a href="menu.html"  class="btn btn--primary">Explore the Menu</a>
+          <a href="order.html" class="btn btn--outline">Order Online</a>
+          <a href="https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get Directions</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark">French<br>Toast</a>
+        <p>A cosy breakfast café in Panampilly Nagar, Kochi. Good food, great coffee, warm conversations.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="visit.html">Visit Us</a></li>
+          <li><a href="order.html">Order Online</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <address>
+          Mon – Sun<br>
+          8:00 AM – 10:00 PM<br><br>
+          <a href="tel:+914842025618">0484 202 5618</a>
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <address>
+          8th Cross Street B,<br>
+          Ambikupuram Rd,<br>
+          Panampilly Nagar,<br>
+          Ernakulam, Kerala 682036
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 French Toast, Kochi. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/motion.js"></script>
+</body>
+</html>
