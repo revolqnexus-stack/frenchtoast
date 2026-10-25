@@ -10,8 +10,10 @@
   <meta property="og:description" content="A cosy spot for French toast, brunch, coffee and sweets in Panampilly Nagar, Kochi." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thefrenchtoast.in/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1200&q=85" />
   <meta name="theme-color" content="#35251F" />
 
+  <link rel="canonical" href="https://thefrenchtoast.in/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
   <script type="application/ld+json">
@@ -19,7 +21,9 @@
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "French Toast",
-    "description": "Breakfast café specialising in French toast, brunch and coffee.",
+    "description": "Breakfast café specialising in French toast, brunch and coffee in Panampilly Nagar, Kochi.",
+    "url": "https://thefrenchtoast.in",
+    "image": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1200&q=85",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "8th Cross Street B, Ambikupuram Rd, Panampilly Nagar",
@@ -28,12 +32,31 @@
       "postalCode": "682036",
       "addressCountry": "IN"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 9.967,
+      "longitude": 76.298
+    },
     "telephone": "+914842025618",
-    "openingHours": "Mo-Su 08:00-22:00",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "22:00"
+      }
+    ],
     "servesCuisine": ["Breakfast", "Brunch", "Café"],
-    "priceRange": "₹₹"
+    "priceRange": "₹200–₹1000",
+    "hasMenu": "https://thefrenchtoast.in/menu",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Cash, UPI"
   }
   </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@700&family=Manrope:wght@300;400;500;600;700&display=swap" />
 
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/base.css" />

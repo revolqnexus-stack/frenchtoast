@@ -9,9 +9,15 @@
   <meta property="og:description" content="Order your favourite French Toast dishes by phone or WhatsApp. Delivery and pickup from Panampilly Nagar, Kochi." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thefrenchtoast.in/order" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1200&q=85" />
   <meta name="theme-color" content="#35251F" />
 
+  <link rel="canonical" href="https://thefrenchtoast.in/order" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@700&family=Manrope:wght@300;400;500;600;700&display=swap" />
 
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -89,12 +95,12 @@
         </div>
 
         <div class="order-cta-wrap reveal">
-          <div>
-            <p class="section-eyebrow" style="margin-bottom:var(--sp-5)">Ready to order?</p>
-            <p style="font-size:var(--text-body-lg);color:var(--ink);max-width:380px;line-height:1.7;margin-bottom:var(--sp-8);">
+          <div class="order-cta-eyebrow-wrap">
+            <p class="section-eyebrow">Ready to order?</p>
+            <p class="order-cta-body">
               We currently accept orders via phone call or WhatsApp. Click below to reach us directly, or call to place your order.
             </p>
-            <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap;">
+        <div class="order-cta-actions">
               <a href="tel:+914842025618" class="btn btn--primary">Call to Order</a>
               <a
                 href="https://wa.me/914842025618?text=Hi!%20I'd%20like%20to%20place%20an%20order%20from%20French%20Toast"
@@ -102,7 +108,7 @@
                 rel="noopener noreferrer"
                 class="btn btn--outline"
               >WhatsApp Us</a>
-              <a href="menu.html" class="link-underline" style="align-self:center;">Browse the menu →</a>
+              <a href="menu.html" class="link-underline order-cta-browse">Browse the menu →</a>
             </div>
           </div>
 
@@ -123,20 +129,17 @@
     </section>
 
     <!-- Bottom image -->
-    <div style="overflow:hidden;max-height:400px;">
+    <div class="order-bottom-img">
       <img
         src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1600&q=80"
         alt="French Toast — freshly made"
         loading="lazy"
         width="1600"
         height="533"
-        style="width:100%;height:400px;object-fit:cover;object-position:center 55%;"
       />
     </div>
-    <div style="background:var(--paper);text-align:center;padding:var(--sp-4);">
-      <p style="font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--ink);">
-        Good food is always a good idea.
-      </p>
+    <div class="order-bottom-caption">
+      <p class="order-bottom-quote">Good food is always a good idea.</p>
     </div>
 
   </main>

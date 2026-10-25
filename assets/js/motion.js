@@ -396,6 +396,21 @@
       if (!lightbox.classList.contains('open')) return;
       if (e.key === 'ArrowLeft')  navigate(-1);
       if (e.key === 'ArrowRight') navigate(1);
+
+      // Focus trap inside lightbox
+      if (e.key === 'Tab') {
+        const focusable = Array.from(lightbox.querySelectorAll(
+          'button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ));
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last  = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        }
+      }
     });
   }
 

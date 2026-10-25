@@ -2,9 +2,6 @@
    FRENCH TOAST — Base Reset & Global Styles
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* Optimized font loading: display=swap, only weights we actually use */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@700&family=Manrope:wght@300;400;500;600;700&display=swap');
-
 /* ── Reset ───────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;

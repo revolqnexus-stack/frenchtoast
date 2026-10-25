@@ -26,17 +26,22 @@
   /* ── Mobile drawer ────────────────────────────────────────────────────────── */
   const toggle      = document.querySelector('.nav-toggle');
   const drawer      = document.querySelector('.nav-drawer');
-  const drawerLinks = document.querySelectorAll('.nav-drawer .drawer-links a');
+  const drawerLinks = document.querySelectorAll('.nav-drawer .drawer-links a, .nav-drawer .drawer-order');
 
   if (toggle && drawer) {
+    // All focusable elements inside the drawer for focus trapping
+    function getDrawerFocusable() {
+      return Array.from(drawer.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      ));
+    }
+
     function openDrawer() {
       drawer.classList.add('open');
       toggle.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      // Focus first link after stagger delay
-      if (drawerLinks.length) {
-        setTimeout(() => drawerLinks[0].focus(), 80);
-      }
+      const focusable = getDrawerFocusable();
+      if (focusable.length) setTimeout(() => focusable[0].focus(), 80);
     }
 
     function closeDrawer() {
@@ -55,17 +60,28 @@
       if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
     });
 
+    // Focus trap inside drawer
+    drawer.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !drawer.classList.contains('open')) return;
+      const focusable = getDrawerFocusable();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
+    });
+
     // Close on backdrop click
     drawer.addEventListener('click', (e) => {
       if (e.target === drawer) closeDrawer();
     });
 
-    // Close when a nav link is activated (SPA-friendly)
-    drawerLinks.forEach(a => {
-      a.addEventListener('click', () => {
-        // Small delay so the click registers before scroll
-        setTimeout(closeDrawer, 80);
-      });
+    // Close when a nav link is activated
+    document.querySelectorAll('.nav-drawer .drawer-links a').forEach(a => {
+      a.addEventListener('click', () => setTimeout(closeDrawer, 80));
     });
   }
 

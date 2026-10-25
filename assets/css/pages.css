@@ -820,3 +820,105 @@
     aspect-ratio: 4/3;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   VISIT PAGE — extracted inline styles
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.visit-map-actions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.visit-details-eyebrow {
+  margin-bottom: var(--sp-8);
+}
+
+.visit-hours-eyebrow {
+  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-6);
+}
+
+.visit-bottom-img-section {
+  background: var(--espresso);
+  padding-block: 0;
+}
+
+.visit-bottom-img-frame {
+  max-height: 480px;
+  overflow: hidden;
+}
+
+.visit-bottom-img-frame img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.visit-bottom-caption {
+  background: var(--espresso);
+  color: var(--paper);
+  text-align: center;
+  padding: var(--sp-8) var(--sp-5);
+}
+
+.visit-bottom-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: rgba(247,242,232,0.55);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ORDER PAGE — extracted inline styles
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.order-cta-eyebrow-wrap .section-eyebrow {
+  margin-bottom: var(--sp-5);
+}
+
+.order-cta-body {
+  font-size: var(--text-body-lg);
+  color: var(--ink);
+  max-width: 380px;
+  line-height: 1.7;
+  margin-bottom: var(--sp-8);
+}
+
+.order-cta-actions {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.order-cta-browse {
+  align-self: center;
+}
+
+.order-bottom-img {
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.order-bottom-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.order-bottom-caption {
+  background: var(--paper);
+  text-align: center;
+  padding: var(--sp-4);
+}
+
+.order-bottom-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink);
+}
