@@ -42,7 +42,7 @@
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "08:00",
+        "opens": "09:00",
         "closes": "22:00"
       }
     ],
@@ -63,6 +63,7 @@
   <link rel="stylesheet" href="assets/css/nav.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/proof.css" />
   <link rel="stylesheet" href="assets/css/motion.css" />
   <!-- Prevent hero FOUC: mark body as having a JS-capable environment early -->
   <script>document.documentElement.classList.add('js');</script>
@@ -110,6 +111,7 @@
     <section class="hero" aria-label="Welcome to French Toast">
       <div class="hero-visual" aria-hidden="true">
         <img
+          data-parallax
           src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
           alt="Strawberry French Toast with whipped cream and maple syrup"
           fetchpriority="high"
@@ -278,10 +280,48 @@
       </div>
     </section>
 
+    <!-- ── Social Proof ─────────────────────────────────────────────────── -->
+    <section class="proof section" aria-labelledby="proof-heading">
+      <div class="container">
+        <p class="section-eyebrow reveal">Loved in Kochi</p>
+        <h2 id="proof-heading" class="reveal">What Kochi <em>says about us.</em></h2>
+
+        <div class="proof-stats">
+          <div class="proof-stat">
+            <p class="proof-num"><span data-count="4.3" data-decimals="1">4.3</span></p>
+            <div class="proof-stars" style="--rating:4.3" role="img" aria-label="Rated 4.3 out of 5"></div>
+            <p class="proof-label">Google rating</p>
+          </div>
+          <div class="proof-stat">
+            <p class="proof-num"><span data-count="5321">5,321</span></p>
+            <p class="proof-label">Google reviews</p>
+          </div>
+          <div class="proof-stat">
+            <p class="proof-num">₹200–1,000</p>
+            <p class="proof-label">Per person</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-marquee" aria-label="Guest reviews">
+        <ul class="proof-track">
+          <li class="proof-card"><p>"REAL REVIEW TEXT"</p><span>Name · ★★★★★</span></li>
+          <li class="proof-card"><p>"REAL REVIEW TEXT"</p><span>Name · ★★★★★</span></li>
+          <li class="proof-card"><p>"REAL REVIEW TEXT"</p><span>Name · ★★★★★</span></li>
+          <li class="proof-card"><p>"REAL REVIEW TEXT"</p><span>Name · ★★★★★</span></li>
+          <li class="proof-card"><p>"REAL REVIEW TEXT"</p><span>Name · ★★★★★</span></li>
+          <li class="proof-card"><p>"REAL REVIEW TEXT"</p><span>Name · ★★★★★</span></li>
+        </ul>
+      </div>
+
+      <p class="proof-link"><a class="link-underline" href="https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi" target="_blank" rel="noopener noreferrer">Read all reviews on Google →</a></p>
+    </section>
+
     <!-- ── C: Breakfast Moment ──────────────────────────────────────────── -->
     <section class="moment" aria-labelledby="moment-heading">
       <div class="moment-bg" aria-hidden="true">
         <img
+          data-parallax
           src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1600&q=80"
           alt=""
           loading="lazy"
@@ -296,7 +336,7 @@
         <ul class="moment-details" aria-label="What makes us special">
           <li class="moment-detail reveal reveal-delay-1">Fresh ingredients daily</li>
           <li class="moment-detail reveal reveal-delay-2">Cosy indoor seating</li>
-          <li class="moment-detail reveal reveal-delay-3">Mon–Sun, 8am–10pm</li>
+          <li class="moment-detail reveal reveal-delay-3">Mon–Sun, 9am–10pm</li>
         </ul>
       </div>
     </section>
@@ -427,7 +467,7 @@
             <div class="visit-info-row">
               <div class="visit-info-content">
                 <p class="visit-info-label">Hours</p>
-                <p class="visit-info-value">Monday – Sunday<br>8:00 AM – 10:00 PM</p>
+                <p class="visit-info-value">Monday – Sunday<br>9:00 AM – 10:00 PM</p>
               </div>
             </div>
 
@@ -513,7 +553,7 @@
         <h4>Hours</h4>
         <address>
           Mon – Sun<br>
-          8:00 AM – 10:00 PM<br><br>
+          9:00 AM – 10:00 PM<br><br>
           <a href="tel:+914842025618">0484 202 5618</a>
         </address>
       </div>
@@ -534,7 +574,12 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/motion.js"></script>
+  <script src="assets/js/gsap-motion.js"></script>
+  <script src="assets/js/proof.js" defer></script>
 </body>
 </html>
