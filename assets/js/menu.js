@@ -169,6 +169,28 @@
   // ── Render menu ───────────────────────────────────────────────────────────
   function renderMenu() {
     const items = getFilteredItems();
+    
+    // FLIP: record old positions before DOM change
+    const oldCards = Array.from(menuRoot.querySelectorAll('.menu-item, .menu-item-compact'));
+    const oldPositions = new Map();
+    oldCards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      oldPositions.set(card.dataset.itemId, {
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height
+      });
+    });
+
+    // Mark exiting items
+    oldCards.forEach(card => {
+      const itemId = card.dataset.itemId;
+      if (!items.find(i => i.id === itemId)) {
+        card.classList.add('mo-menu-exiting');
+      }
+    });
+
     menuRoot.innerHTML = '';
 
     if (items.length === 0) {
@@ -311,21 +333,55 @@
 
         menuRoot.appendChild(section);
       });
-
-      // Reinitialize reveal for newly added items
-      requestAnimationFrame(() => {
-        const newReveals = menuRoot.querySelectorAll('.reveal:not(.visible)');
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              obs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.08 });
-        newReveals.forEach(el => obs.observe(el));
-      });
     }
+
+    // FLIP: animate items that moved
+    requestAnimationFrame(() => {
+      const newCards = Array.from(menuRoot.querySelectorAll('.menu-item, .menu-item-compact'));
+      
+      newCards.forEach(card => {
+        const itemId = card.dataset.itemId;
+        const oldPos = oldPositions.get(itemId);
+        
+        if (!oldPos) {
+          // New item - mark as entering
+          card.classList.add('mo-menu-entering');
+          return;
+        }
+        
+        // Calculate new position
+        const newRect = card.getBoundingClientRect();
+        const deltaX = oldPos.left - newRect.left;
+        const deltaY = oldPos.top - newRect.top;
+        const deltaW = oldPos.width / newRect.width;
+        const deltaH = oldPos.height / newRect.height;
+        
+        // Only animate if there's meaningful movement (>1px)
+        if (Math.abs(deltaX) > 1 || Math.abs(deltaY) > 1 || Math.abs(deltaW - 1) > 0.01 || Math.abs(deltaH - 1) > 0.01) {
+          // Invert: apply transform to move card to old position
+          card.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${deltaW}, ${deltaH})`;
+          card.style.transition = 'none';
+          
+          // Play: remove transform to animate to new position
+          requestAnimationFrame(() => {
+            card.style.transform = '';
+            card.style.transition = '';
+          });
+        }
+      });
+      
+      // Reinitialize reveal for newly added items
+      const newReveals = menuRoot.querySelectorAll('.reveal:not(.visible)');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      newReveals.forEach(el => obs.observe(el));
+    });
 
     keepMenuInView();
   }
