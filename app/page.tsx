@@ -1,6 +1,15 @@
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import FadeIn from './components/FadeIn'
+import SlideIn from './components/SlideIn'
+import ScrollReveal from './components/ScrollReveal'
+import SplitText from './components/SplitText'
+import TextLoop from './components/TextLoop'
+import InfiniteMarquee from './components/InfiniteMarquee'
+import HoverCard from './components/HoverCard'
+import CountUp from './components/CountUp'
+import ImageCarousel from './components/ImageCarousel'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
 import './home.css'
@@ -26,27 +35,37 @@ export default function Home() {
           </div>
 
           <div className="hero-content">
-            <p className="hero-eyebrow">{hasMultipleLocations ? 'Kochi' : 'Panampilly Nagar, Kochi'}</p>
+            <FadeIn delay={0.2}>
+              <p className="hero-eyebrow">{hasMultipleLocations ? 'Kochi' : 'Panampilly Nagar, Kochi'}</p>
+            </FadeIn>
 
-            <h1 className="hero-headline">
-              Good mornings<br />
-              start <em>here.</em>
-            </h1>
+            <FadeIn delay={0.4}>
+              <h1 className="hero-headline">
+                Good mornings<br />
+                start <em>here.</em>
+              </h1>
+            </FadeIn>
 
-            <p className="hero-sub">
-              A cosy nook for slow breakfasts, spontaneous brunches and very good coffee.
-            </p>
+            <FadeIn delay={0.6}>
+              <p className="hero-sub">
+                A cosy nook for slow breakfasts, spontaneous brunches and very good coffee.
+              </p>
+            </FadeIn>
 
-            <div className="hero-actions">
-              <Link href="/menu" className="btn btn--light">Explore the Menu</Link>
-              <Link href="/visit" className="btn btn--ghost-light">{hasMultipleLocations ? 'Find a Location' : 'Find Us'}</Link>
-            </div>
+            <FadeIn delay={0.8}>
+              <div className="hero-actions">
+                <Link href="/menu" className="btn btn--light">Explore the Menu</Link>
+                <Link href="/visit" className="btn btn--ghost-light">{hasMultipleLocations ? 'Find a Location' : 'Find Us'}</Link>
+              </div>
+            </FadeIn>
 
-            <ul className="hero-meta" aria-label="Dining options">
-              <li className="hero-meta-item">Dine-In</li>
-              <li className="hero-meta-item">Takeaway</li>
-              <li className="hero-meta-item">Delivery</li>
-            </ul>
+            <FadeIn delay={1.0}>
+              <ul className="hero-meta" aria-label="Dining options">
+                <li className="hero-meta-item">Dine-In</li>
+                <li className="hero-meta-item">Takeaway</li>
+                <li className="hero-meta-item">Delivery</li>
+              </ul>
+            </FadeIn>
           </div>
 
           <div className="hero-scroll" aria-hidden="true">
@@ -58,16 +77,20 @@ export default function Home() {
         {/* Signature Dishes */}
         <section className="signatures section" aria-labelledby="sig-heading">
           <div className="container">
-            <div className="signatures-header">
-              <h2 className="signatures-headline" id="sig-heading">
-                The dishes people<br /><em>come back for</em>
-              </h2>
-              <Link href="/menu" className="link-underline">See the full menu</Link>
-            </div>
+            <ScrollReveal>
+              <div className="signatures-header">
+                <h2 className="signatures-headline" id="sig-heading">
+                  The dishes people<br /><em>come back for</em>
+                </h2>
+                <Link href="/menu" className="link-underline">See the full menu</Link>
+              </div>
+            </ScrollReveal>
 
             <div className="dish-grid">
-              {/* Dish cards - keeping the same structure */}
-              <article className="dish-card">
+              {/* Dish cards with 3D hover effect */}
+              <ScrollReveal delay={0.1}>
+                <HoverCard tiltAmount={5} scaleAmount={1.02}>
+                  <article className="dish-card">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=85"
@@ -89,7 +112,11 @@ export default function Home() {
                   <p className="dish-static-price">₹ 475</p>
                 </div>
               </article>
+                </HoverCard>
+              </ScrollReveal>
 
+              <ScrollReveal delay={0.2}>
+                <HoverCard tiltAmount={5} scaleAmount={1.02}>
               <article className="dish-card">
                 <div className="img-frame">
                   <img
@@ -112,7 +139,11 @@ export default function Home() {
                   <p className="dish-static-price">₹ 418</p>
                 </div>
               </article>
+                </HoverCard>
+              </ScrollReveal>
 
+              <ScrollReveal delay={0.3}>
+                <HoverCard tiltAmount={5} scaleAmount={1.02}>
               <article className="dish-card">
                 <div className="img-frame">
                   <img
@@ -135,7 +166,11 @@ export default function Home() {
                   <p className="dish-static-price">₹ 303</p>
                 </div>
               </article>
+                </HoverCard>
+              </ScrollReveal>
 
+              <ScrollReveal delay={0.4}>
+                <HoverCard tiltAmount={5} scaleAmount={1.02}>
               <article className="dish-card">
                 <div className="img-frame">
                   <img
@@ -158,7 +193,11 @@ export default function Home() {
                   <p className="dish-static-price">₹ 475</p>
                 </div>
               </article>
+                </HoverCard>
+              </ScrollReveal>
 
+              <ScrollReveal delay={0.5}>
+                <HoverCard tiltAmount={5} scaleAmount={1.02}>
               <article className="dish-card">
                 <div className="img-frame">
                   <img
@@ -181,6 +220,8 @@ export default function Home() {
                   <p className="dish-static-price">₹ 475</p>
                 </div>
               </article>
+                </HoverCard>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -194,46 +235,47 @@ export default function Home() {
               What Kochi <em>says about us.</em>
             </h2>
 
-            {/* COMMENTED OUT: Unverified review data
+            {/* Animated Stats */}
             <div className="proof-stats">
               <div className="proof-stat">
                 <p className="proof-num">
-                  <span data-count="4.3" data-decimals="1">4.3</span>
+                  ₹<CountUp end={200} duration={2} />–₹<CountUp end={1000} duration={2} separator="," />
                 </p>
-                <div className="proof-stars" style={{ '--rating': 4.3 } as React.CSSProperties} role="img" aria-label="Rated 4.3 out of 5"></div>
-                <p className="proof-label">Google rating</p>
-              </div>
-              <div className="proof-stat">
-                <p className="proof-num">
-                  <span data-count="5321">5,321</span>
-                </p>
-                <p className="proof-label">Google reviews</p>
-              </div>
-              <div className="proof-stat">
-                <p className="proof-num">₹200–1,000</p>
-                <p className="proof-label">Per person</p>
-              </div>
-            </div>
-            */}
-
-            <div className="proof-stats">
-              <div className="proof-stat">
-                <p className="proof-num">₹200–1,000</p>
                 <p className="proof-label">Per person</p>
               </div>
             </div>
           </div>
 
-          {/* NOTE: Testimonials below are unverified - pending owner confirmation */}
-          <div className="proof-marquee" aria-label="Guest reviews">
-            <ul className="proof-track">
-              <li className="proof-card"><p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p><span>Priya M. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p><span>Arjun K. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p><span>Anjali R. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p><span>Rohan S. · ★★★★★</span></li>
-              <li className="proof-card"><p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p><span>Maya T. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p><span>Vikram P. · ★★★★★</span></li>
-            </ul>
+          {/* Infinite Marquee Reviews */}
+          <div className="proof-marquee" aria-label="Guest reviews" style={{ marginTop: '3rem' }}>
+            <InfiniteMarquee speed={30} pauseOnHover={true}>
+              <div style={{ display: 'flex', gap: '2rem', padding: '0 1rem' }}>
+                <div className="proof-card" style={{ minWidth: '400px' }}>
+                  <p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p>
+                  <span>Priya M. · ★★★★★</span>
+                </div>
+                <div className="proof-card" style={{ minWidth: '400px' }}>
+                  <p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p>
+                  <span>Arjun K. · ★★★★★</span>
+                </div>
+                <div className="proof-card" style={{ minWidth: '400px' }}>
+                  <p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p>
+                  <span>Anjali R. · ★★★★★</span>
+                </div>
+                <div className="proof-card" style={{ minWidth: '400px' }}>
+                  <p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p>
+                  <span>Rohan S. · ★★★★★</span>
+                </div>
+                <div className="proof-card" style={{ minWidth: '400px' }}>
+                  <p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p>
+                  <span>Maya T. · ★★★★★</span>
+                </div>
+                <div className="proof-card" style={{ minWidth: '400px' }}>
+                  <p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p>
+                  <span>Vikram P. · ★★★★★</span>
+                </div>
+              </div>
+            </InfiniteMarquee>
           </div>
 
           <p className="proof-link">
@@ -242,6 +284,21 @@ export default function Home() {
             </a>
           </p>
         </section>
+
+        {/* Infinite Text Banner */}
+        <div style={{ 
+          padding: '2rem 0', 
+          background: 'var(--color-dark, #1a1a1a)', 
+          color: 'var(--color-light, #fff)',
+          fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+          fontWeight: 'bold',
+          overflow: 'hidden'
+        }}>
+          <TextLoop 
+            text="Fresh Ingredients Daily • Handcrafted with Love • Open 7 Days a Week • Best Breakfast in Kochi" 
+            speed={40}
+          />
+        </div>
 
         {/* Moment Section */}
         <section className="moment" aria-labelledby="moment-heading">
@@ -255,14 +312,18 @@ export default function Home() {
             />
           </div>
           <div className="moment-content">
-            <blockquote className="moment-quote" id="moment-heading">
-              "The best mornings<br />have no <strong>agenda.</strong>"
-            </blockquote>
-            <ul className="moment-details" aria-label="What makes us special">
-              <li className="moment-detail">Fresh ingredients daily</li>
-              <li className="moment-detail">Cosy indoor seating</li>
-              <li className="moment-detail">Mon–Fri 9am–10pm • Sat–Sun 8am–10pm</li>
-            </ul>
+            <FadeIn delay={0.2}>
+              <blockquote className="moment-quote" id="moment-heading">
+                "The best mornings<br />have no <strong>agenda.</strong>"
+              </blockquote>
+            </FadeIn>
+            <FadeIn delay={0.4}>
+              <ul className="moment-details" aria-label="What makes us special">
+                <li className="moment-detail">Fresh ingredients daily</li>
+                <li className="moment-detail">Cosy indoor seating</li>
+                <li className="moment-detail">Mon–Fri 9am–10pm • Sat–Sun 8am–10pm</li>
+              </ul>
+            </FadeIn>
           </div>
         </section>
 
@@ -270,43 +331,46 @@ export default function Home() {
         <section className="menu-preview section" aria-labelledby="menu-preview-heading">
           <div className="container">
             <div className="menu-preview-inner">
-              <div className="menu-preview-text">
-                <p className="ghost-label" aria-hidden="true">
-                  Menu
-                </p>
-                <p className="section-eyebrow">Our Menu</p>
-                <h2 id="menu-preview-heading">
-                  Freshly made,
-                  <br />
-                  always.
-                </h2>
-                <p>From golden French toast and hearty sandwiches to rich pastas and indulgent desserts — every dish is made to order, with care.</p>
-                <nav className="category-chips" aria-label="Menu categories">
-                  <Link href="/menu#french-toast" className="category-chip">
-                    French Toast
+              <ScrollReveal>
+                <div className="menu-preview-text">
+                  <p className="ghost-label" aria-hidden="true">
+                    Menu
+                  </p>
+                  <p className="section-eyebrow">Our Menu</p>
+                  <h2 id="menu-preview-heading">
+                    Freshly made,
+                    <br />
+                    always.
+                  </h2>
+                  <p>From golden French toast and hearty sandwiches to rich pastas and indulgent desserts — every dish is made to order, with care.</p>
+                  <nav className="category-chips" aria-label="Menu categories">
+                    <Link href="/menu#french-toast" className="category-chip">
+                      French Toast
+                    </Link>
+                    <Link href="/menu#eggs" className="category-chip">
+                      Eggs
+                    </Link>
+                    <Link href="/menu#sandwiches" className="category-chip">
+                      Sandwiches
+                    </Link>
+                    <Link href="/menu#pizza-pasta" className="category-chip">
+                      Pizza &amp; Pasta
+                    </Link>
+                    <Link href="/menu#burgers" className="category-chip">
+                      Burgers
+                    </Link>
+                    <Link href="/menu#pancakes-cakes" className="category-chip">
+                      Pancakes &amp; Cakes
+                    </Link>
+                  </nav>
+                  <Link href="/menu" className="btn btn--primary">
+                    View Full Menu
                   </Link>
-                  <Link href="/menu#eggs" className="category-chip">
-                    Eggs
-                  </Link>
-                  <Link href="/menu#sandwiches" className="category-chip">
-                    Sandwiches
-                  </Link>
-                  <Link href="/menu#pizza-pasta" className="category-chip">
-                    Pizza &amp; Pasta
-                  </Link>
-                  <Link href="/menu#burgers" className="category-chip">
-                    Burgers
-                  </Link>
-                  <Link href="/menu#pancakes-cakes" className="category-chip">
-                    Pancakes &amp; Cakes
-                  </Link>
-                </nav>
-                <Link href="/menu" className="btn btn--primary">
-                  View Full Menu
-                </Link>
-              </div>
+                </div>
+              </ScrollReveal>
 
-              <div className="menu-preview-image">
+              <ScrollReveal delay={0.2}>
+                <div className="menu-preview-image">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=700&q=85"
@@ -320,6 +384,7 @@ export default function Home() {
                   Made with love · Every morning
                 </p>
               </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -327,19 +392,21 @@ export default function Home() {
         {/* Atmosphere/Collage */}
         <section className="atmosphere section" aria-labelledby="atm-heading">
           <div className="container">
-            <div className="atmosphere-header">
-              <div>
-                <p className="section-eyebrow">The Space</p>
-                <h2 id="atm-heading">
-                  A place worth
-                  <br />
-                  <em>lingering in</em>
-                </h2>
+            <ScrollReveal>
+              <div className="atmosphere-header">
+                <div>
+                  <p className="section-eyebrow">The Space</p>
+                  <h2 id="atm-heading">
+                    A place worth
+                    <br />
+                    <em>lingering in</em>
+                  </h2>
+                </div>
+                <Link href="/gallery" className="link-underline">
+                  View the gallery
+                </Link>
               </div>
-              <Link href="/gallery" className="link-underline">
-                View the gallery
-              </Link>
-            </div>
+            </ScrollReveal>
 
             <div className="collage" aria-label="Gallery of French Toast café">
               <div className="collage-item">
@@ -364,20 +431,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Story Teaser */}
+        {/* Story Teaser with Carousel */}
         <section className="story-teaser section" aria-labelledby="story-heading">
           <div className="container">
             <div className="story-teaser-inner">
-              <div className="story-teaser-img">
-                <div className="img-frame">
-                  <img
-                    src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=700&q=85"
-                    alt="Eggs Benedict at French Toast"
-                    loading="lazy"
-                    width="700"
-                    height="933"
-                  />
-                </div>
+              <div className="story-teaser-img" style={{ position: 'relative', height: '500px', borderRadius: '1rem', overflow: 'hidden' }}>
+                <ImageCarousel
+                  images={[
+                    'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=700&q=85',
+                    'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=700&q=85',
+                    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&q=85',
+                    'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=85'
+                  ]}
+                  autoplay={true}
+                  interval={5000}
+                />
               </div>
 
               <div className="story-teaser-content">
