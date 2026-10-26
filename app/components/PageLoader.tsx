@@ -49,7 +49,7 @@ export default function PageLoader() {
         </div>
         <div ref={lineRef} className="page-loader__line" />
         <p ref={subRef} className="page-loader__sub" style={{ transform: 'translateY(8px)' }}>
-          Panampilly Nagar · Kochi
+          BAKERY, KITCHEN & STUDIO
         </p>
       </div>
     </div>
