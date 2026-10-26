@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f1e8;
+  background: #ebe4d8;
   overflow: hidden;
 }
 
@@ -21,93 +21,90 @@
   opacity: 0;
 }
 
-/* Crumpled paper texture base */
+/* Strong crumpled paper texture base with visible folds */
 .page-loader::before {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   background: 
-    radial-gradient(circle at 15% 25%, rgba(139, 101, 56, 0.12) 0%, transparent 8%),
-    radial-gradient(circle at 85% 60%, rgba(92, 64, 32, 0.10) 0%, transparent 10%),
-    radial-gradient(circle at 40% 80%, rgba(120, 90, 50, 0.08) 0%, transparent 12%),
-    radial-gradient(circle at 70% 15%, rgba(100, 70, 40, 0.08) 0%, transparent 7%),
-    radial-gradient(circle at 30% 50%, rgba(80, 60, 35, 0.06) 0%, transparent 9%),
-    linear-gradient(135deg, 
-      transparent 0%, 
-      rgba(235, 201, 160, 0.15) 25%,
-      transparent 40%,
-      rgba(242, 217, 141, 0.15) 65%,
-      transparent 80%
-    );
+    /* Large fold shadows */
+    radial-gradient(ellipse 400px 300px at 25% 35%, rgba(0, 0, 0, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 350px 280px at 70% 55%, rgba(0, 0, 0, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 380px 250px at 45% 75%, rgba(0, 0, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 300px 220px at 80% 25%, rgba(0, 0, 0, 0.09) 0%, transparent 55%),
+    /* Fold highlights */
+    radial-gradient(ellipse 320px 240px at 15% 60%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 280px 200px at 60% 40%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 260px 190px at 85% 70%, rgba(255, 255, 255, 0.55) 0%, transparent 50%),
+    /* Medium crumples */
+    radial-gradient(ellipse 180px 140px at 35% 20%, rgba(0, 0, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 160px 120px at 55% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 140px 110px at 20% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+    /* Age stains */
+    radial-gradient(circle at 12% 18%, rgba(139, 101, 56, 0.18) 0%, transparent 12%),
+    radial-gradient(circle at 88% 65%, rgba(120, 85, 45, 0.15) 0%, transparent 10%),
+    radial-gradient(circle at 42% 88%, rgba(130, 95, 50, 0.12) 0%, transparent 14%),
+    /* Base paper color with subtle gradient */
+    linear-gradient(135deg, #f5f1e8 0%, #ebe4d8 50%, #e8dcc4 100%);
   pointer-events: none;
 }
 
-/* Paper crumple shadows and highlights */
+/* Strong crease lines across the paper */
 .page-loader::after {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   background-image:
-    radial-gradient(ellipse 200px 150px at 20% 30%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse 180px 140px at 75% 60%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse 160px 120px at 45% 75%, rgba(0, 0, 0, 0.025) 0%, transparent 50%),
-    radial-gradient(ellipse 140px 100px at 65% 25%, rgba(255, 255, 255, 0.35) 0%, transparent 50%),
-    radial-gradient(ellipse 120px 90px at 30% 65%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
-    radial-gradient(ellipse 150px 110px at 80% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse 100px 80px at 15% 55%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
-    radial-gradient(ellipse 130px 95px at 55% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: 0.6;
-}
-
-/* Radial vignette */
-.page-loader__vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(
-    circle at center,
-    transparent 0%,
-    transparent 50%,
-    rgba(43, 43, 43, 0.04) 100%
-  );
-  pointer-events: none;
-}
-
-/* Fine paper grain with subtle crumple lines */
-.page-loader__grain {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image: 
+    /* Major diagonal creases */
+    linear-gradient(28deg, transparent 48%, rgba(0, 0, 0, 0.08) 49%, rgba(0, 0, 0, 0.08) 51%, transparent 52%),
+    linear-gradient(-42deg, transparent 47%, rgba(255, 255, 255, 0.4) 48.5%, rgba(255, 255, 255, 0.4) 51.5%, transparent 53%),
+    linear-gradient(68deg, transparent 46%, rgba(0, 0, 0, 0.06) 48%, rgba(0, 0, 0, 0.06) 52%, transparent 54%),
+    /* Horizontal crumple line */
+    linear-gradient(180deg, transparent 53%, rgba(0, 0, 0, 0.05) 54%, rgba(0, 0, 0, 0.05) 56%, transparent 57%),
+    /* Subtle cross-hatching for paper fiber */
     repeating-linear-gradient(
-      25deg,
+      35deg,
       transparent,
-      transparent 80px,
-      rgba(92, 64, 32, 0.015) 80px,
-      rgba(92, 64, 32, 0.015) 81px
+      transparent 3px,
+      rgba(92, 64, 32, 0.02) 3px,
+      rgba(92, 64, 32, 0.02) 4px
     ),
     repeating-linear-gradient(
       -35deg,
       transparent,
-      transparent 95px,
-      rgba(92, 64, 32, 0.012) 95px,
-      rgba(92, 64, 32, 0.012) 96px
-    ),
-    repeating-linear-gradient(
-      65deg,
-      transparent,
-      transparent 110px,
-      rgba(92, 64, 32, 0.01) 110px,
-      rgba(92, 64, 32, 0.01) 111px
-    ),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
+      transparent 3px,
+      rgba(92, 64, 32, 0.015) 3px,
+      rgba(92, 64, 32, 0.015) 4px
+    );
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+/* Paper grain overlay */
+.page-loader__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Soft vignette */
+.page-loader__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(43, 43, 43, 0.08) 100%
+  );
+  pointer-events: none;
 }
 
 .page-loader__inner {
@@ -117,7 +114,7 @@
   align-items: center;
   gap: 0;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 /* Peach/orange circle accent */
@@ -162,8 +159,8 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(107, 80, 64, 0.25) 40%,
-    rgba(107, 80, 64, 0.25) 60%,
+    rgba(107, 80, 64, 0.3) 40%,
+    rgba(107, 80, 64, 0.3) 60%,
     transparent
   );
   position: relative;
@@ -177,7 +174,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(107, 80, 64, 0.6);
+  color: rgba(107, 80, 64, 0.7);
   position: relative;
   z-index: 3;
 }
@@ -192,5 +189,6 @@
     display: none;
   }
 }
+
 
 
