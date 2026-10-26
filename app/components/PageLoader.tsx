@@ -1,92 +1,66 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { gsap } from 'gsap'
 import './PageLoader.css'
 
 export default function PageLoader() {
-  const [isComplete, setIsComplete] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLDivElement>(null)
+  const lineRef = useRef<HTMLDivElement>(null)
+  const subRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
+    const overlay = overlayRef.current
+    const text = textRef.current
+    const line = lineRef.current
+    const sub = subRef.current
+    if (!overlay || !text || !line || !sub) return
+
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    const timer = setTimeout(() => {
-      setIsComplete(true)
-    }, prefersReduced ? 1000 : 1800)
+    const tl = gsap.timeline({
+      onComplete: () => {
+        gsap.to(overlay, {
+          yPercent: -100,
+          duration: prefersReduced ? 0.3 : 0.9,
+          ease: 'power4.inOut',
+          onComplete: () => setVisible(false),
+        })
+      },
+    })
 
-    return () => clearTimeout(timer)
+    if (prefersReduced) {
+      // Simple fade for reduced motion
+      gsap.set([text, line, sub], { opacity: 1, y: 0 })
+      tl.to({}, { duration: 0.8 })
+    } else {
+      // Full animation
+      gsap.set([text, line, sub], { opacity: 0 })
+      gsap.set(line, { scaleX: 0, transformOrigin: 'left center' })
+
+      tl
+        .to(text, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 0.1)
+        .to(line, { opacity: 1, scaleX: 1, duration: 0.7, ease: 'power3.inOut' }, 0.55)
+        .to(sub, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.8)
+        .to({}, { duration: 0.8 })
+    }
   }, [])
 
-  if (isComplete) return null
-
-  const prefersReduced = typeof window !== 'undefined' 
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
-    : false
-
-  if (prefersReduced) {
-    return (
-      <motion.div 
-        className="sign-loader"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ delay: 0.8, duration: 0.3 }}
-      >
-        <div className="sign-board">
-          <div className="toast-icon">
-            <img src="/logo-toast.svg" alt="" />
-          </div>
-          <div className="sign-wordmark">french toast</div>
-          <div className="sign-subline">BAKERY , KITCHEN & STUDIO</div>
-        </div>
-      </motion.div>
-    )
-  }
+  if (!visible) return null
 
   return (
-    <motion.div 
-      className="sign-loader"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      transition={{ delay: 1.4, duration: 0.4 }}
-    >
-      <motion.div 
-        className="sign-board"
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-      >
-        {/* Toast icon */}
-        <motion.div 
-          className="toast-icon"
-          initial={{ scale: 0.6, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.3, ease: 'backOut' }}
-        >
-          <img src="/logo-toast.svg" alt="" />
-        </motion.div>
-
-        {/* Wordmark with clip reveal */}
-        <div className="wordmark-wrapper">
-          <motion.div
-            className="sign-wordmark"
-            initial={{ clipPath: 'inset(0 100% 0 0)' }}
-            animate={{ clipPath: 'inset(0 0% 0 0)' }}
-            transition={{ delay: 0.5, duration: 0.6, ease: 'easeInOut' }}
-          >
-            french toast
-          </motion.div>
+    <div ref={overlayRef} className="page-loader" aria-hidden="true">
+      <div className="page-loader__inner">
+        <div ref={textRef} className="page-loader__wordmark" style={{ transform: 'translateY(20px)' }}>
+          french<br />toast
         </div>
-
-        {/* Subline */}
-        <motion.div
-          className="sign-subline"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.3 }}
-        >
+        <div ref={lineRef} className="page-loader__line" />
+        <p ref={subRef} className="page-loader__sub" style={{ transform: 'translateY(8px)' }}>
           BAKERY , KITCHEN & STUDIO
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </p>
+      </div>
+    </div>
   )
 }

@@ -1,109 +1,84 @@
 /* Poppins font preload */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Clean sign loader - just the board */
-.sign-loader {
+/* ── Page Loader ─────────────────────────────────────────────────────────── */
+.page-loader {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F5F1E8;
+  background: #f5f1e8;
 }
 
-/* Sign board */
-.sign-board {
-  position: relative;
-  width: min(86vw, 520px);
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAFAF8 100%);
-  border-radius: 12px;
-  padding: clamp(2rem, 5vw, 2.75rem) clamp(2rem, 5vw, 3rem);
-  box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.08),
-    0 2px 4px rgba(0, 0, 0, 0.06);
+.page-loader__inner {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  align-items: center;
+  gap: 0;
+  position: relative;
 }
 
-/* Toast icon */
-.toast-icon {
+/* Peach/orange circle accent */
+.page-loader__inner::before {
+  content: '';
   position: absolute;
-  top: clamp(1.5rem, 4vw, 2rem);
-  right: clamp(1.5rem, 4vw, 2.5rem);
-  width: clamp(32px, 6vw, 42px);
-  height: clamp(32px, 6vw, 42px);
-  transform: rotate(8deg);
-}
-
-.toast-icon img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Wordmark wrapper for clip animation */
-.wordmark-wrapper {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Wordmark */
-.sign-wordmark {
-  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 600;
-  color: #2B2B2B;
-  letter-spacing: -0.01em;
-  line-height: 1;
-  text-transform: lowercase;
-  white-space: nowrap;
-  margin: 0;
-  padding-right: clamp(48px, 10vw, 64px); /* Space for toast icon */
-}
-
-/* Subline */
-.sign-subline {
-  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
-  font-size: clamp(0.5rem, 1.4vw, 0.7rem);
-  font-weight: 400;
-  color: #2B2B2B;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  line-height: 1.4;
-  margin: 0;
+  top: -60px;
+  right: -40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4a460 0%, #e88e3a 100%);
   opacity: 0.8;
+  animation: pulse-circle 2s ease-in-out infinite;
 }
 
-/* Reduced motion */
+@keyframes pulse-circle {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+.page-loader__wordmark {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  color: #2B2B2B;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding-right: 0.1em;
+  text-transform: lowercase;
+}
+
+.page-loader__line {
+  width: clamp(120px, 30vw, 260px);
+  height: 2px;
+  margin-top: clamp(1.2rem, 3vw, 2rem);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(107, 80, 64, 0.25) 40%,
+    rgba(107, 80, 64, 0.25) 60%,
+    transparent
+  );
+}
+
+.page-loader__sub {
+  margin-top: clamp(0.8rem, 2vw, 1.2rem);
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(107, 80, 64, 0.6);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .sign-loader * {
-    animation: none !important;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 640px) {
-  .sign-board {
-    border-radius: 8px;
-    padding: 1.75rem 1.5rem;
-  }
-  
-  .sign-wordmark {
-    font-size: 2.25rem;
-  }
-  
-  .sign-subline {
-    font-size: 0.5rem;
-    letter-spacing: 0.16em;
-  }
-  
-  .toast-icon {
-    width: 32px;
-    height: 32px;
-    top: 1.25rem;
-    right: 1.25rem;
+  .page-loader__inner::before { 
+    animation: none;
+    opacity: 0.8;
   }
 }
