@@ -55,14 +55,14 @@ export default function Home() {
         {/* Signature Dishes */}
         <section className="signatures section" aria-labelledby="sig-heading">
           <div className="container">
-            <div className="signatures-header mo-reveal-up">
+            <div className="signatures-header">
               <h2 className="signatures-headline" id="sig-heading">
                 The dishes people<br /><em>come back for</em>
               </h2>
               <Link href="/menu" className="link-underline">See the full menu</Link>
             </div>
 
-            <div className="dish-grid mo-reveal-stagger">
+            <div className="dish-grid">
               {/* Dish cards - keeping the same structure */}
               <article className="dish-card">
                 <div className="img-frame">
@@ -244,7 +244,7 @@ export default function Home() {
             <blockquote className="moment-quote" id="moment-heading">
               "The best mornings<br />have no <strong>agenda.</strong>"
             </blockquote>
-            <ul className="moment-details mo-reveal-stagger" aria-label="What makes us special">
+            <ul className="moment-details" aria-label="What makes us special">
               <li className="moment-detail">Fresh ingredients daily</li>
               <li className="moment-detail">Cosy indoor seating</li>
               <li className="moment-detail">Mon–Sun, 9am–10pm</li>
@@ -313,7 +313,7 @@ export default function Home() {
         {/* Atmosphere/Collage */}
         <section className="atmosphere section" aria-labelledby="atm-heading">
           <div className="container">
-            <div className="atmosphere-header mo-reveal-up">
+            <div className="atmosphere-header">
               <div>
                 <p className="section-eyebrow">The Space</p>
                 <h2 id="atm-heading">
@@ -366,7 +366,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="story-teaser-content mo-reveal-up">
+              <div className="story-teaser-content">
                 <p className="eyebrow">Our Story</p>
                 <h2 id="story-heading">
                   A little nook
@@ -388,7 +388,7 @@ export default function Home() {
         <section className="visit section" aria-labelledby="visit-heading">
           <div className="container">
             <div className="visit-inner">
-              <div className="visit-details mo-reveal-up">
+              <div className="visit-details">
                 <p className="section-eyebrow">Find Us</p>
                 <h2 id="visit-heading">Come say hello.</h2>
 
@@ -435,7 +435,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="visit-map mo-reveal-up">
+              <div className="visit-map">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2621519284597!2d76.29561731478427!3d9.967013592834848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnMDEuMiJOIDc2wrAxNyc1MS4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
                   width="600"

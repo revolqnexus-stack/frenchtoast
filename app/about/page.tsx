@@ -39,13 +39,13 @@ export default function AboutPage() {
                   <br />
                   feels like <em>home.</em>
                 </h2>
-                <p className="mo-reveal-up">
+                <p className="">
                   French Toast started as a dream to create a place that felt genuinely welcoming — where the food was worth talking about and the atmosphere made you want to stay a little longer.
                 </p>
-                <p className="mo-reveal-up">
+                <p className="">
                   Today it's a favourite gathering spot in Panampilly Nagar for food lovers, early risers and anyone who believes a good meal is worth slowing down for.
                 </p>
-                <p className="mo-reveal-up">Every dish is made fresh, every morning. Nothing processed, nothing rushed.</p>
+                <p className="">Every dish is made fresh, every morning. Nothing processed, nothing rushed.</p>
               </div>
               <div className="about-opening-image">
                 <div className="img-frame">
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <section className="about-story">
           <div className="container">
             <div className="about-story-inner">
-              <div className="about-story-text mo-reveal-up">
+              <div className="about-story-text">
                 <p className="eyebrow">How it started</p>
                 <h2>
                   Born from a love
@@ -109,7 +109,7 @@ export default function AboutPage() {
             <p className="section-eyebrow" style={{ marginBottom: 'var(--sp-10)' }} id="pillars-heading">
               What we stand for
             </p>
-            <div className="pillars-grid mo-reveal-stagger">
+            <div className="pillars-grid">
               <div className="pillar">
                 <h3 className="pillar-title">Fresh Ingredients</h3>
                 <p>Sourced locally where possible, prepped daily, never frozen. Taste the difference in every bite.</p>

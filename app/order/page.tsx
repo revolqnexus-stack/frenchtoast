@@ -34,7 +34,7 @@ export default function OrderPage() {
               Available on
             </h2>
 
-            <div className="partners-grid mo-reveal-stagger">
+            <div className="partners-grid">
               <a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer" className="partner-card">
                 <div className="partner-logo">
                   <span style={{ fontSize: '2rem', fontWeight: 700 }}>Swiggy</span>
@@ -60,7 +60,7 @@ export default function OrderPage() {
               </a>
             </div>
 
-            <div className="order-info mo-reveal-up" style={{ marginTop: 'var(--sp-16)', textAlign: 'center' }}>
+            <div className="order-info" style={{ marginTop: 'var(--sp-16)', textAlign: 'center' }}>
               <h3>Prefer to call?</h3>
               <p style={{ marginBottom: 'var(--sp-4)' }}>Call us directly to place your order for pickup.</p>
               <a href="tel:+914842025618" className="btn btn--primary">
@@ -74,7 +74,7 @@ export default function OrderPage() {
         <section className="order-pickup section" style={{ background: 'var(--paper)' }}>
           <div className="container">
             <div className="order-pickup-inner">
-              <div className="mo-reveal-up">
+              <div className="">
                 <h2>Pickup Orders</h2>
                 <p>Skip the delivery fees and pick up your order fresh from our kitchen.</p>
                 <ul style={{ marginTop: 'var(--sp-5)', marginBottom: 'var(--sp-8)', listStyle: 'none', padding: 0 }}>
