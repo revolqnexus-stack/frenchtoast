@@ -185,8 +185,8 @@ export default function Home() {
         {/* Social Proof / Reviews */}
         <section className="proof section" aria-labelledby="proof-heading">
           <div className="container">
-            <p className="section-eyebrow reveal">Loved in Kochi</p>
-            <h2 id="proof-heading" className="reveal">
+            <p className="section-eyebrow">Loved in Kochi</p>
+            <h2 id="proof-heading">
               What Kochi <em>says about us.</em>
             </h2>
 

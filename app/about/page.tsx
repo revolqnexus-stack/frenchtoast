@@ -34,20 +34,20 @@ export default function AboutPage() {
           <div className="container">
             <div className="about-opening-inner">
               <div className="about-opening-text">
-                <h2 className="about-nook-headline reveal">
+                <h2 className="about-nook-headline">
                   A place that
                   <br />
                   feels like <em>home.</em>
                 </h2>
-                <p className="reveal">
+                <p className="mo-reveal-up">
                   French Toast started as a dream to create a place that felt genuinely welcoming — where the food was worth talking about and the atmosphere made you want to stay a little longer.
                 </p>
-                <p className="reveal">
+                <p className="mo-reveal-up">
                   Today it's a favourite gathering spot in Panampilly Nagar for food lovers, early risers and anyone who believes a good meal is worth slowing down for.
                 </p>
-                <p className="reveal">Every dish is made fresh, every morning. Nothing processed, nothing rushed.</p>
+                <p className="mo-reveal-up">Every dish is made fresh, every morning. Nothing processed, nothing rushed.</p>
               </div>
-              <div className="about-opening-image reveal reveal-delay-1">
+              <div className="about-opening-image">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=85"
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <section className="about-story">
           <div className="container">
             <div className="about-story-inner">
-              <div className="about-story-text reveal">
+              <div className="about-story-text mo-reveal-up">
                 <p className="eyebrow">How it started</p>
                 <h2>
                   Born from a love
@@ -83,7 +83,7 @@ export default function AboutPage() {
                   Explore the Menu
                 </Link>
               </div>
-              <div className="about-story-image reveal reveal-delay-1">
+              <div className="about-story-image">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?w=700&q=85"
@@ -106,19 +106,19 @@ export default function AboutPage() {
         {/* Pillars Section */}
         <section className="about-pillars" aria-labelledby="pillars-heading">
           <div className="container">
-            <p className="section-eyebrow reveal" style={{ marginBottom: 'var(--sp-10)' }} id="pillars-heading">
+            <p className="section-eyebrow" style={{ marginBottom: 'var(--sp-10)' }} id="pillars-heading">
               What we stand for
             </p>
-            <div className="pillars-grid">
-              <div className="pillar reveal">
+            <div className="pillars-grid mo-reveal-stagger">
+              <div className="pillar">
                 <h3 className="pillar-title">Fresh Ingredients</h3>
                 <p>Sourced locally where possible, prepped daily, never frozen. Taste the difference in every bite.</p>
               </div>
-              <div className="pillar reveal reveal-delay-1">
+              <div className="pillar">
                 <h3 className="pillar-title">Warm Ambiance</h3>
                 <p>A space designed for staying, not rushing. Comfortable seating, natural light and a genuine welcome.</p>
               </div>
-              <div className="pillar reveal reveal-delay-2">
+              <div className="pillar">
                 <h3 className="pillar-title">Great Coffee</h3>
                 <p>Single origins, careful brewing, served exactly as they should be. Your flat white will be worth the wait.</p>
               </div>

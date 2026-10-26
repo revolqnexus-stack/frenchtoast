@@ -30,12 +30,12 @@ export default function OrderPage() {
         {/* Delivery Partners */}
         <section className="order-partners section">
           <div className="container">
-            <h2 className="reveal" style={{ textAlign: 'center', marginBottom: 'var(--sp-12)' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: 'var(--sp-12)' }}>
               Available on
             </h2>
 
-            <div className="partners-grid">
-              <a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer" className="partner-card reveal">
+            <div className="partners-grid mo-reveal-stagger">
+              <a href="https://www.swiggy.com" target="_blank" rel="noopener noreferrer" className="partner-card">
                 <div className="partner-logo">
                   <span style={{ fontSize: '2rem', fontWeight: 700 }}>Swiggy</span>
                 </div>
@@ -43,7 +43,7 @@ export default function OrderPage() {
                 <span className="partner-link">Order Now →</span>
               </a>
 
-              <a href="https://www.zomato.com" target="_blank" rel="noopener noreferrer" className="partner-card reveal reveal-delay-1">
+              <a href="https://www.zomato.com" target="_blank" rel="noopener noreferrer" className="partner-card">
                 <div className="partner-logo">
                   <span style={{ fontSize: '2rem', fontWeight: 700, color: '#e23744' }}>Zomato</span>
                 </div>
@@ -51,7 +51,7 @@ export default function OrderPage() {
                 <span className="partner-link">Order Now →</span>
               </a>
 
-              <a href="https://wa.me/919074870797?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener noreferrer" className="partner-card reveal reveal-delay-2">
+              <a href="https://wa.me/919074870797?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener noreferrer" className="partner-card">
                 <div className="partner-logo">
                   <span style={{ fontSize: '2rem' }}>💬</span>
                 </div>
@@ -60,7 +60,7 @@ export default function OrderPage() {
               </a>
             </div>
 
-            <div className="order-info reveal" style={{ marginTop: 'var(--sp-16)', textAlign: 'center' }}>
+            <div className="order-info mo-reveal-up" style={{ marginTop: 'var(--sp-16)', textAlign: 'center' }}>
               <h3>Prefer to call?</h3>
               <p style={{ marginBottom: 'var(--sp-4)' }}>Call us directly to place your order for pickup.</p>
               <a href="tel:+914842025618" className="btn btn--primary">
@@ -74,7 +74,7 @@ export default function OrderPage() {
         <section className="order-pickup section" style={{ background: 'var(--paper)' }}>
           <div className="container">
             <div className="order-pickup-inner">
-              <div className="reveal">
+              <div className="mo-reveal-up">
                 <h2>Pickup Orders</h2>
                 <p>Skip the delivery fees and pick up your order fresh from our kitchen.</p>
                 <ul style={{ marginTop: 'var(--sp-5)', marginBottom: 'var(--sp-8)', listStyle: 'none', padding: 0 }}>
@@ -87,7 +87,7 @@ export default function OrderPage() {
                 </Link>
               </div>
 
-              <div className="reveal reveal-delay-1">
+              <div className="order-pickup-image">
                 <div className="img-frame">
                   <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=700&q=85" alt="French Toast ready for pickup" loading="lazy" width="700" height="467" />
                 </div>
