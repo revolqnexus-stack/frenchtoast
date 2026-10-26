@@ -323,40 +323,69 @@ export default function Home() {
 
           <div className="proof-marquee" aria-label="Guest reviews">
             <ul className="proof-track">
-              <li className="proof-card"><p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p><span>Priya M. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p><span>Arjun K. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p><span>Anjali R. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p><span>Rohan S. · ★★★★★</span></li>
-              <li className="proof-card"><p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p><span>Maya T. · ★★★★★</span></li>
-              <li className="proof-card"><p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p><span>Vikram P. · ★★★★★</span></li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">P</div><span className="proof-card__author">Priya M.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Arjun K.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Anjali R.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">R</div><span className="proof-card__author">Rohan S.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Maya T.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">V</div><span className="proof-card__author">Vikram P.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
               {/* Duplicated for seamless loop */}
-              <li className="proof-card" aria-hidden="true"><p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p><span>Priya M. · ★★★★★</span></li>
-              <li className="proof-card" aria-hidden="true"><p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p><span>Arjun K. · ★★★★★</span></li>
-              <li className="proof-card" aria-hidden="true"><p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p><span>Anjali R. · ★★★★★</span></li>
-              <li className="proof-card" aria-hidden="true"><p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p><span>Rohan S. · ★★★★★</span></li>
-              <li className="proof-card" aria-hidden="true"><p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p><span>Maya T. · ★★★★★</span></li>
-              <li className="proof-card" aria-hidden="true"><p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p><span>Vikram P. · ★★★★★</span></li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">P</div><span className="proof-card__author">Priya M.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Arjun K.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Anjali R.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">R</div><span className="proof-card__author">Rohan S.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Maya T.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">V</div><span className="proof-card__author">Vikram P.</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
             </ul>
           </div>
 
           <p className="proof-link">
-            <a className="link-underline" href="https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi" target="_blank" rel="noopener noreferrer">
               Read all reviews on Google →
             </a>
           </p>
         </section>
 
         {/* Infinite Text Banner */}
-        <div style={{ 
-          padding: '2rem 0', 
-          background: 'var(--color-dark, #1a1a1a)', 
-          color: 'var(--color-light, #fff)',
-          fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-          fontWeight: 'bold',
-          overflow: 'hidden'
-        }}>
-          <TextLoop 
-            text="Fresh Ingredients Daily • Handcrafted with Love • Open 7 Days a Week • Best Breakfast in Kochi" 
+        <div className="text-loop-strip">
+          <TextLoop
+            text="Fresh Ingredients Daily ✦ Handcrafted with Love ✦ Open 7 Days a Week ✦ Best Breakfast in Kochi"
             speed={40}
           />
         </div>
