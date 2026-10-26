@@ -25,18 +25,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="js">
+    <html lang="en">
       <head>
         <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@700&family=Manrope:wght@300;400;500;600;700&display=swap" />
         <meta name="theme-color" content="#35251F" />
+        {/* Add js class when JavaScript is available - prevents FOUC but ensures content visible without JS */}
+        <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js');` }} />
       </head>
       <body>
         {children}
-        <Script src="/assets/js/main.js" strategy="lazyOnload" />
-        <Script src="/assets/js/motion.js" strategy="lazyOnload" />
+        <Script src="/assets/js/main.js" strategy="afterInteractive" />
+        <Script src="/assets/js/motion.js" strategy="afterInteractive" />
       </body>
     </html>
   )
