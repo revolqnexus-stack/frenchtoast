@@ -14,6 +14,7 @@ import HoverCard from './components/HoverCard'
 import ImageCarousel from './components/ImageCarousel'
 import SplitFlapText from './components/SplitFlapText'
 import StoryPaper from './components/StoryPaper'
+import InstagramFeed from './components/InstagramFeed'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
 import './home.css'
@@ -607,6 +608,8 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <InstagramFeed />
 
       <Footer />
       <WhatsAppButton />
