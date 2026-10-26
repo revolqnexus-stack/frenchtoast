@@ -111,9 +111,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Order Online ──────────────────────────────────────────────────── */}
-        <OnlineOrderingSection />
-
         {/* ── Crumplable Paper Story ─────────────────────────────────────────── */}
         {mounted && (
           <section
@@ -303,6 +300,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── Order Online ──────────────────────────────────────────────────── */}
+        <OnlineOrderingSection />
 
         {/* Social Proof / Reviews */}
         <section className="proof section" aria-labelledby="proof-heading">
