@@ -927,28 +927,29 @@
    VISIT PAGE — Multi-Location Layout
    ─────────────────────────────────────────────────────────────────────────── */
 
-.visit-intro {
+.locations-intro {
+  background: var(--paper);
   text-align: center;
-  margin-bottom: var(--sp-12);
-  max-width: 600px;
+  padding-block: var(--sp-12);
+}
+
+.locations-intro-headline {
+  font-family: var(--font-display);
+  font-size: var(--fs-6);
+  line-height: 1.1;
+  margin-bottom: var(--sp-4);
+  color: var(--espresso);
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.visit-intro h2 {
-  font-family: var(--font-display);
-  font-size: var(--fs-5);
-  margin-bottom: var(--sp-3);
-  color: var(--espresso);
-}
-
-.visit-intro p {
+.locations-intro-sub {
   color: var(--text-muted);
-  font-size: var(--fs-0);
-}
-
-.visit-location-block {
-  /* Container for each location */
+  font-size: var(--fs-1);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .visit-info-note {
@@ -963,12 +964,11 @@
 }
 
 @media (max-width: 900px) {
-  .visit-intro {
-    margin-bottom: var(--sp-8);
+  .locations-intro {
+    padding-block: var(--sp-8);
   }
   
-  .visit-location-block {
-    margin-top: var(--sp-12) !important;
-    padding-top: var(--sp-12) !important;
+  .locations-intro-headline {
+    font-size: var(--fs-5);
   }
 }
