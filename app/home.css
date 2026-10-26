@@ -1,2 +1,2 @@
-@import url('/assets/css/home.css');
-@import url('/assets/css/proof.css');
+@import './styles/home.css';
+@import './styles/proof.css';

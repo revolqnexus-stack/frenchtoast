@@ -1,0 +1,131 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FRENCH TOAST — Design Tokens
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Colour Palette ─────────────────────────────────────────────────────── */
+  --paper:          #F7F2E8;
+  --warm-white:     #FFFCF6;
+  --butter:         #F2D36B;
+  --butter-dim:     #E8C84E;
+  --butter-pale:    #FBF0C0;
+  --espresso:       #35251F;
+  --espresso-90:    rgba(53,37,31,0.90);
+  --espresso-60:    rgba(53,37,31,0.60);
+  --espresso-20:    rgba(53,37,31,0.20);
+  --roasted:        #684536;
+  --strawberry:     #C94136;
+  --sage:           #8FA07E;
+  --ink:            #6B5F55;
+  --ink-light:      rgba(107,95,85,0.55);
+  --rule:           #E0D8CC;
+  --rule-dark:      rgba(53,37,31,0.12);
+  --cream-dark:     #EDE7D8;
+  --cream-mid:      #F0EAD9;
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-logo:    'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Manrope', 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* ── Type Scale — tuned per level with clamp() ───────────────────────────── */
+  /* Hero: immense editorial impact, tight leading */
+  --text-hero:      clamp(3.8rem, 9.5vw, 8.5rem);
+  --lh-hero:        0.93;
+  --ls-hero:        -0.03em;
+
+  /* h1: major page titles */
+  --text-h1:        clamp(2.8rem, 5.5vw, 5.5rem);
+  --lh-h1:          0.97;
+  --ls-h1:          -0.025em;
+
+  /* h2: section titles */
+  --text-h2:        clamp(2rem, 3.8vw, 3.8rem);
+  --lh-h2:          1.02;
+  --ls-h2:          -0.02em;
+
+  /* h3: sub-section, menu category */
+  --text-h3:        clamp(1.35rem, 2vw, 1.9rem);
+  --lh-h3:          1.1;
+  --ls-h3:          -0.015em;
+
+  /* body large: intro paragraphs */
+  --text-body-lg:   clamp(1.05rem, 1.4vw, 1.2rem);
+  --lh-body-lg:     1.72;
+
+  /* body: standard paragraph */
+  --text-body:      1rem;
+  --lh-body:        1.68;
+
+  /* small: metadata, captions */
+  --text-sm:        0.875rem;
+  --lh-sm:          1.6;
+
+  /* xs: labels, nav, buttons */
+  --text-xs:        0.75rem;
+  --lh-xs:          1.5;
+
+  /* xxs: micro-labels, eyebrows, footnotes */
+  --text-xxs:       0.65rem;
+  --lh-xxs:         1.4;
+
+  /* ── Spacing ─────────────────────────────────────────────────────────────── */
+  --sp-1:    4px;
+  --sp-2:    8px;
+  --sp-3:    12px;
+  --sp-4:    16px;
+  --sp-5:    20px;
+  --sp-6:    24px;
+  --sp-8:    32px;
+  --sp-10:   40px;
+  --sp-12:   48px;
+  --sp-16:   64px;
+  --sp-20:   80px;
+  --sp-24:   96px;
+  --sp-32:   128px;
+  --sp-40:   160px;
+
+  /* ── Layout ─────────────────────────────────────────────────────────────── */
+  --margin-h:     clamp(20px, 5.5vw, 96px);
+  --max-content:  1440px;
+  --nav-height:   68px;
+
+  /* ── Radii — restrained, editorial ──────────────────────────────────────── */
+  --r-xs:   2px;
+  --r-sm:   3px;
+  --r-md:   6px;
+  --r-pill: 999px;
+
+  /* ── Transitions ─────────────────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast:   160ms;
+  --t-med:    280ms;
+  --t-slow:   480ms;
+  --t-xslow:  620ms;
+
+  /* ── Motion tokens — durations for the load sequence ───────────────────── */
+  --mo-nav:         380ms;
+  --mo-eyebrow:     420ms;
+  --mo-headline:    780ms;
+  --mo-image:       1100ms;
+  --mo-copy:        480ms;
+  --mo-cta:         400ms;
+
+  /* ── Motion delays — staggered entrance ────────────────────────────────── */
+  --mo-delay-nav:      0ms;
+  --mo-delay-eyebrow:  160ms;
+  --mo-delay-headline: 280ms;
+  --mo-delay-image:    340ms;
+  --mo-delay-copy:     560ms;
+  --mo-delay-cta:      680ms;
+  --mo-delay-meta:     820ms;
+
+  /* ── Scroll-reveal shared values ────────────────────────────────────────── */
+  --mo-reveal-travel: 28px;
+  --mo-line-travel:   0.52em;
+  --mo-stagger-step:  90ms;
+  --mo-parallax-factor: 0.12;
+}

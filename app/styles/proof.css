@@ -1,0 +1,166 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FRENCH TOAST — Social Proof Section
+   Rating stats, animated stars, review marquee
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.proof {
+  background: var(--warm-white);
+  padding: var(--sp-16) 0;
+}
+
+.proof .section-eyebrow {
+  text-align: center;
+}
+
+.proof h2 {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+}
+
+/* ── Stats Grid ─────────────────────────────────────────────────────────── */
+.proof-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+  margin: var(--sp-16) 0;
+  text-align: center;
+}
+
+.proof-stat {
+  padding: var(--sp-6);
+}
+
+.proof-num {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  line-height: 1;
+  color: var(--espresso);
+  margin-bottom: var(--sp-3);
+}
+
+.proof-label {
+  margin-top: var(--sp-3);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── Animated Stars ─────────────────────────────────────────────────────── */
+.proof-stars {
+  position: relative;
+  display: inline-block;
+  margin-top: var(--sp-3);
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  color: var(--rule);
+}
+
+.proof-stars::before {
+  content: "★★★★★";
+}
+
+.proof-stars::after {
+  content: "★★★★★";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--butter-dim);
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+
+.proof.in .proof-stars::after {
+  width: calc(var(--rating) / 5 * 100%);
+}
+
+/* ── Review Marquee ─────────────────────────────────────────────────────── */
+.proof-marquee {
+  overflow: hidden;
+  padding: var(--sp-4) 0;
+  margin: var(--sp-16) 0 var(--sp-8);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.proof-track {
+  display: flex;
+  gap: var(--sp-6);
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: proof-scroll 70s linear infinite;
+}
+
+.proof-marquee:hover .proof-track {
+  animation-play-state: paused;
+}
+
+@keyframes proof-scroll {
+  to {
+    transform: translateX(calc(-50% - var(--sp-3)));
+  }
+}
+
+.proof-card {
+  flex: 0 0 min(340px, 80vw);
+  padding: var(--sp-8);
+  background: var(--warm-white);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(53, 37, 31, 0.04);
+}
+
+.proof-card p {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--espresso);
+  font-style: italic;
+}
+
+.proof-card span {
+  display: block;
+  margin-top: var(--sp-5);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-style: normal;
+}
+
+/* ── Link to Google ─────────────────────────────────────────────────────── */
+.proof-link {
+  margin-top: var(--sp-8);
+  text-align: center;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .proof-stats {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .proof-track {
+    animation: none;
+  }
+  
+  .proof-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  
+  .proof-stars::after {
+    transition: none;
+    width: calc(var(--rating) / 5 * 100%);
+  }
+}
