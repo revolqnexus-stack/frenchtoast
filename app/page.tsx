@@ -1,3 +1,5 @@
+'use client'
+
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -11,7 +13,10 @@ import HoverCard from './components/HoverCard'
 import ImageCarousel from './components/ImageCarousel'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
+import dynamic from 'next/dynamic'
 import './home.css'
+
+const PaperCrumple = dynamic(() => import('./components/PaperCrumple'), { ssr: false })
 
 export default function Home() {
   const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
@@ -70,6 +75,61 @@ export default function Home() {
           <div className="hero-scroll" aria-hidden="true">
             <div className="hero-scroll-line"></div>
             Scroll
+          </div>
+        </section>
+
+        {/* ── Crumplable Paper Story ─────────────────────────────────────────── */}
+        <section
+          className="story-paper-crumple"
+          aria-label="Our story — hold the paper to crumple it"
+          style={{
+            background: 'var(--warm-white)',
+            padding: 'var(--sp-20) var(--margin-h)',
+          }}
+        >
+          <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
+            <ScrollReveal y={40}>
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 'var(--text-xxs)',
+                fontWeight: 600,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--ink-light)',
+                marginBottom: 'var(--sp-6)',
+              }}>
+                Hold to crumple · drag to move
+              </p>
+              <PaperCrumple
+                src="/our-story-paper.svg"
+                alt="Our Story — handwritten on paper"
+                width={520}
+                height={720}
+                sceneHeight={780}
+                paperColor="#f7f0e2"
+                releaseBehavior="restore"
+                crumpleAmount={0.88}
+                crumpleDuration={0.6}
+                releaseDuration={0.5}
+                foldCount={7}
+                foldSharpness={0.5}
+                wrinkleDepth={0.7}
+                creaseStrength={0.2}
+                roughness={0.95}
+                paperTexture={0.12}
+                lightIntensity={1.9}
+                lightAngle={-30}
+                shadow={true}
+                shadowOpacity={0.1}
+                draggable={true}
+                dragRotation={8}
+                dragRadius={160}
+                returnToOrigin={true}
+                seed={13}
+                detail={64}
+                style={{ background: 'transparent' }}
+              />
+            </ScrollReveal>
           </div>
         </section>
 
