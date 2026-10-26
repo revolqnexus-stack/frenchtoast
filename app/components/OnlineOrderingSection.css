@@ -1,0 +1,206 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   ONLINE ORDERING SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.online-ordering {
+  padding: clamp(4rem, 10vw, 7rem) clamp(1rem, 4vw, 2rem);
+  background: linear-gradient(135deg, #faf8f4 0%, #f5efe3 100%);
+  position: relative;
+}
+
+.online-ordering__container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+
+.online-ordering__header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 4rem);
+}
+
+.online-ordering__eyebrow {
+  font-family: var(--font-body);
+  fontSize: var(--text-xxs);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+}
+
+.online-ordering__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.online-ordering__subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Platform Cards ──────────────────────────────────────────────────────── */
+
+.online-ordering__platforms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.platform-card {
+  background: white;
+  border: 1px solid rgba(53, 37, 31, 0.08);
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 12px rgba(53, 37, 31, 0.04),
+    0 2px 6px rgba(53, 37, 31, 0.02);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(252, 128, 25, 0.03) 0%, rgba(252, 128, 25, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.platform-card--zomato::before {
+  background: linear-gradient(135deg, rgba(226, 55, 68, 0.03) 0%, rgba(226, 55, 68, 0) 100%);
+}
+
+.platform-card:hover {
+  border-color: rgba(255, 139, 89, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(53, 37, 31, 0.08),
+    0 8px 16px rgba(53, 37, 31, 0.06);
+}
+
+.platform-card:hover::before {
+  opacity: 1;
+}
+
+.platform-card__logo {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.platform-card__logo svg {
+  height: 100%;
+  width: auto;
+}
+
+.platform-card__content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.platform-card__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.platform-card__desc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.platform-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 139, 89, 0.1);
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.platform-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--color-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.platform-card:hover .platform-card__cta svg {
+  transform: translateX(4px);
+}
+
+.platform-card__cta svg {
+  transition: transform 0.3s ease;
+}
+
+/* ── Features ────────────────────────────────────────────────────────────── */
+
+.online-ordering__features {
+  display: flex;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 3rem);
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(53, 37, 31, 0.08);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.feature-item svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .online-ordering__platforms {
+    grid-template-columns: 1fr;
+  }
+
+  .online-ordering__features {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .platform-card {
+    padding: 1.5rem;
+  }
+}

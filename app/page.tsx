@@ -594,16 +594,16 @@ export default function Home() {
         {/* CTA Close */}
         <section className="cta-close" aria-labelledby="cta-heading">
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <p className="cta-close-eyebrow">Ready to visit?</p>
+            <p className="cta-close-eyebrow">Hungry?</p>
             <h2 className="cta-close-headline" id="cta-heading">
-              See you soon.
+              Order now or visit us.
             </h2>
             <div className="cta-close-actions">
               <Link href="/order" className="btn btn--primary">
                 Order Online
               </Link>
-              <Link href="/menu" className="btn btn--outline">
-                Explore the Menu
+              <Link href="/visit" className="btn btn--outline">
+                Find Locations
               </Link>
             </div>
           </div>
