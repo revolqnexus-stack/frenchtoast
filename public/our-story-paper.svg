@@ -13,9 +13,9 @@
       <feComposite in="blend" in2="SourceGraphic" operator="in"/>
     </filter>
     <style>
-      .title { font-family: 'Priestacy', cursive; }
-      .body { font-family: 'Amsterdam Handwriting', cursive; }
-      .signature { font-family: 'Priestacy', cursive; }
+      .title { font-family: 'Homemade Apple', cursive; }
+      .body { font-family: 'Seaweed Script', cursive; }
+      .signature { font-family: 'Homemade Apple', cursive; }
     </style>
   </defs>
 
