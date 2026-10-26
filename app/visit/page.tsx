@@ -31,7 +31,7 @@ export default function VisitPage() {
         <section className="visit">
           <div className="container">
             <div className="visit-inner">
-              <div className="visit-details reveal">
+              <div className="visit-details">
                 <h2>Find us</h2>
 
                 <div className="visit-info-row">
@@ -86,7 +86,7 @@ export default function VisitPage() {
                 </div>
               </div>
 
-              <div className="visit-map reveal reveal-delay-1">
+              <div className="visit-map">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2621519284597!2d76.29561731478427!3d9.967013592834848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnMDEuMiJOIDc2wrAxNyc1MS4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
                   width="600"
@@ -106,17 +106,17 @@ export default function VisitPage() {
         <section className="visit-extras">
           <div className="container">
             <div className="visit-extras-grid">
-              <div className="visit-extra-card reveal">
+              <div className="visit-extra-card">
                 <h3>🅿️ Parking</h3>
                 <p>Limited street parking available nearby. We recommend using ride-sharing apps or arriving early on weekends.</p>
               </div>
 
-              <div className="visit-extra-card reveal reveal-delay-1">
+              <div className="visit-extra-card">
                 <h3>♿ Accessibility</h3>
                 <p>Ground floor seating with wheelchair access. Please let us know if you need any assistance.</p>
               </div>
 
-              <div className="visit-extra-card reveal reveal-delay-2">
+              <div className="visit-extra-card">
                 <h3>📱 WiFi</h3>
                 <p>Free high-speed WiFi available for all guests. Perfect for remote work or catching up on emails.</p>
               </div>

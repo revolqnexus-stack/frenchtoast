@@ -41,7 +41,7 @@ export default function ContactPage() {
           <div className="container">
             <div className="contact-grid">
               {/* Form */}
-              <div className="contact-form-col reveal">
+              <div className="contact-form-col">
                 <h2>Send a message.</h2>
                 <p>Fill in the form below and we'll get back to you as soon as we can.</p>
 
@@ -79,7 +79,7 @@ export default function ContactPage() {
               </div>
 
               {/* Info */}
-              <div className="contact-info-col reveal reveal-delay-1">
+              <div className="contact-info-col">
                 <div className="contact-card">
                   <h3>Visit Us</h3>
 
