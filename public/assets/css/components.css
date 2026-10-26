@@ -1,0 +1,566 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   FRENCH TOAST — Shared Components
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  /* Rounded pill shape — feels premium and tactile */
+  border-radius: var(--r-pill);
+  padding: 13px var(--sp-8);
+  transition:
+    background-color var(--t-fast) var(--ease-out),
+    color            var(--t-fast) var(--ease-out),
+    border-color     var(--t-fast) var(--ease-out),
+    transform        160ms var(--ease-spring),
+    box-shadow       var(--t-fast) var(--ease-out);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  /* Default depth layer — overridden per variant */
+  box-shadow:
+    0 1px 2px rgba(53,37,31,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* Press — goes in, shadow inverts to inset */
+.btn:active {
+  transform: translateY(1px) scale(0.99) !important;
+  box-shadow:
+    0 0px 1px rgba(53,37,31,0.08),
+    inset 0 2px 6px rgba(53,37,31,0.14) !important;
+}
+
+/* Focus ring */
+.btn:focus-visible {
+  outline: 2px solid var(--strawberry);
+  outline-offset: 3px;
+}
+
+/* ── Primary — espresso fill ──────────────────────────────────────────────── */
+.btn--primary {
+  background: var(--espresso);
+  color: var(--warm-white);
+  border: 1.5px solid var(--espresso);
+  box-shadow:
+    0 2px 8px rgba(53,37,31,0.20),
+    0 1px 2px rgba(53,37,31,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.btn--primary:hover {
+  background: var(--roasted);
+  border-color: var(--roasted);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(53,37,31,0.22),
+    0 2px 6px  rgba(53,37,31,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ── Outline ──────────────────────────────────────────────────────────────── */
+.btn--outline {
+  background: transparent;
+  color: var(--espresso);
+  border: 1.5px solid var(--espresso);
+  box-shadow:
+    0 1px 3px rgba(53,37,31,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.0);
+}
+
+.btn--outline:hover {
+  background: var(--espresso);
+  color: var(--warm-white);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 18px rgba(53,37,31,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ── Light — cream fill ───────────────────────────────────────────────────── */
+.btn--light {
+  background: var(--warm-white);
+  color: var(--espresso);
+  border: 1.5px solid rgba(247,242,232,0.8);
+  box-shadow:
+    0 2px 8px rgba(53,37,31,0.10),
+    0 1px 2px rgba(53,37,31,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.btn--light:hover {
+  background: var(--butter);
+  border-color: var(--butter);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 22px rgba(53,37,31,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* ── Ghost light — for dark backgrounds ──────────────────────────────────── */
+.btn--ghost-light {
+  background: rgba(247,242,232,0.08);
+  color: var(--warm-white);
+  border: 1.5px solid rgba(247,242,232,0.28);
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.btn--ghost-light:hover {
+  background: rgba(247,242,232,0.16);
+  border-color: rgba(247,242,232,0.65);
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+/* ── Text link with animated underline ───────────────────────────────────── */
+.link-underline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Underline draws in, then out on hover */
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform var(--t-med) var(--ease-out);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+/* Arrow nudge */
+.link-underline .arrow {
+  display: inline-block;
+  transition: transform var(--t-fast) var(--ease-out);
+}
+
+.link-underline:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ── Section eyebrow — micro-label above headings ────────────────────────── */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: var(--sp-5);
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--rule);
+  flex-shrink: 0;
+}
+
+.section-eyebrow--light {
+  color: var(--butter);
+}
+
+.section-eyebrow--light::before {
+  background: var(--butter);
+  opacity: 0.5;
+}
+
+/* ── Image frame with hover zoom ─────────────────────────────────────────── */
+.img-frame {
+  overflow: hidden;
+  position: relative;
+}
+
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-xslow) var(--ease-out);
+  will-change: transform;
+}
+
+.img-frame:hover img {
+  transform: scale(1.035);
+}
+
+/* ── Vertical annotation text ────────────────────────────────────────────── */
+.vertical-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ── Small editorial rule with text ──────────────────────────────────────── */
+.rule-label {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.rule-label::before,
+.rule-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── Signature badge ─────────────────────────────────────────────────────── */
+.badge-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--strawberry);
+  padding: 3px 7px;
+  border: 1px solid var(--strawberry);
+  border-radius: var(--r-pill);
+  opacity: 0.85;
+}
+
+/* ── Dietary badge ───────────────────────────────────────────────────────── */
+.badge-diet {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+  padding: 3px 7px;
+  border: 1px solid currentColor;
+  border-radius: var(--r-pill);
+}
+
+.badge-diet--v { color: var(--sage); }
+.badge-diet--e { color: #b0892a; }
+.badge-diet--nv { color: var(--strawberry); }
+
+/* ── Filter pills ────────────────────────────────────────────────────────── */
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.filter-pill {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 7px var(--sp-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-pill);
+  color: var(--ink);
+  background: var(--warm-white);
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease-out),
+    border-color     160ms var(--ease-out),
+    color            160ms var(--ease-out),
+    transform        160ms var(--ease-spring),
+    box-shadow       160ms var(--ease-out);
+  white-space: nowrap;
+  box-shadow:
+    0 1px 3px rgba(53,37,31,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.filter-pill:hover {
+  border-color: var(--espresso);
+  color: var(--espresso);
+  transform: translateY(-1px);
+  box-shadow:
+    0 3px 8px rgba(53,37,31,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.filter-pill:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    0 0px 1px rgba(53,37,31,0.06),
+    inset 0 2px 4px rgba(53,37,31,0.10);
+}
+
+.filter-pill.active {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--warm-white);
+  box-shadow:
+    0 2px 8px rgba(53,37,31,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ── Reveal on scroll ────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity var(--t-slow) var(--ease-out),
+    transform var(--t-slow) var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger helpers */
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--espresso);
+  color: var(--paper);
+  padding: var(--sp-20) var(--margin-h) var(--sp-10);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--sp-12);
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-bottom: var(--sp-12);
+  border-bottom: 1px solid rgba(247,242,232,0.1);
+}
+
+/* Wordmark in footer — larger, italic display */
+.footer-brand .wordmark {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  line-height: 1.12;
+  margin-bottom: var(--sp-5);
+  display: block;
+}
+
+.footer-brand .footer-tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(247,242,232,0.4);
+  line-height: 1.65;
+  max-width: 240px;
+  font-weight: 300;
+}
+
+/* Footer location detail */
+.footer-brand .footer-loc {
+  margin-top: var(--sp-5);
+  font-size: var(--text-xxs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.2);
+}
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.3);
+  margin-bottom: var(--sp-5);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.footer-col ul li a {
+  font-size: var(--text-sm);
+  color: rgba(247,242,232,0.55);
+  transition: color var(--t-fast);
+  line-height: var(--lh-sm);
+}
+
+.footer-col ul li a:hover {
+  color: var(--warm-white);
+}
+
+.footer-col address {
+  font-style: normal;
+  font-size: var(--text-xs);
+  color: rgba(247,242,232,0.5);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.footer-col address a {
+  color: rgba(247,242,232,0.5);
+  transition: color var(--t-fast);
+}
+
+.footer-col address a:hover {
+  color: var(--butter);
+}
+
+.footer-bottom {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-top: var(--sp-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+.footer-bottom p {
+  font-size: var(--text-xxs);
+  color: rgba(247,242,232,0.22);
+  letter-spacing: 0.05em;
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--sp-6);
+}
+
+.footer-social a {
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.3);
+  transition: color var(--t-fast);
+}
+
+.footer-social a:hover {
+  color: var(--butter);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-10);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── WhatsApp Floating Button ────────────────────────────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  bottom: var(--sp-8);
+  right: var(--sp-8);
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 12px rgba(37, 211, 102, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition:
+    transform var(--t-med) var(--ease-out),
+    box-shadow var(--t-med) var(--ease-out);
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 8px 24px rgba(37, 211, 102, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-float:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    bottom: var(--sp-6);
+    right: var(--sp-6);
+    width: 52px;
+    height: 52px;
+  }
+  
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "the-french-toast",
+  "version": "1.0.0",
+  "description": "French Toast Café - Breakfast, Brunch & Beyond in Kochi",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revolqnexus-stack/frenchtoast.git"
+  },
+  "keywords": ["nextjs", "restaurant", "cafe", "french-toast"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/revolqnexus-stack/frenchtoast/issues"
+  },
+  "homepage": "https://github.com/revolqnexus-stack/frenchtoast#readme",
+  "dependencies": {
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
