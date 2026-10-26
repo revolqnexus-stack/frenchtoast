@@ -1,0 +1,11 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Toast slice with crust -->
+  <path d="M8 12C8 8 10 6 14 6H34C38 6 40 8 40 12V36C40 40 38 42 34 42H14C10 42 8 40 8 36V12Z" fill="#F4D06F"/>
+  <!-- Crust edges -->
+  <path d="M8 12C8 8 10 6 14 6H34C38 6 40 8 40 12V16H8V12Z" fill="#D4913D"/>
+  <path d="M8 36V32H40V36C40 40 38 42 34 42H14C10 42 8 40 8 36Z" fill="#D4913D"/>
+  <rect x="8" y="16" width="4" height="16" fill="#D4913D"/>
+  <rect x="36" y="16" width="4" height="16" fill="#D4913D"/>
+  <!-- Butter highlight -->
+  <ellipse cx="24" cy="24" rx="8" ry="6" fill="#FFE89D" opacity="0.6"/>
+</svg>

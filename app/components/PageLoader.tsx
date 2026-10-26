@@ -1,57 +1,160 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
+import { useEffect, useState } from 'react'
+import { motion, useAnimation } from 'framer-motion'
 import './PageLoader.css'
 
 export default function PageLoader() {
-  const [visible, setVisible] = useState(true)
-  const overlayRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
-  const lineRef = useRef<HTMLDivElement>(null)
-  const subRef = useRef<HTMLParagraphElement>(null)
+  const [isComplete, setIsComplete] = useState(false)
+  const controls = useAnimation()
 
   useEffect(() => {
-    const overlay = overlayRef.current
-    const text = textRef.current
-    const line = lineRef.current
-    const sub = subRef.current
-    if (!overlay || !text || !line || !sub) return
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        gsap.to(overlay, {
-          yPercent: -100,
-          duration: 0.9,
-          ease: 'power4.inOut',
-          onComplete: () => setVisible(false),
-        })
-      },
-    })
+    const animate = async () => {
+      if (prefersReduced) {
+        // Simple fade for reduced motion
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        setIsComplete(true)
+        return
+      }
 
-    gsap.set([text, line, sub], { opacity: 0 })
-    gsap.set(line, { scaleX: 0, transformOrigin: 'left center' })
+      // Full animation sequence
+      await new Promise(resolve => setTimeout(resolve, 2400))
+      await controls.start({
+        opacity: 0,
+        scale: 1.04,
+        transition: { duration: 0.5, ease: 'easeOut' }
+      })
+      setIsComplete(true)
+    }
 
-    tl
-      .to(text, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 0.1)
-      .to(line, { opacity: 1, scaleX: 1, duration: 0.7, ease: 'power3.inOut' }, 0.55)
-      .to(sub, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.8)
-      .to({}, { duration: 0.8 })
-  }, [])
+    animate()
+  }, [controls])
 
-  if (!visible) return null
+  if (isComplete) return null
 
   return (
-    <div ref={overlayRef} className="page-loader" aria-hidden="true">
-      <div className="page-loader__inner">
-        <div ref={textRef} className="page-loader__wordmark" style={{ transform: 'translateY(20px)' }}>
-          french<br />toast
-        </div>
-        <div ref={lineRef} className="page-loader__line" />
-        <p ref={subRef} className="page-loader__sub" style={{ transform: 'translateY(8px)' }}>
-          BAKERY, KITCHEN & STUDIO
-        </p>
+    <motion.div 
+      className="storefront-loader"
+      initial={{ opacity: 1 }}
+      animate={controls}
+    >
+      {/* String lights */}
+      <div className="string-lights">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="light-bulb"
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: [0, 1, 0.8, 1],
+              scale: [0.8, 1, 0.9, 1]
+            }}
+            transition={{
+              delay: 0.08 * i,
+              duration: 0.6,
+              repeat: Infinity,
+              repeatDelay: 2,
+              ease: 'easeOut'
+            }}
+            style={{ left: `${8 + i * 8}%` }}
+          />
+        ))}
       </div>
-    </div>
+
+      {/* Pergola beams */}
+      <div className="pergola-beams">
+        <div className="beam beam-1" />
+        <div className="beam beam-2" />
+        <div className="beam beam-3" />
+      </div>
+
+      {/* Vine leaves */}
+      <motion.div 
+        className="vine-leaf vine-left"
+        animate={{ 
+          rotate: [-2, 2, -2]
+        }}
+        transition={{
+          delay: 2,
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+      <motion.div 
+        className="vine-leaf vine-right"
+        animate={{ 
+          rotate: [2, -2, 2]
+        }}
+        transition={{
+          delay: 2.2,
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+
+      {/* Sign panel */}
+      <motion.div
+        className="sign-panel"
+        initial={{ y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
+      >
+        {/* Toast logo icon */}
+        <motion.div
+          className="toast-logo"
+          initial={{ scale: 0.6, rotate: 0, opacity: 0 }}
+          animate={{ 
+            scale: [0.6, 1.05, 1],
+            rotate: 8,
+            opacity: 1
+          }}
+          transition={{ delay: 1.3, duration: 0.5, ease: 'backOut' }}
+        >
+          <motion.img 
+            src="/logo-toast.svg" 
+            alt="" 
+            animate={{ rotate: [8, 10, 8] }}
+            transition={{
+              delay: 1.8,
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          />
+        </motion.div>
+
+        {/* Wordmark with clip reveal */}
+        <div className="wordmark-container">
+          <motion.div
+            className="wordmark"
+            initial={{ clipPath: 'inset(0 100% 0 0)' }}
+            animate={{ clipPath: 'inset(0 0% 0 0)' }}
+            transition={{ delay: 0.7, duration: 0.7, ease: 'easeOut' }}
+          >
+            <motion.span
+              initial={{ y: 8, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.4 }}
+            >
+              french toast
+            </motion.span>
+          </motion.div>
+        </div>
+
+        {/* Subline */}
+        <motion.p
+          className="subline"
+          initial={{ opacity: 0, letterSpacing: '0.35em' }}
+          animate={{ opacity: 1, letterSpacing: '0.2em' }}
+          transition={{ delay: 1.6, duration: 0.5, ease: 'easeOut' }}
+        >
+          BAKERY , KITCHEN & STUDIO
+        </motion.p>
+      </motion.div>
+    </motion.div>
   )
 }
