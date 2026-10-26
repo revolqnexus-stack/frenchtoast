@@ -553,22 +553,22 @@ export default function Home() {
 
             <div className="collage" aria-label="Gallery of French Toast café">
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Café dining area" loading="lazy" width="700" height="560" />
+                <img src="/images/french1.webp" alt="French Toast café dining area" loading="lazy" width="700" height="560" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Coffee pour over" loading="lazy" width="500" height="400" />
+                <img src="/images/french 2.webp" alt="Cozy seating and warm ambiance" loading="lazy" width="500" height="400" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=500&q=80" alt="Eggs Benedict" loading="lazy" width="500" height="400" />
+                <img src="/images/french 3.webp" alt="Cafe interior and decor" loading="lazy" width="500" height="400" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=80" alt="Chocolate cake dessert" loading="lazy" width="700" height="560" />
+                <img src="/images/french4.webp" alt="Comfortable dining space" loading="lazy" width="700" height="560" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&q=80" alt="Tiramisu" loading="lazy" width="500" height="400" />
+                <img src="/images/french5.webp" alt="Our welcoming atmosphere" loading="lazy" width="500" height="400" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" alt="Flat white coffee" loading="lazy" width="500" height="400" />
+                <img src="/images/cafe at night.jpg" alt="Cafe at night with warm lighting" loading="lazy" width="500" height="400" />
               </div>
             </div>
           </div>

@@ -17,8 +17,13 @@ export default function VisitPage() {
 
       <main>
         {/* Page Hero with Cafe Carousel */}
-        <header className="page-hero page-hero--image" style={{ position: 'relative', minHeight: '70vh' }}>
-          <div className="page-hero-visual" aria-hidden="true">
+        <header className="page-hero page-hero--image" style={{ position: 'relative', minHeight: '70vh', display: 'flex', alignItems: 'center' }}>
+          <div style={{ 
+            position: 'absolute', 
+            inset: 0, 
+            zIndex: 0,
+            overflow: 'hidden'
+          }}>
             <ImageCarousel
               images={[
                 '/images/french1.webp',
@@ -34,15 +39,22 @@ export default function VisitPage() {
               autoplay={true}
               interval={4000}
             />
+            {/* Overlay for text readability */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(100deg, rgba(53,37,31,0.85) 0%, rgba(53,37,31,0.45) 50%, rgba(53,37,31,0) 80%)',
+              pointerEvents: 'none'
+            }} />
           </div>
-          <div className="page-hero-inner" style={{ position: 'relative', zIndex: 2 }}>
-            <p className="eyebrow">Visit Us</p>
-            <h1>
+          <div className="page-hero-inner" style={{ position: 'relative', zIndex: 2, color: 'var(--warm-white)' }}>
+            <p className="eyebrow" style={{ color: 'var(--butter)' }}>Visit Us</p>
+            <h1 style={{ color: 'var(--warm-white)' }}>
               Come say
               <br />
-              <em>hello.</em>
+              <em style={{ color: 'var(--butter)' }}>hello.</em>
             </h1>
-            <p>Open seven days a week for breakfast, brunch, lunch and everything in between.</p>
+            <p style={{ color: 'rgba(255,252,246,0.85)' }}>Open seven days a week for breakfast, brunch, lunch and everything in between.</p>
           </div>
         </header>
 
