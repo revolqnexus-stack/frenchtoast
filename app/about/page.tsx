@@ -21,7 +21,7 @@ export default function AboutPage() {
         <header className="page-hero page-hero--image" aria-labelledby="about-heading">
           <div className="page-hero-visual" aria-hidden="true">
             <img
-              src="/images/french toast family.jpg"
+              src="/images/french toast family.png"
               alt="French Toast cafe family and team"
               fetchPriority="high"
               width="1600"
