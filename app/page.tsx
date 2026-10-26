@@ -55,16 +55,16 @@ export default function Home() {
         {/* Signature Dishes */}
         <section className="signatures section" aria-labelledby="sig-heading">
           <div className="container">
-            <div className="signatures-header reveal">
+            <div className="signatures-header mo-reveal-up">
               <h2 className="signatures-headline" id="sig-heading">
                 The dishes people<br /><em>come back for</em>
               </h2>
               <Link href="/menu" className="link-underline">See the full menu</Link>
             </div>
 
-            <div className="dish-grid">
+            <div className="dish-grid mo-reveal-stagger">
               {/* Dish cards - keeping the same structure */}
-              <article className="dish-card reveal">
+              <article className="dish-card">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=85"
@@ -87,7 +87,7 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="dish-card reveal reveal-delay-1">
+              <article className="dish-card">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=85"
@@ -110,7 +110,7 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="dish-card reveal reveal-delay-2">
+              <article className="dish-card">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=85"
@@ -133,7 +133,7 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="dish-card reveal reveal-delay-1">
+              <article className="dish-card">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1481070555726-e2fe8357725c?w=600&q=85"
@@ -156,7 +156,7 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="dish-card reveal reveal-delay-2">
+              <article className="dish-card">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?w=600&q=85"
@@ -241,13 +241,13 @@ export default function Home() {
             />
           </div>
           <div className="moment-content">
-            <blockquote className="moment-quote reveal" id="moment-heading">
+            <blockquote className="moment-quote" id="moment-heading">
               "The best mornings<br />have no <strong>agenda.</strong>"
             </blockquote>
-            <ul className="moment-details" aria-label="What makes us special">
-              <li className="moment-detail reveal reveal-delay-1">Fresh ingredients daily</li>
-              <li className="moment-detail reveal reveal-delay-2">Cosy indoor seating</li>
-              <li className="moment-detail reveal reveal-delay-3">Mon–Sun, 9am–10pm</li>
+            <ul className="moment-details mo-reveal-stagger" aria-label="What makes us special">
+              <li className="moment-detail">Fresh ingredients daily</li>
+              <li className="moment-detail">Cosy indoor seating</li>
+              <li className="moment-detail">Mon–Sun, 9am–10pm</li>
             </ul>
           </div>
         </section>
@@ -292,7 +292,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="menu-preview-image reveal">
+              <div className="menu-preview-image">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=700&q=85"
@@ -313,7 +313,7 @@ export default function Home() {
         {/* Atmosphere/Collage */}
         <section className="atmosphere section" aria-labelledby="atm-heading">
           <div className="container">
-            <div className="atmosphere-header reveal">
+            <div className="atmosphere-header mo-reveal-up">
               <div>
                 <p className="section-eyebrow">The Space</p>
                 <h2 id="atm-heading">
@@ -354,7 +354,7 @@ export default function Home() {
         <section className="story-teaser section" aria-labelledby="story-heading">
           <div className="container">
             <div className="story-teaser-inner">
-              <div className="story-teaser-img reveal">
+              <div className="story-teaser-img">
                 <div className="img-frame">
                   <img
                     src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=700&q=85"
@@ -366,7 +366,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="story-teaser-content reveal">
+              <div className="story-teaser-content mo-reveal-up">
                 <p className="eyebrow">Our Story</p>
                 <h2 id="story-heading">
                   A little nook
@@ -388,7 +388,7 @@ export default function Home() {
         <section className="visit section" aria-labelledby="visit-heading">
           <div className="container">
             <div className="visit-inner">
-              <div className="visit-details reveal">
+              <div className="visit-details mo-reveal-up">
                 <p className="section-eyebrow">Find Us</p>
                 <h2 id="visit-heading">Come say hello.</h2>
 
@@ -435,7 +435,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="visit-map reveal reveal-delay-1">
+              <div className="visit-map mo-reveal-up">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2621519284597!2d76.29561731478427!3d9.967013592834848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnMDEuMiJOIDc2wrAxNyc1MS4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
                   width="600"
