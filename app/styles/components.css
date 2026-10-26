@@ -564,3 +564,32 @@
     height: 26px;
   }
 }
+
+/* ── Made by Revolq badge ────────────────────────────────────────────────── */
+.made-by-revolq {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--paper);
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.made-by-revolq:hover {
+  opacity: 1;
+}
+
+.made-by-revolq__svg {
+  width: 180px;
+  height: 28px;
+}
+
+.footer-bottom--bar {
+  max-width: var(--max-content);
+  margin-inline: auto;
+  padding-top: var(--sp-6);
+  border-top: 1px solid rgba(247,242,232,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

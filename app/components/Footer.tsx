@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MadeByRevolq from './MadeByRevolq'
 import { BUSINESS_INFO, getPrimaryLocation, getWhatsAppLink } from '@/config/business'
 
 export default function Footer() {
@@ -78,6 +79,9 @@ export default function Footer() {
             WhatsApp
           </a>
         </div>
+      </div>
+      <div className="footer-bottom--bar">
+        <MadeByRevolq />
       </div>
     </footer>
   )
