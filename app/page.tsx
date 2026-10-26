@@ -13,9 +13,11 @@ import InfiniteMarquee from './components/InfiniteMarquee'
 import HoverCard from './components/HoverCard'
 import ImageCarousel from './components/ImageCarousel'
 import SplitFlapText from './components/SplitFlapText'
+import StoryPaper from './components/StoryPaper'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
 import './home.css'
+import './styles/story-paper.css'
 
 export default function Home() {
   const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1

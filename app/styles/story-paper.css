@@ -1,0 +1,206 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&family=Homemade+Apple&display=swap');
+
+.story-paper-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--sp-10) var(--sp-4);
+  background: linear-gradient(135deg, #f5ebe0 0%, #e3d5ca 100%);
+}
+
+.story-paper {
+  position: relative;
+  width: min(520px, 90vw);
+  min-height: 720px;
+  background: linear-gradient(135deg, #fef9f0 0%, #f7f0e2 100%);
+  border-radius: 2px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    inset 0 0 100px rgba(200, 184, 154, 0.03);
+  padding: 3rem 2.5rem 3rem 5rem;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-paper:hover {
+  transform: rotate(0deg);
+  box-shadow: 
+    0 8px 12px rgba(0, 0, 0, 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    inset 0 0 100px rgba(200, 184, 154, 0.03);
+}
+
+/* Ruled lines background */
+.story-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 35px,
+    rgba(200, 184, 154, 0.35) 35px,
+    rgba(200, 184, 154, 0.35) 36px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Red margin line */
+.story-paper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 72px;
+  width: 1px;
+  background: rgba(232, 160, 160, 0.45);
+  z-index: 1;
+}
+
+/* Hole punches */
+.paper-holes {
+  position: absolute;
+  left: 26px;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 130px 0;
+}
+
+.hole {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(208, 192, 170, 0.9);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.paper-content {
+  position: relative;
+  z-index: 2;
+  margin-left: 16px;
+}
+
+/* Typography */
+.paper-title {
+  font-family: 'Homemade Apple', cursive;
+  font-size: 2.875rem;
+  font-weight: 700;
+  color: #2d1a10;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.paper-underline {
+  width: 250px;
+  height: 1.5px;
+  background: rgba(176, 96, 64, 0.4);
+  margin-bottom: 2.5rem;
+  border-radius: 1px;
+}
+
+.paper-body {
+  font-family: 'Seaweed Script', cursive;
+  font-size: 1.3125rem;
+  color: rgba(45, 26, 16, 0.92);
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.paper-emphasis {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 26, 16, 0.4);
+  text-underline-offset: 3px;
+}
+
+.paper-divider {
+  width: 292px;
+  height: 0.8px;
+  background: rgba(200, 184, 154, 0.5);
+  margin: 2rem 0 1.5rem 0;
+}
+
+.paper-signature {
+  font-family: 'Homemade Apple', cursive;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #3a2218;
+  margin: 0 0 0.5rem 0;
+}
+
+.paper-location {
+  font-family: 'Seaweed Script', cursive;
+  font-size: 1rem;
+  color: rgba(107, 80, 64, 0.6);
+  margin: 0;
+}
+
+/* Doodles */
+.paper-doodles {
+  position: absolute;
+  z-index: 2;
+}
+
+.doodle {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.12;
+}
+
+.doodle-1 {
+  top: 160px;
+  right: 60px;
+  font-size: 1.75rem;
+  transform: rotate(12deg);
+}
+
+.doodle-2 {
+  top: 520px;
+  right: 50px;
+  font-size: 1.375rem;
+  transform: rotate(-8deg);
+}
+
+.doodle-3 {
+  top: 340px;
+  right: 40px;
+  font-size: 1.125rem;
+  transform: rotate(5deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .story-paper {
+    width: 340px;
+    min-height: 480px;
+    padding: 2rem 1.5rem 2rem 3.5rem;
+  }
+  
+  .paper-title {
+    font-size: 2rem;
+  }
+  
+  .paper-body {
+    font-size: 1rem;
+  }
+  
+  .paper-signature {
+    font-size: 1.25rem;
+  }
+  
+  .paper-underline,
+  .paper-divider {
+    width: 200px;
+  }
+}
