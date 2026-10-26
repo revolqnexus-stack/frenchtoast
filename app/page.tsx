@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -20,6 +21,14 @@ const PaperCrumple = dynamic(() => import('./components/PaperCrumple'), { ssr: f
 
 export default function Home() {
   const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <>
@@ -84,10 +93,19 @@ export default function Home() {
           aria-label="Our story — hold the paper to crumple it"
           style={{
             background: 'var(--warm-white)',
-            padding: 'var(--sp-20) var(--margin-h)',
+            padding: 'clamp(3rem, 8vw, 6rem) var(--margin-h)',
+            minHeight: '70vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ 
+            width: '100%', 
+            maxWidth: isMobile ? '90vw' : 'min(90vw, 1100px)', 
+            margin: '0 auto', 
+            textAlign: 'center' 
+          }}>
             <ScrollReveal y={40}>
               <p style={{
                 fontFamily: 'var(--font-body)',
@@ -96,16 +114,16 @@ export default function Home() {
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
                 color: 'var(--ink-light)',
-                marginBottom: 'var(--sp-6)',
+                marginBottom: 'clamp(1rem, 3vw, 2rem)',
               }}>
                 Hold to crumple · drag to move
               </p>
               <PaperCrumple
                 src="/our-story-paper.svg"
                 alt="Our Story — handwritten on paper"
-                width={520}
-                height={720}
-                sceneHeight={780}
+                width={isMobile ? 340 : 850}
+                height={isMobile ? 480 : 1100}
+                sceneHeight={isMobile ? 520 : 1150}
                 paperColor="#f7f0e2"
                 releaseBehavior="restore"
                 crumpleAmount={0.88}
@@ -123,11 +141,15 @@ export default function Home() {
                 shadowOpacity={0.1}
                 draggable={true}
                 dragRotation={8}
-                dragRadius={160}
+                dragRadius={isMobile ? 80 : 200}
                 returnToOrigin={true}
                 seed={13}
                 detail={64}
-                style={{ background: 'transparent' }}
+                style={{ 
+                  background: 'transparent',
+                  width: '100%',
+                  height: 'auto',
+                }}
               />
             </ScrollReveal>
           </div>
