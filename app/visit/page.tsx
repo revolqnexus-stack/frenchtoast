@@ -167,22 +167,32 @@ export default function VisitPage() {
         ))}
 
         {/* Additional Info */}
-        <section className="visit-extras">
+        <section className="visit-extras section">
           <div className="container">
-            <div className="visit-extras-grid">
-              <div className="visit-extra-card">
-                <h3>🅿️ Parking</h3>
-                <p>Limited street parking available nearby. We recommend using ride-sharing apps or arriving early on weekends.</p>
+            <div className="visit-extras-inner">
+              <div className="visit-extras-header">
+                <p className="section-eyebrow">Good to Know</p>
+                <h2>Plan your visit.</h2>
               </div>
+              
+              <div className="visit-extras-grid">
+                <div className="visit-extra-card">
+                  <div className="visit-extra-icon">🅿️</div>
+                  <h3>Parking</h3>
+                  <p>Limited street parking available nearby. We recommend using ride-sharing apps or arriving early on weekends.</p>
+                </div>
 
-              <div className="visit-extra-card">
-                <h3>♿ Accessibility</h3>
-                <p>Ground floor seating with wheelchair access. Please let us know if you need any assistance.</p>
-              </div>
+                <div className="visit-extra-card">
+                  <div className="visit-extra-icon">♿</div>
+                  <h3>Accessibility</h3>
+                  <p>Ground floor seating with wheelchair access. Please let us know if you need any assistance.</p>
+                </div>
 
-              <div className="visit-extra-card">
-                <h3>📱 WiFi</h3>
-                <p>Free high-speed WiFi available for all guests. Perfect for remote work or catching up on emails.</p>
+                <div className="visit-extra-card">
+                  <div className="visit-extra-icon">📱</div>
+                  <h3>WiFi</h3>
+                  <p>Free high-speed WiFi available for all guests. Perfect for remote work or catching up on emails.</p>
+                </div>
               </div>
             </div>
           </div>
