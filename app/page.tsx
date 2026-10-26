@@ -183,6 +183,7 @@ export default function Home() {
         </section>
 
         {/* Social Proof / Reviews */}
+        {/* NOTE: Review stats temporarily disabled pending verification - see CONTENT_AUDIT.md */}
         <section className="proof section" aria-labelledby="proof-heading">
           <div className="container">
             <p className="section-eyebrow">Loved in Kochi</p>
@@ -190,6 +191,7 @@ export default function Home() {
               What Kochi <em>says about us.</em>
             </h2>
 
+            {/* COMMENTED OUT: Unverified review data
             <div className="proof-stats">
               <div className="proof-stat">
                 <p className="proof-num">
@@ -209,8 +211,17 @@ export default function Home() {
                 <p className="proof-label">Per person</p>
               </div>
             </div>
+            */}
+
+            <div className="proof-stats">
+              <div className="proof-stat">
+                <p className="proof-num">₹200–1,000</p>
+                <p className="proof-label">Per person</p>
+              </div>
+            </div>
           </div>
 
+          {/* NOTE: Testimonials below are unverified - pending owner confirmation */}
           <div className="proof-marquee" aria-label="Guest reviews">
             <ul className="proof-track">
               <li className="proof-card"><p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p><span>Priya M. · ★★★★★</span></li>
@@ -247,7 +258,7 @@ export default function Home() {
             <ul className="moment-details" aria-label="What makes us special">
               <li className="moment-detail">Fresh ingredients daily</li>
               <li className="moment-detail">Cosy indoor seating</li>
-              <li className="moment-detail">Mon–Sun, 9am–10pm</li>
+              <li className="moment-detail">Mon–Fri 9am–10pm • Sat–Sun 8am–10pm</li>
             </ul>
           </div>
         </section>

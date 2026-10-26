@@ -4,8 +4,11 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
 import { useEffect } from 'react'
+import { BUSINESS_INFO, getPrimaryLocation, getPhoneLink } from '@/config/business'
 
 export default function ContactPage() {
+  const location = getPrimaryLocation()
+
   useEffect(() => {
     // Load contact form script
     const script = document.createElement('script')
@@ -87,11 +90,11 @@ export default function ContactPage() {
                     <div className="contact-detail-content">
                       <p className="contact-detail-label">Address</p>
                       <p className="contact-detail-value">
-                        8th Cross Street B, Ambikupuram Rd,
+                        {location.address.line1},
                         <br />
-                        Panampilly Nagar, Ernakulam,
+                        {location.address.line2},
                         <br />
-                        Kerala 682036
+                        {location.address.city}, {location.address.state} {location.address.pincode}
                       </p>
                     </div>
                   </div>
@@ -100,7 +103,7 @@ export default function ContactPage() {
                     <div className="contact-detail-content">
                       <p className="contact-detail-label">Call Us</p>
                       <p className="contact-detail-value">
-                        <a href="tel:+914842025618">0484 202 5618</a>
+                        <a href={getPhoneLink()}>{BUSINESS_INFO.contact.phone.display}</a>
                       </p>
                     </div>
                   </div>

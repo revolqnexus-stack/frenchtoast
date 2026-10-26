@@ -1,7 +1,9 @@
+import { getWhatsAppLink } from '@/config/business'
+
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/919074870797?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20French%20Toast%20café"
+      href={getWhatsAppLink()}
       className="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"

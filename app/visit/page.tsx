@@ -2,6 +2,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
 import Link from 'next/link'
+import { BUSINESS_INFO, getPrimaryLocation, getPhoneLink, getEmailLink, getWhatsAppLink } from '@/config/business'
 
 export const metadata = {
   title: 'Visit Us — French Toast · Kochi',
@@ -9,6 +10,8 @@ export const metadata = {
 }
 
 export default function VisitPage() {
+  const location = getPrimaryLocation()
+
   return (
     <>
       <Nav />
@@ -38,11 +41,11 @@ export default function VisitPage() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Address</p>
                     <p className="visit-info-value">
-                      8th Cross Street B, Ambikupuram Rd,
+                      {location.address.line1},
                       <br />
-                      Panampilly Nagar, Ernakulam,
+                      {location.address.line2},
                       <br />
-                      Kerala 682036
+                      {location.address.city}, {location.address.state} {location.address.pincode}
                     </p>
                   </div>
                 </div>
@@ -51,9 +54,13 @@ export default function VisitPage() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Hours</p>
                     <p className="visit-info-value">
-                      Monday – Sunday
+                      Monday – Friday
                       <br />
-                      9:00 AM – 10:00 PM
+                      {BUSINESS_INFO.hours.weekday.open} – {BUSINESS_INFO.hours.weekday.close}
+                      <br />
+                      Saturday – Sunday
+                      <br />
+                      {BUSINESS_INFO.hours.weekend.open} – {BUSINESS_INFO.hours.weekend.close}
                     </p>
                   </div>
                 </div>
@@ -62,7 +69,7 @@ export default function VisitPage() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Phone</p>
                     <p className="visit-info-value">
-                      <a href="https://wa.me/919074870797">+91 90748 70797</a>
+                      <a href={getPhoneLink()}>{BUSINESS_INFO.contact.phone.display}</a>
                     </p>
                   </div>
                 </div>
@@ -71,13 +78,13 @@ export default function VisitPage() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Email</p>
                     <p className="visit-info-value">
-                      <a href="mailto:hello@thefrenchtoast.in">hello@thefrenchtoast.in</a>
+                      <a href={getEmailLink()}>{BUSINESS_INFO.contact.email}</a>
                     </p>
                   </div>
                 </div>
 
                 <div className="visit-actions">
-                  <a href="https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi" target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+                  <a href={location.mapsUrl} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
                     Get Directions
                   </a>
                   <Link href="/menu" className="btn btn--outline">

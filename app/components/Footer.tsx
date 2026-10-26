@@ -1,6 +1,10 @@
 import Link from 'next/link'
+import { BUSINESS_INFO, getPrimaryLocation, getWhatsAppLink, getPhoneLink } from '@/config/business'
 
 export default function Footer() {
+  const location = getPrimaryLocation()
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="site-footer">
       <div className="footer-grid">
@@ -8,7 +12,7 @@ export default function Footer() {
           <Link href="/" className="wordmark">
             French<br />Toast
           </Link>
-          <p>A cosy breakfast café in Panampilly Nagar, Kochi. Good food, great coffee, warm conversations.</p>
+          <p>{BUSINESS_INFO.tagline} {BUSINESS_INFO.description}</p>
         </div>
         <div className="footer-col">
           <h4>Navigate</h4>
@@ -25,26 +29,27 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Hours</h4>
           <address>
-            Mon – Sun<br />
-            8:00 AM – 10:00 PM<br /><br />
-            <a href="tel:+914842025618">0484 202 5618</a>
+            Mon – Fri<br />
+            {BUSINESS_INFO.hours.weekday.open} – {BUSINESS_INFO.hours.weekday.close}<br />
+            Sat – Sun<br />
+            {BUSINESS_INFO.hours.weekend.open} – {BUSINESS_INFO.hours.weekend.close}<br /><br />
+            <a href={getPhoneLink()}>{BUSINESS_INFO.contact.phone.display}</a>
           </address>
         </div>
         <div className="footer-col">
           <h4>Visit</h4>
           <address>
-            8th Cross Street B,<br />
-            Ambikupuram Rd,<br />
-            Panampilly Nagar,<br />
-            Ernakulam, Kerala 682036
+            {location.address.line1},<br />
+            {location.address.line2},<br />
+            {location.address.city}, {location.address.state} {location.address.pincode}
           </address>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© 2025 French Toast, Kochi. All rights reserved.</p>
+        <p>© {currentYear} French Toast, Kochi. All rights reserved.</p>
         <div className="footer-social">
           <a
-            href="https://www.instagram.com/frenchtoastindia/"
+            href={BUSINESS_INFO.contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow us on Instagram"
@@ -52,7 +57,7 @@ export default function Footer() {
             Instagram
           </a>
           <a
-            href="https://wa.me/919074870797"
+            href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
