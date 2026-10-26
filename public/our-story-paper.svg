@@ -12,10 +12,24 @@
       <feBlend in="SourceGraphic" in2="gray" mode="multiply" result="blend"/>
       <feComposite in="blend" in2="SourceGraphic" operator="in"/>
     </filter>
-    <!-- Caveat font -->
+    <!-- Handwriting fonts -->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;display=swap');
-      text { font-family: 'Caveat', cursive; }
+      @font-face {
+        font-family: 'Amsterdam';
+        src: url('https://fonts.cdnfonts.com/s/107080/Amsterdam-Handwriting.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Priestacy';
+        src: url('https://fonts.cdnfonts.com/s/92782/Priestacy-Signature.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      .title { font-family: 'Priestacy', 'Caveat', cursive; }
+      .body { font-family: 'Amsterdam', 'Caveat', cursive; }
+      .signature { font-family: 'Priestacy', 'Caveat', cursive; }
     </style>
   </defs>
 
@@ -56,34 +70,34 @@
   <line x1="484" y1="0" x2="520" y2="36" stroke="#c8b89a" stroke-width="0.8" opacity="0.5"/>
 
   <!-- Title -->
-  <text x="88" y="78" font-size="46" font-weight="700" fill="#2d1a10" letter-spacing="-0.5" transform="rotate(-0.8, 88, 78)">Our Story.</text>
+  <text x="88" y="78" class="title" font-size="46" font-weight="700" fill="#2d1a10" letter-spacing="-0.5" transform="rotate(-0.8, 88, 78)">Our Story.</text>
 
   <!-- Underline under title -->
   <path d="M88 84 Q200 90 340 84" stroke="#b06040" stroke-width="1.5" fill="none" opacity="0.4"/>
 
   <!-- Body text -->
-  <text x="88" y="136" font-size="21" fill="#2d1a10" opacity="0.92">It started with a simple idea —</text>
-  <text x="88" y="172" font-size="21" fill="#2d1a10" opacity="0.92">what if breakfast felt like a</text>
-  <text x="88" y="208" font-size="21" fill="#2d1a10" opacity="0.92" font-weight="600" text-decoration="underline">love letter?</text>
+  <text x="88" y="136" class="body" font-size="21" fill="#2d1a10" opacity="0.92">It started with a simple idea —</text>
+  <text x="88" y="172" class="body" font-size="21" fill="#2d1a10" opacity="0.92">what if breakfast felt like a</text>
+  <text x="88" y="208" class="body" font-size="21" fill="#2d1a10" opacity="0.92" font-weight="600" text-decoration="underline">love letter?</text>
 
-  <text x="88" y="262" font-size="21" fill="#2d1a10" opacity="0.88">French Toast opened its doors in</text>
-  <text x="88" y="298" font-size="21" fill="#2d1a10" opacity="0.88">Panampilly Nagar, Kochi.</text>
-  <text x="88" y="334" font-size="21" fill="#2d1a10" opacity="0.88">A little space that felt like home.</text>
+  <text x="88" y="262" class="body" font-size="21" fill="#2d1a10" opacity="0.88">French Toast opened its doors in</text>
+  <text x="88" y="298" class="body" font-size="21" fill="#2d1a10" opacity="0.88">Panampilly Nagar, Kochi.</text>
+  <text x="88" y="334" class="body" font-size="21" fill="#2d1a10" opacity="0.88">A little space that felt like home.</text>
 
-  <text x="88" y="388" font-size="21" fill="#2d1a10" opacity="0.88">Every dish — made fresh, that</text>
-  <text x="88" y="424" font-size="21" fill="#2d1a10" opacity="0.88">morning. Nothing from a packet.</text>
-  <text x="88" y="460" font-size="21" fill="#2d1a10" opacity="0.88">Nothing microwaved. We mean it.</text>
+  <text x="88" y="388" class="body" font-size="21" fill="#2d1a10" opacity="0.88">Every dish — made fresh, that</text>
+  <text x="88" y="424" class="body" font-size="21" fill="#2d1a10" opacity="0.88">morning. Nothing from a packet.</text>
+  <text x="88" y="460" class="body" font-size="21" fill="#2d1a10" opacity="0.88">Nothing microwaved. We mean it.</text>
 
-  <text x="88" y="514" font-size="21" fill="#2d1a10" opacity="0.88">Kochi told its friends. Word spread.</text>
-  <text x="88" y="550" font-size="21" fill="#2d1a10" opacity="0.88">And this little nook became a</text>
-  <text x="88" y="586" font-size="21" fill="#2d1a10" opacity="0.88">neighbourhood institution.</text>
+  <text x="88" y="514" class="body" font-size="21" fill="#2d1a10" opacity="0.88">Kochi told its friends. Word spread.</text>
+  <text x="88" y="550" class="body" font-size="21" fill="#2d1a10" opacity="0.88">And this little nook became a</text>
+  <text x="88" y="586" class="body" font-size="21" fill="#2d1a10" opacity="0.88">neighbourhood institution.</text>
 
   <!-- Divider -->
   <line x1="88" y1="618" x2="380" y2="618" stroke="#c8b89a" stroke-width="0.8" opacity="0.5"/>
 
   <!-- Signature -->
-  <text x="88" y="650" font-size="28" font-weight="700" fill="#3a2218" transform="rotate(-1.2, 88, 650)">The French Toast Team</text>
-  <text x="88" y="680" font-size="16" fill="#6b5040" opacity="0.6">Panampilly Nagar · Kacheripady, Kochi</text>
+  <text x="88" y="650" class="signature" font-size="28" font-weight="700" fill="#3a2218" transform="rotate(-1.2, 88, 650)">The French Toast Team</text>
+  <text x="88" y="680" class="body" font-size="16" fill="#6b5040" opacity="0.6">Panampilly Nagar · Kacheripady, Kochi</text>
 
   <!-- Doodles -->
   <text x="440" y="160" font-size="28" opacity="0.15" transform="rotate(12, 440, 160)">☕</text>
