@@ -140,27 +140,7 @@ export default function Home() {
                 }}>
                   Our Story
                 </p>
-                {/* Simple SVG display - no 3D complexity */}
-                <div style={{
-                  maxWidth: isMobile ? '340px' : '650px',
-                  margin: '0 auto',
-                  transform: 'rotate(-1deg)',
-                  transition: 'transform 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg) scale(1.02)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-1deg) scale(1)'}
-                >
-                  <img 
-                    src="/our-story-paper.svg" 
-                    alt="Our Story — handwritten on paper"
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                      filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.15))',
-                    }}
-                  />
-                </div>
+                <StoryPaper />
               </ScrollReveal>
             </div>
           </section>
