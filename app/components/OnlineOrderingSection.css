@@ -105,9 +105,11 @@
   z-index: 1;
 }
 
-.platform-card__logo svg {
+.platform-card__logo img {
   height: 100%;
   width: auto;
+  max-width: 200px;
+  object-fit: contain;
 }
 
 .platform-card__content {

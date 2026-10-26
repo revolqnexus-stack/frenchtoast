@@ -54,12 +54,7 @@ export default function OnlineOrderingSection() {
             whileHover={{ y: -8 }}
           >
             <div className="platform-card__logo">
-              {/* Swiggy Logo SVG */}
-              <svg viewBox="0 0 200 60" fill="none">
-                <text x="10" y="40" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="700" fill="#FC8019">
-                  Swiggy
-                </text>
-              </svg>
+              <img src="/images/swiggy-1.svg" alt="Swiggy" />
             </div>
             <div className="platform-card__content">
               <h3 className="platform-card__title">Order on Swiggy</h3>
@@ -90,12 +85,7 @@ export default function OnlineOrderingSection() {
             whileHover={{ y: -8 }}
           >
             <div className="platform-card__logo">
-              {/* Zomato Logo SVG */}
-              <svg viewBox="0 0 200 60" fill="none">
-                <text x="10" y="40" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="700" fill="#E23744">
-                  zomato
-                </text>
-              </svg>
+              <img src="/images/zomato-2.svg" alt="Zomato" />
             </div>
             <div className="platform-card__content">
               <h3 className="platform-card__title">Order on Zomato</h3>

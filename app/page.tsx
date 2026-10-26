@@ -16,6 +16,7 @@ import SplitFlapText from './components/SplitFlapText'
 import StoryPaper from './components/StoryPaper'
 import InstagramFeed from './components/InstagramFeed'
 import GoogleReviews from './components/GoogleReviews'
+import OnlineOrderingSection from './components/OnlineOrderingSection'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
 import './home.css'
@@ -109,6 +110,9 @@ export default function Home() {
             Scroll
           </div>
         </section>
+
+        {/* ── Order Online ──────────────────────────────────────────────────── */}
+        <OnlineOrderingSection />
 
         {/* ── Crumplable Paper Story ─────────────────────────────────────────── */}
         {mounted && (
