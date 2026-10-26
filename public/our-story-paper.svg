@@ -12,12 +12,23 @@
       <feBlend in="SourceGraphic" in2="gray" mode="multiply" result="blend"/>
       <feComposite in="blend" in2="SourceGraphic" operator="in"/>
     </filter>
-    <!-- Handwriting fonts from Google Fonts -->
+    <!-- Local handwriting fonts -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&amp;family=Satisfy&amp;family=Pacifico&amp;display=swap');
-      .title { font-family: 'Satisfy', cursive; }
-      .body { font-family: 'Dancing Script', cursive; }
-      .signature { font-family: 'Pacifico', cursive; }
+      @font-face {
+        font-family: 'Amsterdam';
+        src: url('/fonts/Amsterdam Handwriting.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Priestacy';
+        src: url('/fonts/Priestacy.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      .title { font-family: 'Priestacy', cursive; }
+      .body { font-family: 'Amsterdam', cursive; }
+      .signature { font-family: 'Priestacy', cursive; }
     </style>
   </defs>
 
