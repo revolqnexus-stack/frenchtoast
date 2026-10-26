@@ -2,3 +2,11 @@ User-agent: *
 Allow: /
 
 Sitemap: https://thefrenchtoast.in/sitemap.xml
+
+# Crawl-delay for courtesy
+Crawl-delay: 1
+
+# Allow all images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /public/images/

@@ -8,8 +8,13 @@ import Link from 'next/link'
 import '../styles/handwriting.css'
 
 export const metadata = {
-  title: 'Our Story — French Toast · Kochi',
-  description: 'Learn about French Toast café in Panampilly Nagar, Kochi. A cosy space for breakfast, brunch and great coffee.',
+  title: 'Our Story — French Toast Kochi | About Our Café',
+  description: 'Learn about French Toast café in Kochi. A family-run breakfast spot serving fresh French toast, brunch & coffee since day one. Rated 4.3★ by thousands.',
+  openGraph: {
+    title: 'Our Story — French Toast Kochi',
+    description: 'A family-run breakfast café in Panampilly Nagar, Kochi.',
+    url: 'https://thefrenchtoast.in/about',
+  },
 }
 
 export default function AboutPage() {
