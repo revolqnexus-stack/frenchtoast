@@ -104,7 +104,62 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Pillars Section */}
+        {/* ── Handwritten Paper Story ─────────────────────────────────────────── */}
+        <section className="story-paper" aria-labelledby="paper-story-heading">
+          <ScrollReveal y={60} duration={1}>
+            <div className="story-paper__sheet">
+
+              {/* Hole punches */}
+              <div className="story-paper__holes" aria-hidden="true">
+                <div className="story-paper__hole" />
+                <div className="story-paper__hole" />
+                <div className="story-paper__hole" />
+              </div>
+
+              {/* Scattered doodles */}
+              <span className="story-paper__doodle" style={{ top: '2.5rem', right: '3.5rem', transform: 'rotate(12deg)', fontSize: '1.4rem' }} aria-hidden="true">☕</span>
+              <span className="story-paper__doodle" style={{ bottom: '4rem', right: '2.5rem', transform: 'rotate(-8deg)', fontSize: '1.2rem' }} aria-hidden="true">♥</span>
+              <span className="story-paper__doodle" style={{ top: '45%', left: '1.2rem', transform: 'rotate(5deg)', fontSize: '1rem' }} aria-hidden="true">✦</span>
+
+              <div className="story-paper__content">
+                <h2 className="story-paper__heading" id="paper-story-heading">
+                  Our Story.
+                </h2>
+
+                <div className="story-paper__body">
+                  <p>
+                    It started with a simple idea — what if breakfast felt like a{' '}
+                    <span className="story-paper__underline">love letter</span>? Not rushed, not packaged, not ordinary. Just really good food made by people who care.
+                  </p>
+                  <p>
+                    French Toast opened its doors in Panampilly Nagar, Kochi, in a little space that immediately felt like home. We didn't set out to build a chain or chase trends. We just wanted to make mornings worth waking up for.
+                  </p>
+                  <p>
+                    Every dish that leaves our kitchen is made fresh, from scratch, that morning. The brioche is thick. The strawberry sauce is real fruit. The coffee is brewed with care. Nothing comes from a packet. Nothing is microwaved. We mean it.
+                  </p>
+                  <p>
+                    Over time, <span className="story-paper__underline">Kochi told its friends</span>. Word spread. Families started bringing their kids. Couples made it their Saturday ritual. Colleagues discovered us over lunch. And somehow, this little nook became a neighbourhood institution.
+                  </p>
+                  <p>
+                    We've since opened a second home in Kacheripady — same warmth, same food, same unhurried pace. Because we believe the world has enough fast. What it needs more of is slow, delicious, and good.
+                  </p>
+                  <p>
+                    So come in. Find a corner. Order the French toast. And stay a little longer than you planned.
+                  </p>
+                </div>
+
+                <div className="story-paper__signature">
+                  <div>
+                    <div className="story-paper__sig-name">The French Toast Team</div>
+                    <div className="story-paper__sig-title">Panampilly Nagar &amp; Kacheripady, Kochi</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </ScrollReveal>
+        </section>
+
         <section className="about-pillars" aria-labelledby="pillars-heading">
           <div className="container">
             <ScrollReveal>
