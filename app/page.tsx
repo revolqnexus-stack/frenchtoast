@@ -50,8 +50,8 @@ export default function Home() {
         <section className="hero" aria-label="Welcome to French Toast">
           <div className="hero-visual" aria-hidden="true">
             <img
-              src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
-              alt="Strawberry French Toast with whipped cream and maple syrup"
+              src="/images/food1.webp"
+              alt="French Toast signature dish with fresh berries and cream"
               fetchPriority="high"
               width="1400"
               height="933"
@@ -236,7 +236,7 @@ export default function Home() {
                   <article className="dish-card">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=85"
+                    src="/images/food1.webp"
                     alt="Strawberry French Toast with cream"
                     loading="lazy"
                     width="800"
@@ -263,7 +263,7 @@ export default function Home() {
               <article className="dish-card">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=85"
+                    src="/images/food2.webp"
                     alt="Banoffee French Toast"
                     loading="lazy"
                     width="600"
@@ -290,7 +290,7 @@ export default function Home() {
               <article className="dish-card">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=85"
+                    src="/images/food3.webp"
                     alt="Classic French Toast"
                     loading="lazy"
                     width="600"
@@ -317,7 +317,7 @@ export default function Home() {
               <article className="dish-card">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1481070555726-e2fe8357725c?w=600&q=85"
+                    src="/images/food14.jpg"
                     alt="Herb Poached Chicken sandwich"
                     loading="lazy"
                     width="600"
@@ -344,7 +344,7 @@ export default function Home() {
               <article className="dish-card">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?w=600&q=85"
+                    src="/images/food17.jpg"
                     alt="Mac N Cheese with fried chicken"
                     loading="lazy"
                     width="600"
@@ -431,7 +431,7 @@ export default function Home() {
         <section className="moment" aria-labelledby="moment-heading">
           <div className="moment-bg" aria-hidden="true">
             <img
-              src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1600&q=80"
+              src="/images/french7.webp"
               alt=""
               loading="lazy"
               width="1600"
@@ -500,7 +500,7 @@ export default function Home() {
                 <div className="menu-preview-image">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=700&q=85"
+                    src="/images/food4.webp"
                     alt="French toast with berries and cream — menu highlight"
                     loading="lazy"
                     width="700"
@@ -537,22 +537,22 @@ export default function Home() {
 
             <div className="collage" aria-label="Gallery of French Toast café">
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Café dining area" loading="lazy" width="700" height="560" />
+                <img src="/images/french1.webp" alt="French Toast café dining area" loading="lazy" width="700" height="560" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Coffee pour over" loading="lazy" width="500" height="400" />
+                <img src="/images/french4.webp" alt="Cozy seating and coffee bar" loading="lazy" width="500" height="400" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=500&q=80" alt="Eggs Benedict" loading="lazy" width="500" height="400" />
+                <img src="/images/food10.webp" alt="Beautifully plated breakfast dish" loading="lazy" width="500" height="400" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=80" alt="Chocolate cake dessert" loading="lazy" width="700" height="560" />
+                <img src="/images/french5.webp" alt="Cafe interior ambiance" loading="lazy" width="700" height="560" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&q=80" alt="Tiramisu" loading="lazy" width="500" height="400" />
+                <img src="/images/food15.jpg" alt="Delicious dessert selection" loading="lazy" width="500" height="400" />
               </div>
               <div className="collage-item">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" alt="Flat white coffee" loading="lazy" width="500" height="400" />
+                <img src="/images/cafe at night.jpg" alt="French Toast cafe at night with warm lighting" loading="lazy" width="500" height="400" />
               </div>
             </div>
           </div>
@@ -565,10 +565,10 @@ export default function Home() {
               <div className="story-teaser-img" style={{ position: 'relative', height: '500px', borderRadius: '1rem', overflow: 'hidden' }}>
                 <ImageCarousel
                   images={[
-                    'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=700&q=85',
-                    'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=700&q=85',
-                    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&q=85',
-                    'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=85'
+                    '/images/french toast family.jpg',
+                    '/images/chefs in work.jpg',
+                    '/images/french 2.webp',
+                    '/images/food5.webp'
                   ]}
                   autoplay={true}
                   interval={5000}
