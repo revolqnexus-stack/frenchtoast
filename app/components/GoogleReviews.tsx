@@ -76,7 +76,7 @@ export default function GoogleReviews({
   rating = 4.3,
   reviewCount = 5324,
   reviews = SAMPLE_REVIEWS,
-  googleBusinessUrl = 'https://www.google.com/maps/place/French+Toast/@9.960854,76.2913468,17z/',
+  googleBusinessUrl = 'https://maps.app.goo.gl/2hqY5aRCUGAccKuZ6',
 }: GoogleReviewsProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)

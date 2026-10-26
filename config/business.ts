@@ -66,7 +66,7 @@ export const BUSINESS_INFO = {
         lat: 9.967014,
         lng: 76.295617,
       },
-      mapsUrl: 'https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi',
+      mapsUrl: 'https://maps.app.goo.gl/2hqY5aRCUGAccKuZ6',
       features: ['Dine-In', 'Takeaway', 'WiFi', 'Outdoor Seating'],
     },
     {
@@ -115,7 +115,7 @@ export const BUSINESS_INFO = {
     verified: true,
     rating: 4.3,
     count: 5324,
-    url: 'https://www.google.com/maps/place/French+Toast/@9.960854,76.2913468,17z/',
+    url: 'https://maps.app.goo.gl/2hqY5aRCUGAccKuZ6',
   },
 }
 

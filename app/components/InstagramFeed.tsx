@@ -16,48 +16,90 @@ export default function InstagramFeed() {
   const [loading, setLoading] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Fallback: Hardcoded recent posts as backup
+  // Better mix of food and cafe images
   const fallbackPosts = [
     {
       id: '1',
       permalink: 'https://www.instagram.com/frenchtoastindia/',
       media_url: '/images/food1.webp',
-      caption: 'Delicious breakfast awaits',
+      caption: 'Strawberry French Toast perfection 🍓✨',
       media_type: 'IMAGE'
     },
     {
       id: '2',
       permalink: 'https://www.instagram.com/frenchtoastindia/',
       media_url: '/images/food2.webp',
-      caption: 'Fresh from our kitchen',
+      caption: 'Banoffee dreams 🍌🍮',
       media_type: 'IMAGE'
     },
     {
       id: '3',
       permalink: 'https://www.instagram.com/frenchtoastindia/',
-      media_url: '/images/food3.webp',
-      caption: 'Weekend brunch vibes',
+      media_url: '/images/french1.webp',
+      caption: 'Your cozy corner in Panampilly Nagar 🌿',
       media_type: 'IMAGE'
     },
     {
       id: '4',
       permalink: 'https://www.instagram.com/frenchtoastindia/',
       media_url: '/images/food4.webp',
-      caption: 'Good mornings start here',
+      caption: 'Good morning goals ☕️🥐',
       media_type: 'IMAGE'
     },
     {
       id: '5',
       permalink: 'https://www.instagram.com/frenchtoastindia/',
-      media_url: '/images/food5.webp',
-      caption: 'Made with love',
+      media_url: '/images/food7.webp',
+      caption: 'Fresh & delicious, always 🍳',
       media_type: 'IMAGE'
     },
     {
       id: '6',
       permalink: 'https://www.instagram.com/frenchtoastindia/',
-      media_url: '/images/food6.webp',
-      caption: 'Your favorite spot',
+      media_url: '/images/french 2.webp',
+      caption: 'Where good food meets great company 💛',
+      media_type: 'IMAGE'
+    },
+    {
+      id: '7',
+      permalink: 'https://www.instagram.com/frenchtoastindia/',
+      media_url: '/images/food8.webp',
+      caption: 'Weekend brunch vibes 🥞',
+      media_type: 'IMAGE'
+    },
+    {
+      id: '8',
+      permalink: 'https://www.instagram.com/frenchtoastindia/',
+      media_url: '/images/french 3.webp',
+      caption: 'Every corner tells a story 📖',
+      media_type: 'IMAGE'
+    },
+    {
+      id: '9',
+      permalink: 'https://www.instagram.com/frenchtoastindia/',
+      media_url: '/images/food10.webp',
+      caption: 'Made with love, served with care ❤️',
+      media_type: 'IMAGE'
+    },
+    {
+      id: '10',
+      permalink: 'https://www.instagram.com/frenchtoastindia/',
+      media_url: '/images/french4.webp',
+      caption: 'Warm lights, warm hearts ✨',
+      media_type: 'IMAGE'
+    },
+    {
+      id: '11',
+      permalink: 'https://www.instagram.com/frenchtoastindia/',
+      media_url: '/images/food13.webp',
+      caption: 'Taste the difference 🌟',
+      media_type: 'IMAGE'
+    },
+    {
+      id: '12',
+      permalink: 'https://www.instagram.com/frenchtoastindia/',
+      media_url: '/images/cafe at night.jpg',
+      caption: 'Evening ambience 🌙✨',
       media_type: 'IMAGE'
     }
   ]
