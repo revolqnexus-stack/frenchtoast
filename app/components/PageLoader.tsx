@@ -1,159 +1,91 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, useAnimation } from 'framer-motion'
+import { motion } from 'framer-motion'
 import './PageLoader.css'
 
 export default function PageLoader() {
   const [isComplete, setIsComplete] = useState(false)
-  const controls = useAnimation()
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    const animate = async () => {
-      if (prefersReduced) {
-        // Simple fade for reduced motion
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setIsComplete(true)
-        return
-      }
-
-      // Full animation sequence
-      await new Promise(resolve => setTimeout(resolve, 2400))
-      await controls.start({
-        opacity: 0,
-        scale: 1.04,
-        transition: { duration: 0.5, ease: 'easeOut' }
-      })
+    const timer = setTimeout(() => {
       setIsComplete(true)
-    }
+    }, prefersReduced ? 1000 : 1800)
 
-    animate()
-  }, [controls])
+    return () => clearTimeout(timer)
+  }, [])
 
   if (isComplete) return null
 
+  const prefersReduced = typeof window !== 'undefined' 
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches 
+    : false
+
+  if (prefersReduced) {
+    return (
+      <motion.div 
+        className="sign-loader"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ delay: 0.8, duration: 0.3 }}
+      >
+        <div className="sign-board">
+          <div className="toast-icon">
+            <img src="/logo-toast.svg" alt="" />
+          </div>
+          <div className="sign-wordmark">french toast</div>
+          <div className="sign-subline">BAKERY , KITCHEN & STUDIO</div>
+        </div>
+      </motion.div>
+    )
+  }
+
   return (
     <motion.div 
-      className="storefront-loader"
+      className="sign-loader"
       initial={{ opacity: 1 }}
-      animate={controls}
+      animate={{ opacity: 0 }}
+      transition={{ delay: 1.4, duration: 0.4 }}
     >
-      {/* String lights */}
-      <div className="string-lights">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="light-bulb"
-            initial={{ opacity: 0 }}
-            animate={{ 
-              opacity: [0, 1, 0.8, 1],
-              scale: [0.8, 1, 0.9, 1]
-            }}
-            transition={{
-              delay: 0.08 * i,
-              duration: 0.6,
-              repeat: Infinity,
-              repeatDelay: 2,
-              ease: 'easeOut'
-            }}
-            style={{ left: `${8 + i * 8}%` }}
-          />
-        ))}
-      </div>
-
-      {/* Pergola beams */}
-      <div className="pergola-beams">
-        <div className="beam beam-1" />
-        <div className="beam beam-2" />
-        <div className="beam beam-3" />
-      </div>
-
-      {/* Vine leaves */}
       <motion.div 
-        className="vine-leaf vine-left"
-        animate={{ 
-          rotate: [-2, 2, -2]
-        }}
-        transition={{
-          delay: 2,
-          duration: 4,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-      />
-      <motion.div 
-        className="vine-leaf vine-right"
-        animate={{ 
-          rotate: [2, -2, 2]
-        }}
-        transition={{
-          delay: 2.2,
-          duration: 4,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-      />
-
-      {/* Sign panel */}
-      <motion.div
-        className="sign-panel"
-        initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
+        className="sign-board"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        {/* Toast logo icon */}
-        <motion.div
-          className="toast-logo"
-          initial={{ scale: 0.6, rotate: 0, opacity: 0 }}
-          animate={{ 
-            scale: [0.6, 1.05, 1],
-            rotate: 8,
-            opacity: 1
-          }}
-          transition={{ delay: 1.3, duration: 0.5, ease: 'backOut' }}
+        {/* Toast icon */}
+        <motion.div 
+          className="toast-icon"
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.3, ease: 'backOut' }}
         >
-          <motion.img 
-            src="/logo-toast.svg" 
-            alt="" 
-            animate={{ rotate: [8, 10, 8] }}
-            transition={{
-              delay: 1.8,
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
-          />
+          <img src="/logo-toast.svg" alt="" />
         </motion.div>
 
         {/* Wordmark with clip reveal */}
-        <div className="wordmark-container">
+        <div className="wordmark-wrapper">
           <motion.div
-            className="wordmark"
+            className="sign-wordmark"
             initial={{ clipPath: 'inset(0 100% 0 0)' }}
             animate={{ clipPath: 'inset(0 0% 0 0)' }}
-            transition={{ delay: 0.7, duration: 0.7, ease: 'easeOut' }}
+            transition={{ delay: 0.5, duration: 0.6, ease: 'easeInOut' }}
           >
-            <motion.span
-              initial={{ y: 8, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.4 }}
-            >
-              french toast
-            </motion.span>
+            french toast
           </motion.div>
         </div>
 
         {/* Subline */}
-        <motion.p
-          className="subline"
-          initial={{ opacity: 0, letterSpacing: '0.35em' }}
-          animate={{ opacity: 1, letterSpacing: '0.2em' }}
-          transition={{ delay: 1.6, duration: 0.5, ease: 'easeOut' }}
+        <motion.div
+          className="sign-subline"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.3 }}
         >
           BAKERY , KITCHEN & STUDIO
-        </motion.p>
+        </motion.div>
       </motion.div>
     </motion.div>
   )
