@@ -12,42 +12,56 @@ interface Review {
   avatar?: string
 }
 
-// Sample reviews - replace with real ones from Google Business Profile
+// Real reviews from Google Business Profile
 const SAMPLE_REVIEWS: Review[] = [
   {
     id: '1',
-    author: 'Priya Menon',
+    author: 'Rishnita Bhandari',
     rating: 5,
-    date: '2 weeks ago',
-    text: 'Absolutely love this place! The croissants are perfectly flaky, coffee is excellent, and the cozy atmosphere makes it perfect for weekend brunches. Staff is super friendly too.',
+    date: '4 months ago',
+    text: 'Awesome place to be! It\'s aesthetically designed with small details like toast handles and croissant windows handles, adding to the charm.',
   },
   {
     id: '2',
-    author: 'Rahul Krishnan',
+    author: 'fathma nazrin',
     rating: 5,
-    date: '1 month ago',
-    text: 'Best breakfast spot in Kochi! Their eggs benedict is divine and the fresh juice selection is amazing. Great ambiance for both work and leisure.',
+    date: '3 weeks ago',
+    text: 'Visited French Toast, Panampilly Nagar with friends for a casual hangout, and it completely exceeded our expectations. We ordered three different types of toasts, and every single one was a solid 10/10 - fresh, rich, and bursting with flavor!',
   },
   {
     id: '3',
-    author: 'Anjali Nair',
+    author: 'Mahima Ponnappan',
     rating: 5,
-    date: '3 weeks ago',
-    text: 'Such a charming café! Love the vintage decor and warm vibes. The pancakes and French toast are must-tries. Perfect place for catching up with friends.',
+    date: '8 months ago',
+    text: 'French Toast is a cosy, charming café that\'s perfect for a relaxed brunch or slow catch-up. The ambience feels warm and inviting with a casual, laid-back vibe that makes you want to linger.',
   },
   {
     id: '4',
-    author: 'Arjun Thomas',
-    rating: 4,
-    date: '2 months ago',
-    text: 'Great food and coffee. The outdoor seating area is lovely. Gets a bit crowded on weekends but totally worth the wait. Highly recommend their sandwiches!',
+    author: 'Hari Warrier',
+    rating: 5,
+    date: '4 months ago',
+    text: 'If there is one cafe / eatery in Kochi / ernakulam you must visit it\'d be French toast. Amazing food, great service and ambience. And ofcourse do have the French toast at the French toast! It\'s heavenly!',
   },
   {
     id: '5',
-    author: 'Divya Sharma',
+    author: 'Banupriya Jawahar',
     rating: 5,
-    date: '1 week ago',
-    text: 'My go-to spot for breakfast meetings! Reliable wifi, peaceful atmosphere, and delicious food. The avocado toast and cappuccino combo is my favorite.',
+    date: '5 months ago',
+    text: 'Had an amazing experience at French Toast Restaurant. We ordered almost ten dishes and every single one was made to perfection. The quality, presentation, and flavors were consistently excellent. Definitely one of the best dining experiences and a must visit.',
+  },
+  {
+    id: '6',
+    author: 'Tiya Titus',
+    rating: 5,
+    date: 'a year ago',
+    text: 'It was shocking for me that this is one of the best French toast I have ever had, the flavour the aesthetics, the presentation it all deserves a 10/10. Let\'s talk about how clean the restaurant was and it service was excellent. Perfect!',
+  },
+  {
+    id: '7',
+    author: 'Manoj N Nair',
+    rating: 5,
+    date: '6 months ago',
+    text: 'The best place for a continental breakfast in Kochi!! Do not miss it!! Their mulberry french toast is pure mouth watering indulgence!!',
   },
 ]
 
@@ -59,10 +73,10 @@ interface GoogleReviewsProps {
 }
 
 export default function GoogleReviews({
-  rating = 4.8,
-  reviewCount = 6000,
+  rating = 4.3,
+  reviewCount = 5324,
   reviews = SAMPLE_REVIEWS,
-  googleBusinessUrl = 'https://www.google.com/maps/search/French+Toast+Panampilly+Nagar+Kochi/',
+  googleBusinessUrl = 'https://www.google.com/maps/place/French+Toast/@9.960854,76.2913468,17z/',
 }: GoogleReviewsProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)

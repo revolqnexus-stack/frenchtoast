@@ -110,14 +110,12 @@ export const BUSINESS_INFO = {
     },
   ],
 
-  // ─── GOOGLE REVIEWS (UNVERIFIED) ─────────────────────────────────────────
-  // WARNING: Could not verify actual review count or rating from Google
-  // Remove or update with verified data before going live
+  // ─── GOOGLE REVIEWS ───────────────────────────────────────────────────────
   reviews: {
-    verified: false,
-    rating: null, // Was: 4.3
-    count: null,  // Was: 5,321
-    note: 'Review data pending verification from Google Business Profile',
+    verified: true,
+    rating: 4.3,
+    count: 5324,
+    url: 'https://www.google.com/maps/place/French+Toast/@9.960854,76.2913468,17z/',
   },
 }
 
