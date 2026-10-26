@@ -36,7 +36,7 @@
   align-items: center;
   gap: var(--sp-2);
   padding: var(--sp-3) var(--sp-5);
-  background: linear-gradient(135deg, #FD5949 0%, #D6249F 50%, #285AEB 100%);
+  background: linear-gradient(135deg, #E3A55A 0%, #FF8B59 50%, #F2B94B 100%);
   color: white;
   text-decoration: none;
   border-radius: 24px;
@@ -48,7 +48,7 @@
 
 .instagram-follow-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(214, 36, 159, 0.3);
+  box-shadow: 0 8px 16px rgba(255, 139, 89, 0.3);
 }
 
 .instagram-feed__loading {
@@ -133,7 +133,7 @@
 .instagram-post__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(253, 89, 73, 0.8) 0%, rgba(214, 36, 159, 0.8) 50%, rgba(40, 90, 235, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(227, 165, 90, 0.85) 0%, rgba(255, 139, 89, 0.85) 50%, rgba(242, 185, 75, 0.85) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
