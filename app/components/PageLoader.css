@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  /* Rich gradient — dark espresso → roasted → warm amber */
+  /* Deep espresso → amber gradient — breathes slowly */
   background: linear-gradient(
     145deg,
     #0e0705 0%,
@@ -16,10 +16,8 @@
     #5a3420 78%,
     #7a4a28 100%
   );
-
-  /* Animated gradient sweep for shimmer */
   background-size: 300% 300%;
-  animation: loader-gradient 4s ease infinite;
+  animation: loader-gradient 5s ease infinite;
 }
 
 @keyframes loader-gradient {
@@ -29,76 +27,32 @@
 }
 
 .page-loader__inner {
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 1rem;
 }
 
-/* Same font as the nav wordmark */
-.page-loader__wordmark {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  font-size: clamp(3.5rem, 12vw, 9rem);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
-  color: transparent;
-
-  /* React Bits-style shimmer gradient on the text */
-  background: linear-gradient(
-    105deg,
-    #f7f2e8 0%,
-    #f2d36b 30%,
-    #fffcf6 50%,
-    #e8c84e 70%,
-    #f7f2e8 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: text-shimmer 2.4s ease-in-out infinite;
+/* The card wrapper — no background, just the PaperCrumple canvas */
+.page-loader__card {
+  width: clamp(260px, 40vw, 360px);
 }
 
-@keyframes text-shimmer {
-  0%   { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
-
-/* Thin divider line */
-.page-loader__line {
-  width: clamp(120px, 30vw, 260px);
-  height: 1px;
-  margin-top: clamp(1.2rem, 3vw, 2rem);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(242, 211, 107, 0.6) 40%,
-    rgba(242, 211, 107, 0.6) 60%,
-    transparent
-  );
-}
-
-/* Location sub-text */
+/* Hint text below the card */
 .page-loader__sub {
-  margin-top: clamp(0.8rem, 2vw, 1.2rem);
   font-family: 'Manrope', 'DM Sans', system-ui, sans-serif;
-  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+  font-size: clamp(0.55rem, 1.1vw, 0.7rem);
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(247, 242, 232, 0.4);
+  color: rgba(247, 242, 232, 0.3);
+  text-align: center;
 }
 
-/* Respect reduced motion */
+/* Respect reduced motion — skip the breathing gradient */
 @media (prefers-reduced-motion: reduce) {
   .page-loader {
     animation: none;
-  }
-  .page-loader__wordmark {
-    animation: none;
-    background-position: 0 0;
-    -webkit-text-fill-color: #f7f2e8;
+    background-position: 50% 50%;
   }
 }
