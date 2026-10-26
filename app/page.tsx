@@ -135,48 +135,81 @@ export default function Home() {
                     height: isMobile ? '480px' : '1100px',
                     margin: '0 auto',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     background: 'rgba(0,0,0,0.03)',
+                    borderRadius: '4px',
+                    gap: '1rem'
+                  }}>
+                    <p style={{ color: 'var(--ink-light)', opacity: 0.5 }}>Loading paper...</p>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--ink-light)', opacity: 0.3 }}>
+                      {typeof window !== 'undefined' ? 'Browser ready' : 'SSR mode'}
+                    </p>
+                  </div>
+                )}
+                {paperLoaded && typeof window === 'undefined' && (
+                  <div style={{ 
+                    width: isMobile ? '340px' : '850px',
+                    height: isMobile ? '480px' : '1100px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'rgba(255,0,0,0.1)',
                     borderRadius: '4px'
                   }}>
-                    <p style={{ color: 'var(--ink-light)', opacity: 0.5 }}>Loading...</p>
+                    <p style={{ color: 'red' }}>Window not available (SSR issue)</p>
                   </div>
                 )}
                 {paperLoaded && typeof window !== 'undefined' && (
-                  <PaperCrumple
-                    src="/our-story-paper.svg"
-                    alt="Our Story — handwritten on paper"
-                    width={isMobile ? 340 : 850}
-                    height={isMobile ? 480 : 1100}
-                    sceneHeight={isMobile ? 520 : 1150}
-                    paperColor="#f7f0e2"
-                    releaseBehavior="restore"
-                    crumpleAmount={0.88}
-                    crumpleDuration={0.6}
-                    releaseDuration={0.5}
-                    foldCount={7}
-                    foldSharpness={0.5}
-                    wrinkleDepth={0.7}
-                    creaseStrength={0.2}
-                    roughness={0.95}
-                    paperTexture={0.12}
-                    lightIntensity={1.9}
-                    lightAngle={-30}
-                    shadow={true}
-                    shadowOpacity={0.1}
-                    draggable={true}
-                    dragRotation={8}
-                    dragRadius={isMobile ? 80 : 200}
-                    returnToOrigin={true}
-                    seed={13}
-                    detail={64}
-                    style={{ 
-                      background: 'transparent',
-                      width: '100%',
-                      height: 'auto',
-                    }}
-                  />
+                  <div style={{ position: 'relative' }}>
+                    <div style={{
+                      position: 'absolute',
+                      top: '-30px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      fontSize: '0.7rem',
+                      color: 'var(--ink-light)',
+                      opacity: 0.4
+                    }}>
+                      Component rendering...
+                    </div>
+                    <PaperCrumple
+                      src="/our-story-paper.svg"
+                      alt="Our Story — handwritten on paper"
+                      width={isMobile ? 340 : 850}
+                      height={isMobile ? 480 : 1100}
+                      sceneHeight={isMobile ? 520 : 1150}
+                      paperColor="#f7f0e2"
+                      releaseBehavior="restore"
+                      crumpleAmount={0.88}
+                      crumpleDuration={0.6}
+                      releaseDuration={0.5}
+                      foldCount={7}
+                      foldSharpness={0.5}
+                      wrinkleDepth={0.7}
+                      creaseStrength={0.2}
+                      roughness={0.95}
+                      paperTexture={0.12}
+                      lightIntensity={1.9}
+                      lightAngle={-30}
+                      shadow={true}
+                      shadowOpacity={0.1}
+                      draggable={true}
+                      dragRotation={8}
+                      dragRadius={isMobile ? 80 : 200}
+                      returnToOrigin={true}
+                      seed={13}
+                      detail={64}
+                      style={{ 
+                        background: 'transparent',
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                      onError={(err) => console.error('PaperCrumple error:', err)}
+                    />
+                  </div>
                 )}
               </ScrollReveal>
             </div>
