@@ -42,7 +42,7 @@
   /* h2: section titles */
   --text-h2:        clamp(2rem, 3.8vw, 3.8rem);
   --lh-h2:          1.02;
-  --ls-h2:          -0.02em;
+  --ls-h2:          -0.01em;
 
   /* h3: sub-section, menu category */
   --text-h3:        clamp(1.35rem, 2vw, 1.9rem);

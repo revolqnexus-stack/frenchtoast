@@ -22,7 +22,7 @@ export default function Nav({ transparent = false, onDark = false }) {
 
   const navClass = `site-nav ${
     transparent && !isScrolled ? 'site-nav--transparent' : 'site-nav--solid'
-  } ${onDark ? 'site-nav--on-dark' : ''}`
+  } ${onDark && !isScrolled ? 'site-nav--on-dark' : ''}`
 
   const isActive = (path: string) => pathname === path
 
