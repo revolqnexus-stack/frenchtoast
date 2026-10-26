@@ -1,0 +1,16 @@
+/* Custom handwriting fonts for story paper */
+@font-face {
+  font-family: 'Amsterdam Handwriting';
+  src: url('/fonts/Amsterdam Handwriting.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Priestacy';
+  src: url('/fonts/Priestacy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

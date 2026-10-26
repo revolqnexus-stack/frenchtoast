@@ -12,22 +12,9 @@
       <feBlend in="SourceGraphic" in2="gray" mode="multiply" result="blend"/>
       <feComposite in="blend" in2="SourceGraphic" operator="in"/>
     </filter>
-    <!-- Local handwriting fonts -->
     <style>
-      @font-face {
-        font-family: 'Amsterdam';
-        src: url('../fonts/Amsterdam Handwriting.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-      }
-      @font-face {
-        font-family: 'Priestacy';
-        src: url('../fonts/Priestacy.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-      }
       .title { font-family: 'Priestacy', cursive; }
-      .body { font-family: 'Amsterdam', cursive; }
+      .body { font-family: 'Amsterdam Handwriting', cursive; }
       .signature { font-family: 'Priestacy', cursive; }
     </style>
   </defs>

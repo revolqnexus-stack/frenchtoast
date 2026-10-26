@@ -5,6 +5,7 @@ import BlurText from '../components/BlurText'
 import ScrollReveal from '../components/ScrollReveal'
 import TiltedCard from '../components/TiltedCard'
 import Link from 'next/link'
+import '../styles/handwriting.css'
 
 export const metadata = {
   title: 'Our Story — French Toast · Kochi',
