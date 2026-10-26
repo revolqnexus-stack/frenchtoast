@@ -15,6 +15,7 @@ import ImageCarousel from './components/ImageCarousel'
 import SplitFlapText from './components/SplitFlapText'
 import StoryPaper from './components/StoryPaper'
 import InstagramFeed from './components/InstagramFeed'
+import GoogleReviews from './components/GoogleReviews'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
 import './home.css'
@@ -609,6 +610,7 @@ export default function Home() {
         </section>
       </main>
 
+      <GoogleReviews />
       <InstagramFeed />
 
       <Footer />
