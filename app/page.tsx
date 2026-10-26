@@ -295,8 +295,8 @@ export default function Home() {
               <div className="menu-preview-image">
                 <div className="img-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=700&q=85"
-                    alt="Banana toast — menu highlight"
+                    src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=700&q=85"
+                    alt="French toast with berries and cream — menu highlight"
                     loading="lazy"
                     width="700"
                     height="875"
