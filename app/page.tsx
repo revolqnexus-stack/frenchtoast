@@ -18,7 +18,7 @@ import InstagramFeed from './components/InstagramFeed'
 import GoogleReviews from './components/GoogleReviews'
 import OnlineOrderingSection from './components/OnlineOrderingSection'
 import Link from 'next/link'
-import { BUSINESS_INFO } from '@/config/business'
+import { BUSINESS_INFO, getPrimaryLocation } from '@/config/business'
 import './home.css'
 import './styles/story-paper.css'
 
@@ -324,53 +324,61 @@ export default function Home() {
           <div className="proof-marquee" aria-label="Guest reviews">
             <ul className="proof-track">
               <li className="proof-card">
-                <p className="proof-card__quote">"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">P</div><span className="proof-card__author">Priya M.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"Awesome place to be! It's aesthetically designed with small details like toast handles and croissant windows handles, adding to the charm."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">R</div><span className="proof-card__author">Rishnita Bhandari</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card">
-                <p className="proof-card__quote">"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Arjun K.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"Visited French Toast, Panampilly Nagar with friends for a casual hangout, and it completely exceeded our expectations. Every single toast was a solid 10/10 — fresh, rich, and bursting with flavor!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">F</div><span className="proof-card__author">Fathma Nazrin</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card">
-                <p className="proof-card__quote">"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Anjali R.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"French Toast is a cosy, charming café that's perfect for a relaxed brunch or slow catch-up. The ambience feels warm and inviting with a casual, laid-back vibe that makes you want to linger."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Mahima Ponnappan</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card">
-                <p className="proof-card__quote">"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">R</div><span className="proof-card__author">Rohan S.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"If there is one café in Kochi you must visit, it's French Toast. Amazing food, great service and ambience. And of course — do have the French toast at the French toast! It's heavenly!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">H</div><span className="proof-card__author">Hari Warrier</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card">
-                <p className="proof-card__quote">"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Maya T.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"Had an amazing experience at French Toast. We ordered almost ten dishes and every single one was made to perfection. Quality, presentation, and flavors were consistently excellent. A must-visit."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">B</div><span className="proof-card__author">Banupriya Jawahar</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card">
-                <p className="proof-card__quote">"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">V</div><span className="proof-card__author">Vikram P.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"It was shocking for me that this is one of the best French toasts I have ever had. The flavour, the aesthetics, the presentation — all deserve a 10/10. The restaurant was spotless and service was excellent."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">T</div><span className="proof-card__author">Tiya Titus</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card">
+                <p className="proof-card__quote">"The best place for a continental breakfast in Kochi!! Do not miss it!! Their mulberry French toast is pure mouth-watering indulgence!!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Manoj N. Nair</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               {/* Duplicated for seamless loop */}
               <li className="proof-card" aria-hidden="true">
-                <p className="proof-card__quote">"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">P</div><span className="proof-card__author">Priya M.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"Awesome place to be! It's aesthetically designed with small details like toast handles and croissant windows handles, adding to the charm."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">R</div><span className="proof-card__author">Rishnita Bhandari</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card" aria-hidden="true">
-                <p className="proof-card__quote">"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Arjun K.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"Visited French Toast, Panampilly Nagar with friends for a casual hangout, and it completely exceeded our expectations. Every single toast was a solid 10/10 — fresh, rich, and bursting with flavor!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">F</div><span className="proof-card__author">Fathma Nazrin</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card" aria-hidden="true">
-                <p className="proof-card__quote">"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">A</div><span className="proof-card__author">Anjali R.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"French Toast is a cosy, charming café that's perfect for a relaxed brunch or slow catch-up. The ambience feels warm and inviting with a casual, laid-back vibe that makes you want to linger."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Mahima Ponnappan</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card" aria-hidden="true">
-                <p className="proof-card__quote">"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">R</div><span className="proof-card__author">Rohan S.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"If there is one café in Kochi you must visit, it's French Toast. Amazing food, great service and ambience. And of course — do have the French toast at the French toast! It's heavenly!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">H</div><span className="proof-card__author">Hari Warrier</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card" aria-hidden="true">
-                <p className="proof-card__quote">"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Maya T.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"Had an amazing experience at French Toast. We ordered almost ten dishes and every single one was made to perfection. Quality, presentation, and flavors were consistently excellent. A must-visit."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">B</div><span className="proof-card__author">Banupriya Jawahar</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
               <li className="proof-card" aria-hidden="true">
-                <p className="proof-card__quote">"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p>
-                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">V</div><span className="proof-card__author">Vikram P.</span><span className="proof-card__stars">★★★★★</span></div></div>
+                <p className="proof-card__quote">"It was shocking for me that this is one of the best French toasts I have ever had. The flavour, the aesthetics, the presentation — all deserve a 10/10. The restaurant was spotless and service was excellent."</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">T</div><span className="proof-card__author">Tiya Titus</span><span className="proof-card__stars">★★★★★</span></div></div>
+              </li>
+              <li className="proof-card" aria-hidden="true">
+                <p className="proof-card__quote">"The best place for a continental breakfast in Kochi!! Do not miss it!! Their mulberry French toast is pure mouth-watering indulgence!!"</p>
+                <div><div className="proof-card__divider" /><div className="proof-card__footer"><div className="proof-card__avatar">M</div><span className="proof-card__author">Manoj N. Nair</span><span className="proof-card__stars">★★★★★</span></div></div>
               </li>
             </ul>
           </div>
@@ -568,7 +576,7 @@ export default function Home() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Address</p>
                     <p className="visit-info-value">
-                      8th Cross Street B, Ambikupuram Rd,
+                      8th Cross, Street B, Ambikapuram Road,
                       <br />
                       Panampilly Nagar, Ernakulam,
                       <br />
@@ -581,9 +589,9 @@ export default function Home() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Hours</p>
                     <p className="visit-info-value">
-                      Monday – Sunday
+                      Monday – Friday: 9:00 AM – 10:00 PM
                       <br />
-                      9:00 AM – 10:00 PM
+                      Saturday – Sunday: 8:00 AM – 10:00 PM
                     </p>
                   </div>
                 </div>
@@ -592,7 +600,9 @@ export default function Home() {
                   <div className="visit-info-content">
                     <p className="visit-info-label">Phone</p>
                     <p className="visit-info-value">
-                      <a href="https://wa.me/919074870797">+91 90748 70797</a>
+                      {(() => { const loc = getPrimaryLocation(); return (
+                        <a href={`tel:${loc.contact.phone.tel}`}>{loc.contact.phone.display}</a>
+                      )})()} 
                     </p>
                   </div>
                 </div>
