@@ -22,8 +22,10 @@ const PaperCrumple = dynamic(() => import('./components/PaperCrumple'), { ssr: f
 export default function Home() {
   const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
   const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
     window.addEventListener('resize', checkMobile)
@@ -88,72 +90,76 @@ export default function Home() {
         </section>
 
         {/* ── Crumplable Paper Story ─────────────────────────────────────────── */}
-        <section
-          className="story-paper-crumple"
-          aria-label="Our story — hold the paper to crumple it"
-          style={{
-            background: 'var(--warm-white)',
-            padding: 'clamp(3rem, 8vw, 6rem) var(--margin-h)',
-            minHeight: '70vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div style={{ 
-            width: '100%', 
-            maxWidth: isMobile ? '90vw' : 'min(90vw, 1100px)', 
-            margin: '0 auto', 
-            textAlign: 'center' 
-          }}>
-            <ScrollReveal y={40}>
-              <p style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: 'var(--text-xxs)',
-                fontWeight: 600,
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: 'var(--ink-light)',
-                marginBottom: 'clamp(1rem, 3vw, 2rem)',
-              }}>
-                Hold to crumple · drag to move
-              </p>
-              <PaperCrumple
-                src="/our-story-paper.svg"
-                alt="Our Story — handwritten on paper"
-                width={isMobile ? 340 : 850}
-                height={isMobile ? 480 : 1100}
-                sceneHeight={isMobile ? 520 : 1150}
-                paperColor="#f7f0e2"
-                releaseBehavior="restore"
-                crumpleAmount={0.88}
-                crumpleDuration={0.6}
-                releaseDuration={0.5}
-                foldCount={7}
-                foldSharpness={0.5}
-                wrinkleDepth={0.7}
-                creaseStrength={0.2}
-                roughness={0.95}
-                paperTexture={0.12}
-                lightIntensity={1.9}
-                lightAngle={-30}
-                shadow={true}
-                shadowOpacity={0.1}
-                draggable={true}
-                dragRotation={8}
-                dragRadius={isMobile ? 80 : 200}
-                returnToOrigin={true}
-                seed={13}
-                detail={64}
-                style={{ 
-                  background: 'transparent',
-                  width: '100%',
-                  height: 'auto',
-                }}
-              />
-            </ScrollReveal>
-          </div>
-        </section>
+        {mounted && (
+          <section
+            className="story-paper-crumple"
+            aria-label="Our story — hold the paper to crumple it"
+            style={{
+              background: 'var(--warm-white)',
+              padding: 'clamp(3rem, 8vw, 6rem) var(--margin-h)',
+              minHeight: '70vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{ 
+              width: '100%', 
+              maxWidth: isMobile ? '90vw' : 'min(90vw, 1100px)', 
+              margin: '0 auto', 
+              textAlign: 'center' 
+            }}>
+              <ScrollReveal y={40}>
+                <p style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 'var(--text-xxs)',
+                  fontWeight: 600,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  color: 'var(--ink-light)',
+                  marginBottom: 'clamp(1rem, 3vw, 2rem)',
+                }}>
+                  Hold to crumple · drag to move
+                </p>
+                {typeof window !== 'undefined' && (
+                  <PaperCrumple
+                    src="/our-story-paper.svg"
+                    alt="Our Story — handwritten on paper"
+                    width={isMobile ? 340 : 850}
+                    height={isMobile ? 480 : 1100}
+                    sceneHeight={isMobile ? 520 : 1150}
+                    paperColor="#f7f0e2"
+                    releaseBehavior="restore"
+                    crumpleAmount={0.88}
+                    crumpleDuration={0.6}
+                    releaseDuration={0.5}
+                    foldCount={7}
+                    foldSharpness={0.5}
+                    wrinkleDepth={0.7}
+                    creaseStrength={0.2}
+                    roughness={0.95}
+                    paperTexture={0.12}
+                    lightIntensity={1.9}
+                    lightAngle={-30}
+                    shadow={true}
+                    shadowOpacity={0.1}
+                    draggable={true}
+                    dragRotation={8}
+                    dragRadius={isMobile ? 80 : 200}
+                    returnToOrigin={true}
+                    seed={13}
+                    detail={64}
+                    style={{ 
+                      background: 'transparent',
+                      width: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                )}
+              </ScrollReveal>
+            </div>
+          </section>
+        )}
 
         {/* Signature Dishes */}
         <section className="signatures section" aria-labelledby="sig-heading">
