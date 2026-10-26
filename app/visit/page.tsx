@@ -1,13 +1,11 @@
+'use client'
+
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
+import ImageCarousel from '../components/ImageCarousel'
 import Link from 'next/link'
 import { BUSINESS_INFO, getAllLocations } from '@/config/business'
-
-export const metadata = {
-  title: 'Visit Us — French Toast · Kochi',
-  description: 'Find French Toast café locations in Kochi. Visit us at Panampilly Nagar or Kacheripady for breakfast, brunch and great coffee.',
-}
 
 export default function VisitPage() {
   const locations = getAllLocations()
@@ -18,9 +16,26 @@ export default function VisitPage() {
       <Nav />
 
       <main>
-        {/* Page Hero */}
-        <header className="page-hero">
-          <div className="page-hero-inner">
+        {/* Page Hero with Cafe Carousel */}
+        <header className="page-hero page-hero--image" style={{ position: 'relative', minHeight: '70vh' }}>
+          <div className="page-hero-visual" aria-hidden="true">
+            <ImageCarousel
+              images={[
+                '/images/french1.webp',
+                '/images/french 2.webp',
+                '/images/french 3.webp',
+                '/images/french4.webp',
+                '/images/french5.webp',
+                '/images/french6.webp',
+                '/images/french7.webp',
+                '/images/french9.webp',
+                '/images/cafe at night.jpg'
+              ]}
+              autoplay={true}
+              interval={4000}
+            />
+          </div>
+          <div className="page-hero-inner" style={{ position: 'relative', zIndex: 2 }}>
             <p className="eyebrow">Visit Us</p>
             <h1>
               Come say

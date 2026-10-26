@@ -18,7 +18,16 @@ export default function AboutPage() {
 
       <main>
         {/* Page Hero */}
-        <header className="page-hero">
+        <header className="page-hero page-hero--image" aria-labelledby="about-heading">
+          <div className="page-hero-visual" aria-hidden="true">
+            <img
+              src="/images/french toast family.jpg"
+              alt="French Toast cafe family and team"
+              fetchPriority="high"
+              width="1600"
+              height="900"
+            />
+          </div>
           <div className="page-hero-inner">
             <BlurText as="p" className="eyebrow" delay={0.1} duration={0.6} stagger={0.05}>About Us</BlurText>
             <BlurText as="h1" delay={0.3} duration={0.9} stagger={0.1}>
@@ -51,7 +60,7 @@ export default function AboutPage() {
               <ScrollReveal delay={0.2} className="about-opening-image">
                 <div className="img-frame">
                   <img
-                    src="/images/french3.webp"
+                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=85"
                     alt="The French Toast café interior"
                     loading="lazy"
                     width="700"
@@ -87,7 +96,7 @@ export default function AboutPage() {
               <ScrollReveal delay={0.2} className="about-story-image">
                 <div className="img-frame">
                   <img
-                    src="/images/food7.webp"
+                    src="https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?w=700&q=85"
                     alt="Shakshuka dish at French Toast"
                     loading="lazy"
                     width="700"
