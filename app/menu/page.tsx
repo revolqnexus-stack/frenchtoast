@@ -3,31 +3,40 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function MenuPage() {
-  useEffect(() => {
-    // Load menu data and scripts
-    const menuScript = document.createElement('script')
-    menuScript.src = '/assets/js/menu.js'
-    menuScript.async = true
-    document.body.appendChild(menuScript)
+  const [isLoading, setIsLoading] = useState(true)
 
+  useEffect(() => {
+    // Load menu data first, then menu.js script
     const dataScript = document.createElement('script')
     dataScript.src = '/assets/data/menu.js'
-    dataScript.async = true
+    
+    const menuScript = document.createElement('script')
+    menuScript.src = '/assets/js/menu.js'
+
+    // Load data first, then menu script
+    dataScript.onload = () => {
+      document.body.appendChild(menuScript)
+      menuScript.onload = () => {
+        // Give the script a moment to execute and render
+        setTimeout(() => setIsLoading(false), 100)
+      }
+    }
+    
+    dataScript.onerror = () => setIsLoading(false)
+    menuScript.onerror = () => setIsLoading(false)
+    
     document.body.appendChild(dataScript)
 
-    // Motion.js disabled - was causing disappearing content issues
-    // const motionScript = document.createElement('script')
-    // motionScript.src = '/assets/js/motion.js'
-    // motionScript.async = true
-    // document.body.appendChild(motionScript)
-
     return () => {
-      document.body.removeChild(menuScript)
-      document.body.removeChild(dataScript)
-      // document.body.removeChild(motionScript)
+      if (document.body.contains(dataScript)) {
+        document.body.removeChild(dataScript)
+      }
+      if (document.body.contains(menuScript)) {
+        document.body.removeChild(menuScript)
+      }
     }
   }, [])
 
@@ -76,6 +85,11 @@ export default function MenuPage() {
         {/* Menu Items */}
         <section className="menu-body">
           <div className="container">
+            {isLoading && (
+              <div style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--ink-light)' }}>
+                <p>Loading menu...</p>
+              </div>
+            )}
             <div id="menu-root" aria-live="polite" aria-label="Menu items"></div>
           </div>
         </section>
