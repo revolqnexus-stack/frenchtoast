@@ -714,6 +714,8 @@
   gap: var(--sp-3);
   margin-top: var(--sp-8);
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── H: CTA closer — butter section ─────────────────────────────────────── */

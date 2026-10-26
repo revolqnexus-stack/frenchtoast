@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
 import ImageCarousel from '../components/ImageCarousel'
+import VisitInfoCard from '../components/VisitInfoCard'
 import Link from 'next/link'
 import { BUSINESS_INFO, getAllLocations } from '@/config/business'
 
@@ -193,34 +194,122 @@ export default function VisitPage() {
           </section>
         ))}
 
-        {/* Additional Info */}
-        <section className="visit-extras section">
-          <div className="container">
-            <div className="visit-extras-inner">
-              <div className="visit-extras-header">
-                <p className="section-eyebrow">Good to Know</p>
-                <h2>Plan your visit.</h2>
-              </div>
-              
-              <div className="visit-extras-grid">
-                <div className="visit-extra-card">
-                  <div className="visit-extra-icon">🅿️</div>
-                  <h3>Parking</h3>
-                  <p>Limited street parking available nearby. We recommend using ride-sharing apps or arriving early on weekends.</p>
-                </div>
+        {/* Additional Info - Redesigned */}
+        <section className="visit-extras section" style={{ 
+          padding: 'clamp(4.5rem, 12vw, 7.5rem) 0',
+          background: 'var(--warm-white)'
+        }}>
+          <div style={{ 
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 clamp(1rem, 4vw, 2rem)'
+          }}>
+            {/* Header */}
+            <div style={{ 
+              textAlign: 'center',
+              marginBottom: 'clamp(3rem, 6vw, 4rem)'
+            }}>
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 'var(--text-xxs)',
+                fontWeight: 600,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--ink-light)',
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '1rem'
+              }}>
+                <span style={{ 
+                  width: '32px', 
+                  height: '1px', 
+                  background: 'var(--color-primary)', 
+                  opacity: 0.3 
+                }} />
+                Good to Know
+                <span style={{ 
+                  width: '32px', 
+                  height: '1px', 
+                  background: 'var(--color-primary)', 
+                  opacity: 0.3 
+                }} />
+              </p>
+              <h2 style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.25rem, 5vw, 3.5rem)',
+                fontWeight: 400,
+                lineHeight: 1.2,
+                color: 'var(--color-text)',
+                marginBottom: '1rem'
+              }}>
+                Plan your visit.
+              </h2>
+              <p style={{
+                fontSize: '1.125rem',
+                color: 'var(--color-text-secondary)',
+                maxWidth: '600px',
+                margin: '0 auto'
+              }}>
+                Everything you need to know before you arrive
+              </p>
+            </div>
 
-                <div className="visit-extra-card">
-                  <div className="visit-extra-icon">♿</div>
-                  <h3>Accessibility</h3>
-                  <p>Ground floor seating with wheelchair access. Please let us know if you need any assistance.</p>
-                </div>
+            {/* Cards Grid */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: 'clamp(1.5rem, 3vw, 2rem)',
+              alignItems: 'stretch'
+            }}>
+              {/* Parking Card */}
+              <VisitInfoCard
+                icon="parking"
+                title="Parking"
+                description="Limited street parking nearby. Arrive early on weekends or take a cab."
+                delay={0}
+              />
 
-                <div className="visit-extra-card">
-                  <div className="visit-extra-icon">📱</div>
-                  <h3>WiFi</h3>
-                  <p>Free high-speed WiFi available for all guests. Perfect for remote work or catching up on emails.</p>
-                </div>
-              </div>
+              {/* Accessibility Card */}
+              <VisitInfoCard
+                icon="accessibility"
+                title="Accessibility"
+                description="Ground floor seating with wheelchair access. Let us know if you need assistance."
+                delay={0.12}
+              />
+
+              {/* WiFi Card */}
+              <VisitInfoCard
+                icon="wifi"
+                title="WiFi"
+                description="Free high-speed WiFi for all guests. Perfect for remote work."
+                delay={0.24}
+              />
+
+              {/* Opening Hours Card */}
+              <VisitInfoCard
+                icon="clock"
+                title="Opening Hours"
+                description="Mon–Fri: 9am–10pm. Sat–Sun: 8am–10pm. Open all week."
+                delay={0.36}
+              />
+
+              {/* Reservations Card */}
+              <VisitInfoCard
+                icon="calendar"
+                title="Walk-ins Only"
+                description="We don't take reservations. First come, first served. Pet-friendly patio!"
+                delay={0.48}
+              />
+
+              {/* Payment Card */}
+              <VisitInfoCard
+                icon="credit-card"
+                title="Payment"
+                description="Cash, cards, and UPI accepted. No service charge or hidden fees."
+                delay={0.6}
+              />
             </div>
           </div>
         </section>
