@@ -15,16 +15,12 @@ import ImageCarousel from './components/ImageCarousel'
 import SplitFlapText from './components/SplitFlapText'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
-import dynamic from 'next/dynamic'
 import './home.css'
-
-const PaperCrumple = dynamic(() => import('./components/PaperCrumple'), { ssr: false })
 
 export default function Home() {
   const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
   const [isMobile, setIsMobile] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [paperLoaded, setPaperLoaded] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -32,12 +28,8 @@ export default function Home() {
     checkMobile()
     window.addEventListener('resize', checkMobile)
     
-    // Give the paper component 2 seconds to load
-    const timer = setTimeout(() => setPaperLoaded(true), 500)
-    
     return () => {
       window.removeEventListener('resize', checkMobile)
-      clearTimeout(timer)
     }
   }, [])
 
@@ -144,90 +136,29 @@ export default function Home() {
                   color: 'var(--ink-light)',
                   marginBottom: 'clamp(1rem, 3vw, 2rem)',
                 }}>
-                  Hold to crumple · drag to move
+                  Our Story
                 </p>
-                {!paperLoaded && (
-                  <div style={{ 
-                    width: isMobile ? '340px' : '850px',
-                    height: isMobile ? '480px' : '1100px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'linear-gradient(135deg, #fef9f0 0%, #f7f0e2 100%)',
-                    borderRadius: '12px',
-                    gap: '2rem',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
-                  }}>
-                    <SplitFlapText
-                      words={['FRENCH TOAST', 'GOOD MORNINGS', 'START HERE']}
-                      flipDuration={0.14}
-                      stagger={0.08}
-                      cycleDelay={1800}
-                      charset="alpha"
-                      flipsPerChar={12}
-                      order="center"
-                      align="center"
-                      tileStyle="board"
-                      tileColor="#8B7355"
-                      textColor="#fef9f0"
-                      glare={0.6}
-                      depth={0.8}
-                      tileRadius={6}
-                      gap={4}
-                      fontSize={isMobile ? 28 : 42}
-                      loop
-                      padTo={13}
-                      intro
-                    />
-                    <p style={{ 
-                      fontSize: isMobile ? '0.7rem' : '0.85rem', 
-                      color: '#8B7355', 
-                      opacity: 0.6,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      fontWeight: 600
-                    }}>
-                      Loading our story...
-                    </p>
-                  </div>
-                )}
-                {paperLoaded && (
-                  <PaperCrumple
-                    src="/our-story-paper.svg"
+                {/* Simple SVG display - no 3D complexity */}
+                <div style={{
+                  maxWidth: isMobile ? '340px' : '650px',
+                  margin: '0 auto',
+                  transform: 'rotate(-1deg)',
+                  transition: 'transform 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg) scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-1deg) scale(1)'}
+                >
+                  <img 
+                    src="/our-story-paper.svg" 
                     alt="Our Story — handwritten on paper"
-                    width={isMobile ? 340 : 850}
-                    height={isMobile ? 480 : 1100}
-                    sceneHeight={isMobile ? 520 : 1150}
-                    paperColor="#f7f0e2"
-                    releaseBehavior="restore"
-                    crumpleAmount={0.88}
-                    crumpleDuration={0.6}
-                    releaseDuration={0.5}
-                    foldCount={7}
-                    foldSharpness={0.5}
-                    wrinkleDepth={0.7}
-                    creaseStrength={0.2}
-                    roughness={0.95}
-                    paperTexture={0.12}
-                    lightIntensity={1.9}
-                    lightAngle={-30}
-                    shadow={true}
-                    shadowOpacity={0.1}
-                    draggable={true}
-                    dragRotation={8}
-                    dragRadius={isMobile ? 80 : 200}
-                    returnToOrigin={true}
-                    seed={13}
-                    detail={64}
-                    style={{ 
-                      background: 'transparent',
+                    style={{
                       width: '100%',
                       height: 'auto',
+                      filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.15))',
                     }}
                   />
-                )}
+                </div>
               </ScrollReveal>
             </div>
           </section>
