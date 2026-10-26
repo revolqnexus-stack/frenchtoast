@@ -26,19 +26,9 @@
   filter: brightness(0.95) saturate(1.1);
 }
 
-/* Directional gradient: dark left, opens right */
+/* No overlay - let the video play as is */
 .hero-visual::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(100deg,
-      rgba(53,37,31,0.88) 0%,
-      rgba(53,37,31,0.55) 38%,
-      rgba(53,37,31,0) 70%),
-    linear-gradient(0deg,
-      rgba(53,37,31,0.45) 0%,
-      transparent 35%);
+  content: none;
 }
 
 /* Content sits in flow, min-height pulls the section tall */
