@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -32,7 +33,11 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@700&family=Manrope:wght@300;400;500;600;700&display=swap" />
         <meta name="theme-color" content="#35251F" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script src="/assets/js/main.js" strategy="lazyOnload" />
+        <Script src="/assets/js/motion.js" strategy="lazyOnload" />
+      </body>
     </html>
   )
 }

@@ -1,7 +1,6 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
-import MotionEffects from '../components/MotionEffects'
 import Link from 'next/link'
 
 export const metadata = {
@@ -12,7 +11,6 @@ export const metadata = {
 export default function OrderPage() {
   return (
     <>
-      <link rel="stylesheet" href="/assets/css/pages.css" />
       <Nav />
 
       <main>
@@ -101,7 +99,6 @@ export default function OrderPage() {
 
       <Footer />
       <WhatsAppButton />
-      <MotionEffects />
     </>
   )
 }

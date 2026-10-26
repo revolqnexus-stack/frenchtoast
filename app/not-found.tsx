@@ -5,7 +5,6 @@ import Footer from './components/Footer'
 export default function NotFound() {
   return (
     <>
-      <link rel="stylesheet" href="/assets/css/pages.css" />
       <Nav />
       
       <main>

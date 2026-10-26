@@ -3,7 +3,6 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
-import MotionEffects from '../components/MotionEffects'
 import { useEffect } from 'react'
 
 export default function GalleryPage() {
@@ -77,7 +76,6 @@ export default function GalleryPage() {
 
   return (
     <>
-      <link rel="stylesheet" href="/assets/css/pages.css" />
       <Nav />
 
       <main>
@@ -196,7 +194,6 @@ export default function GalleryPage() {
 
       <Footer />
       <WhatsAppButton />
-      <MotionEffects />
     </>
   )
 }

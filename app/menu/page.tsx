@@ -32,9 +32,6 @@ export default function MenuPage() {
 
   return (
     <>
-      <link rel="stylesheet" href="/assets/css/menu-page.css" />
-      <link rel="stylesheet" href="/assets/css/pages.css" />
-      
       <Nav />
 
       <main>

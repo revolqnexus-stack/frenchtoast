@@ -1,8 +1,6 @@
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
-import MainScripts from './components/MainScripts'
-import MotionEffects from './components/MotionEffects'
 import Link from 'next/link'
 import './home.css'
 
@@ -474,8 +472,6 @@ export default function Home() {
 
       <Footer />
       <WhatsAppButton />
-      <MainScripts />
-      <MotionEffects />
     </>
   )
 }
