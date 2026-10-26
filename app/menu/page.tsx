@@ -3,6 +3,7 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
+import BlurText from '../components/BlurText'
 import { useEffect, useState } from 'react'
 
 export default function MenuPage() {
@@ -47,12 +48,13 @@ export default function MenuPage() {
       <main>
         <header className="page-hero">
           <div className="page-hero-inner">
-            <p className="eyebrow">Menu</p>
-            <h1>
-              Freshly made,<br />
-              <em>always.</em>
-            </h1>
-            <p>From golden French toast and hearty sandwiches to rich pastas and indulgent desserts — every dish is made to order, with care.</p>
+            <BlurText as="p" className="eyebrow" delay={0.1} duration={0.6} stagger={0.05}>Menu</BlurText>
+            <BlurText as="h1" delay={0.3} duration={0.9} stagger={0.1}>
+              Freshly made, always.
+            </BlurText>
+            <BlurText as="p" delay={0.6} duration={0.7} stagger={0.04}>
+              From golden French toast and hearty sandwiches to rich pastas and indulgent desserts — every dish is made to order, with care.
+            </BlurText>
           </div>
         </header>
 

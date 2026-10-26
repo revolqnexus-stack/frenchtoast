@@ -3,6 +3,8 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
+import BlurText from '../components/BlurText'
+import StaggerReveal from '../components/StaggerReveal'
 import { useEffect } from 'react'
 
 export default function GalleryPage() {
@@ -82,13 +84,13 @@ export default function GalleryPage() {
         {/* Page Hero */}
         <header className="page-hero">
           <div className="page-hero-inner">
-            <p className="eyebrow">Gallery</p>
-            <h1>
-              Good food,
-              <br />
-              <em>beautiful moments.</em>
-            </h1>
-            <p>A glimpse of the food, cosy corners and happy moments at French Toast.</p>
+            <BlurText as="p" className="eyebrow" delay={0.1} duration={0.6} stagger={0.05}>Gallery</BlurText>
+            <BlurText as="h1" delay={0.3} duration={0.9} stagger={0.1}>
+              Good food, beautiful moments.
+            </BlurText>
+            <BlurText as="p" delay={0.6} duration={0.7} stagger={0.04}>
+              A glimpse of the food, cosy corners and happy moments at French Toast.
+            </BlurText>
           </div>
         </header>
 
@@ -111,7 +113,7 @@ export default function GalleryPage() {
               </button>
             </div>
 
-            <div className="gallery-masonry" id="gallery-grid">
+            <StaggerReveal className="gallery-masonry" stagger={0.07} duration={0.6} y={30} id="gallery-grid">
               <div className="gallery-tile" data-category="food">
                 <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=85" alt="Strawberry French Toast with whipped cream" loading="lazy" width="800" height="1066" />
               </div>
@@ -179,7 +181,7 @@ export default function GalleryPage() {
               <div className="gallery-tile" data-category="ambiance">
                 <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Café counter and barista" loading="lazy" width="600" height="450" />
               </div>
-            </div>
+            </StaggerReveal>
           </div>
         </section>
 
