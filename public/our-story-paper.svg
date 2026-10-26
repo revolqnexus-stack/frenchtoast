@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="720" viewBox="0 0 520 720">
+  <defs>
+    <!-- Paper base gradient -->
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#f7f0e2"/>
+    </linearGradient>
+    <!-- Subtle grain filter -->
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="gray"/>
+      <feBlend in="SourceGraphic" in2="gray" mode="multiply" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <!-- Caveat font -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;display=swap');
+      text { font-family: 'Caveat', cursive; }
+    </style>
+  </defs>
+
+  <!-- Paper background -->
+  <rect width="520" height="720" fill="url(#paper)" rx="2"/>
+
+  <!-- Ruled lines -->
+  <g stroke="#c8b89a" stroke-width="0.6" opacity="0.35">
+    <line x1="0" y1="112" x2="520" y2="112"/>
+    <line x1="0" y1="148" x2="520" y2="148"/>
+    <line x1="0" y1="184" x2="520" y2="184"/>
+    <line x1="0" y1="220" x2="520" y2="220"/>
+    <line x1="0" y1="256" x2="520" y2="256"/>
+    <line x1="0" y1="292" x2="520" y2="292"/>
+    <line x1="0" y1="328" x2="520" y2="328"/>
+    <line x1="0" y1="364" x2="520" y2="364"/>
+    <line x1="0" y1="400" x2="520" y2="400"/>
+    <line x1="0" y1="436" x2="520" y2="436"/>
+    <line x1="0" y1="472" x2="520" y2="472"/>
+    <line x1="0" y1="508" x2="520" y2="508"/>
+    <line x1="0" y1="544" x2="520" y2="544"/>
+    <line x1="0" y1="580" x2="520" y2="580"/>
+    <line x1="0" y1="616" x2="520" y2="616"/>
+    <line x1="0" y1="652" x2="520" y2="652"/>
+    <line x1="0" y1="688" x2="520" y2="688"/>
+  </g>
+
+  <!-- Red margin line -->
+  <line x1="72" y1="0" x2="72" y2="720" stroke="#e8a0a0" stroke-width="1" opacity="0.45"/>
+
+  <!-- Hole punches -->
+  <circle cx="26" cy="130" r="10" fill="white" stroke="#d0c0aa" stroke-width="1" opacity="0.9"/>
+  <circle cx="26" cy="360" r="10" fill="white" stroke="#d0c0aa" stroke-width="1" opacity="0.9"/>
+  <circle cx="26" cy="590" r="10" fill="white" stroke="#d0c0aa" stroke-width="1" opacity="0.9"/>
+
+  <!-- Fold corner -->
+  <polygon points="520,0 484,0 520,36" fill="#ede5d4" opacity="0.8"/>
+  <line x1="484" y1="0" x2="520" y2="36" stroke="#c8b89a" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Title -->
+  <text x="88" y="78" font-size="46" font-weight="700" fill="#2d1a10" letter-spacing="-0.5" transform="rotate(-0.8, 88, 78)">Our Story.</text>
+
+  <!-- Underline under title -->
+  <path d="M88 84 Q200 90 340 84" stroke="#b06040" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+  <!-- Body text -->
+  <text x="88" y="136" font-size="21" fill="#2d1a10" opacity="0.92">It started with a simple idea —</text>
+  <text x="88" y="172" font-size="21" fill="#2d1a10" opacity="0.92">what if breakfast felt like a</text>
+  <text x="88" y="208" font-size="21" fill="#2d1a10" opacity="0.92" font-weight="600" text-decoration="underline">love letter?</text>
+
+  <text x="88" y="262" font-size="21" fill="#2d1a10" opacity="0.88">French Toast opened its doors in</text>
+  <text x="88" y="298" font-size="21" fill="#2d1a10" opacity="0.88">Panampilly Nagar, Kochi.</text>
+  <text x="88" y="334" font-size="21" fill="#2d1a10" opacity="0.88">A little space that felt like home.</text>
+
+  <text x="88" y="388" font-size="21" fill="#2d1a10" opacity="0.88">Every dish — made fresh, that</text>
+  <text x="88" y="424" font-size="21" fill="#2d1a10" opacity="0.88">morning. Nothing from a packet.</text>
+  <text x="88" y="460" font-size="21" fill="#2d1a10" opacity="0.88">Nothing microwaved. We mean it.</text>
+
+  <text x="88" y="514" font-size="21" fill="#2d1a10" opacity="0.88">Kochi told its friends. Word spread.</text>
+  <text x="88" y="550" font-size="21" fill="#2d1a10" opacity="0.88">And this little nook became a</text>
+  <text x="88" y="586" font-size="21" fill="#2d1a10" opacity="0.88">neighbourhood institution.</text>
+
+  <!-- Divider -->
+  <line x1="88" y1="618" x2="380" y2="618" stroke="#c8b89a" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Signature -->
+  <text x="88" y="650" font-size="28" font-weight="700" fill="#3a2218" transform="rotate(-1.2, 88, 650)">The French Toast Team</text>
+  <text x="88" y="680" font-size="16" fill="#6b5040" opacity="0.6">Panampilly Nagar · Kacheripady, Kochi</text>
+
+  <!-- Doodles -->
+  <text x="440" y="160" font-size="28" opacity="0.15" transform="rotate(12, 440, 160)">☕</text>
+  <text x="450" y="520" font-size="22" opacity="0.12" transform="rotate(-8, 450, 520)">♥</text>
+  <text x="460" y="340" font-size="18" opacity="0.1" transform="rotate(5, 460, 340)">✦</text>
+</svg>
