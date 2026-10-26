@@ -5,46 +5,79 @@
 
 .proof {
   background: var(--warm-white);
-  padding: var(--sp-16) 0;
+  padding: clamp(4rem, 8vw, 6rem) 0;
 }
 
-.proof .section-eyebrow {
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.proof-header {
   text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-.proof h2 {
-  text-align: center;
-  margin-bottom: var(--sp-12);
-}
-
-/* ── Stats Grid ─────────────────────────────────────────────────────────── */
-.proof-stats {
+.proof-eyebrow {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: var(--sp-8);
-  margin: var(--sp-10) 0 var(--sp-8);
-  text-align: center;
-}
-
-.proof-stat {
-  padding: var(--sp-6);
-}
-
-.proof-num {
-  font-family: var(--font-display);
-  font-size: var(--text-h1);
-  line-height: 1;
-  color: var(--espresso);
-  margin-bottom: var(--sp-3);
-}
-
-.proof-label {
-  margin-top: var(--sp-3);
-  font-size: var(--text-xs);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light, #8A7F73);
+  margin-bottom: 1rem;
+}
+
+.proof-eyebrow::before,
+.proof-eyebrow::after {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.proof-heading {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #2B2B2B;
+  margin: 0 0 1.25rem;
+}
+
+.proof-heading em {
+  font-style: italic;
+  color: #B8864B;
+}
+
+/* ── Price Pill ─────────────────────────────────────────────────────────── */
+.proof-price-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  border: 1px solid rgba(43, 43, 43, 0.15);
+  border-radius: 999px;
+  padding: 0.5rem 1.125rem;
+}
+
+.proof-price-amount {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: 500;
+  color: #2B2B2B;
+  line-height: 1;
+}
+
+.proof-price-label {
+  font-family: var(--font-body, 'Poppins', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8A7F73;
+  line-height: 1;
 }
 
 /* ── Animated Stars ─────────────────────────────────────────────────────── */
@@ -81,7 +114,7 @@
 .proof-marquee {
   overflow: hidden;
   padding: var(--sp-4) 0;
-  margin: var(--sp-16) 0 var(--sp-8);
+  margin: 0 0 var(--sp-8);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
@@ -141,9 +174,8 @@
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
-  .proof-stats {
-    grid-template-columns: 1fr;
-    gap: var(--sp-10);
+  .proof-heading {
+    font-size: clamp(1.9rem, 8vw, 2.2rem);
   }
 }
 

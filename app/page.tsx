@@ -308,18 +308,17 @@ export default function Home() {
         <section className="proof section" aria-labelledby="proof-heading">
           <div className="container">
             <ScrollReveal>
-              <p className="section-eyebrow">Loved in Kochi</p>
-              <h2 id="proof-heading">
-                What Kochi <em>says about us.</em>
-              </h2>
-            </ScrollReveal>
-
-            <div className="proof-stats">
-              <div className="proof-stat">
-                <p className="proof-num">₹200–1,000</p>
-                <p className="proof-label">Per person</p>
+              <div className="proof-header">
+                <p className="proof-eyebrow">Loved in Kochi</p>
+                <h2 className="proof-heading" id="proof-heading">
+                  What Kochi <em>says about us.</em>
+                </h2>
+                <div className="proof-price-pill">
+                  <span className="proof-price-amount">₹200 – ₹1,000</span>
+                  <span className="proof-price-label">per person</span>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           <div className="proof-marquee" aria-label="Guest reviews">
