@@ -23,13 +23,21 @@ export default function Home() {
   const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
   const [isMobile, setIsMobile] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [paperLoaded, setPaperLoaded] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
     window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    
+    // Give the paper component 2 seconds to load
+    const timer = setTimeout(() => setPaperLoaded(true), 500)
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+      clearTimeout(timer)
+    }
   }, [])
 
   return (
@@ -121,7 +129,21 @@ export default function Home() {
                 }}>
                   Hold to crumple · drag to move
                 </p>
-                {typeof window !== 'undefined' && (
+                {!paperLoaded && (
+                  <div style={{ 
+                    width: isMobile ? '340px' : '850px',
+                    height: isMobile ? '480px' : '1100px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'rgba(0,0,0,0.03)',
+                    borderRadius: '4px'
+                  }}>
+                    <p style={{ color: 'var(--ink-light)', opacity: 0.5 }}>Loading...</p>
+                  </div>
+                )}
+                {paperLoaded && typeof window !== 'undefined' && (
                   <PaperCrumple
                     src="/our-story-paper.svg"
                     alt="Our Story — handwritten on paper"
