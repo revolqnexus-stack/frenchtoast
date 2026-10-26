@@ -8,7 +8,6 @@ import SplitText from './components/SplitText'
 import TextLoop from './components/TextLoop'
 import InfiniteMarquee from './components/InfiniteMarquee'
 import HoverCard from './components/HoverCard'
-import CountUp from './components/CountUp'
 import ImageCarousel from './components/ImageCarousel'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
@@ -227,55 +226,39 @@ export default function Home() {
         </section>
 
         {/* Social Proof / Reviews */}
-        {/* NOTE: Review stats temporarily disabled pending verification - see CONTENT_AUDIT.md */}
         <section className="proof section" aria-labelledby="proof-heading">
           <div className="container">
-            <p className="section-eyebrow">Loved in Kochi</p>
-            <h2 id="proof-heading">
-              What Kochi <em>says about us.</em>
-            </h2>
+            <ScrollReveal>
+              <p className="section-eyebrow">Loved in Kochi</p>
+              <h2 id="proof-heading">
+                What Kochi <em>says about us.</em>
+              </h2>
+            </ScrollReveal>
 
-            {/* Animated Stats */}
             <div className="proof-stats">
               <div className="proof-stat">
-                <p className="proof-num">
-                  ₹<CountUp end={200} duration={2} />–₹<CountUp end={1000} duration={2} separator="," />
-                </p>
+                <p className="proof-num">₹200–1,000</p>
                 <p className="proof-label">Per person</p>
               </div>
             </div>
           </div>
 
-          {/* Infinite Marquee Reviews */}
-          <div className="proof-marquee" aria-label="Guest reviews" style={{ marginTop: '3rem' }}>
-            <InfiniteMarquee speed={30} pauseOnHover={true}>
-              <div style={{ display: 'flex', gap: '2rem', padding: '0 1rem' }}>
-                <div className="proof-card" style={{ minWidth: '400px' }}>
-                  <p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p>
-                  <span>Priya M. · ★★★★★</span>
-                </div>
-                <div className="proof-card" style={{ minWidth: '400px' }}>
-                  <p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p>
-                  <span>Arjun K. · ★★★★★</span>
-                </div>
-                <div className="proof-card" style={{ minWidth: '400px' }}>
-                  <p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p>
-                  <span>Anjali R. · ★★★★★</span>
-                </div>
-                <div className="proof-card" style={{ minWidth: '400px' }}>
-                  <p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p>
-                  <span>Rohan S. · ★★★★★</span>
-                </div>
-                <div className="proof-card" style={{ minWidth: '400px' }}>
-                  <p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p>
-                  <span>Maya T. · ★★★★★</span>
-                </div>
-                <div className="proof-card" style={{ minWidth: '400px' }}>
-                  <p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p>
-                  <span>Vikram P. · ★★★★★</span>
-                </div>
-              </div>
-            </InfiniteMarquee>
+          <div className="proof-marquee" aria-label="Guest reviews">
+            <ul className="proof-track">
+              <li className="proof-card"><p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p><span>Priya M. · ★★★★★</span></li>
+              <li className="proof-card"><p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p><span>Arjun K. · ★★★★★</span></li>
+              <li className="proof-card"><p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p><span>Anjali R. · ★★★★★</span></li>
+              <li className="proof-card"><p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p><span>Rohan S. · ★★★★★</span></li>
+              <li className="proof-card"><p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p><span>Maya T. · ★★★★★</span></li>
+              <li className="proof-card"><p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p><span>Vikram P. · ★★★★★</span></li>
+              {/* Duplicated for seamless loop */}
+              <li className="proof-card" aria-hidden="true"><p>"Best French toast I've ever had. The Nutella French toast is absolutely incredible. Staff are very nice and welcoming."</p><span>Priya M. · ★★★★★</span></li>
+              <li className="proof-card" aria-hidden="true"><p>"Every single dish was fresh and filled with flavor. The Dubai French toast was crazy tasty! Great to see the owner helping out."</p><span>Arjun K. · ★★★★★</span></li>
+              <li className="proof-card" aria-hidden="true"><p>"Outstanding service, warm environment and delicious food! The chicken and waffles were exceptional. A hidden gem!"</p><span>Anjali R. · ★★★★★</span></li>
+              <li className="proof-card" aria-hidden="true"><p>"Delicious food and very kind staff! They sat us quickly and were fast with orders. Best link sausages I've ever had."</p><span>Rohan S. · ★★★★★</span></li>
+              <li className="proof-card" aria-hidden="true"><p>"SUPER nice staff and DELICIOUS food. They even had gluten free options. The egg whites omelet was amazing. 10/10!"</p><span>Maya T. · ★★★★★</span></li>
+              <li className="proof-card" aria-hidden="true"><p>"Fantastic brunch options with excellent service. The sense of community keeps us coming back. Great atmosphere!"</p><span>Vikram P. · ★★★★★</span></li>
+            </ul>
           </div>
 
           <p className="proof-link">

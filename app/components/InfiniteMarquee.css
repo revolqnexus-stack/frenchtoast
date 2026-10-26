@@ -1,0 +1,23 @@
+.im-root {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+}
+
+.im-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0;
+  animation: im-scroll var(--im-duration, 40s) linear infinite;
+  animation-direction: var(--im-direction, normal);
+}
+
+.im-root[data-pause='true']:hover .im-track {
+  animation-play-state: paused;
+}
+
+@keyframes im-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}

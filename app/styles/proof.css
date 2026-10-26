@@ -19,10 +19,10 @@
 
 /* ── Stats Grid ─────────────────────────────────────────────────────────── */
 .proof-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: var(--sp-8);
-  margin: var(--sp-16) 0;
+  margin: var(--sp-10) 0 var(--sp-8);
   text-align: center;
 }
 
