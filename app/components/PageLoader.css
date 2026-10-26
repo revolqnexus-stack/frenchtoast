@@ -1,3 +1,6 @@
+/* Poppins font preload */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+
 /* Storefront Loader - Matches actual sign */
 
 .storefront-loader {
@@ -153,9 +156,6 @@
   margin: 0;
   opacity: 0.75;
 }
-
-/* Poppins font preload */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
