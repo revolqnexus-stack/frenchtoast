@@ -334,7 +334,7 @@
     display: flex;
   }
 
-  /* On mobile, solid nav fills full width — no floating pill */
+  /* On mobile, solid nav needs stronger blur and better fallback */
   .site-nav--solid {
     top: 0;
     left: 0;
@@ -345,5 +345,34 @@
     border-left: none;
     border-right: none;
     border-top: none;
+    
+    /* Enhanced glassmorphism for mobile */
+    background: rgba(247, 242, 232, 0.85);
+    backdrop-filter: blur(16px) saturate(1.6);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5),
+      0 2px 12px rgba(53, 37, 31, 0.12);
+  }
+  
+  .site-nav--solid.site-nav--on-dark {
+    background: rgba(53, 37, 31, 0.75);
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+    border-color: rgba(247, 242, 232, 0.12);
+    box-shadow:
+      0 1px 0 rgba(247, 242, 232, 0.06),
+      0 2px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Fallback for browsers that don't support backdrop-filter well */
+  @supports not (backdrop-filter: blur(10px)) {
+    .site-nav--solid {
+      background: rgba(247, 242, 232, 0.95);
+    }
+    
+    .site-nav--solid.site-nav--on-dark {
+      background: rgba(53, 37, 31, 0.92);
+    }
   }
 }
