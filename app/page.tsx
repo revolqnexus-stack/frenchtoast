@@ -12,6 +12,7 @@ import TextLoop from './components/TextLoop'
 import InfiniteMarquee from './components/InfiniteMarquee'
 import HoverCard from './components/HoverCard'
 import ImageCarousel from './components/ImageCarousel'
+import SplitFlapText from './components/SplitFlapText'
 import Link from 'next/link'
 import { BUSINESS_INFO } from '@/config/business'
 import dynamic from 'next/dynamic'
@@ -138,78 +139,78 @@ export default function Home() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: 'rgba(0,0,0,0.03)',
-                    borderRadius: '4px',
-                    gap: '1rem'
+                    background: 'linear-gradient(135deg, #fef9f0 0%, #f7f0e2 100%)',
+                    borderRadius: '12px',
+                    gap: '2rem',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
                   }}>
-                    <p style={{ color: 'var(--ink-light)', opacity: 0.5 }}>Loading paper...</p>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--ink-light)', opacity: 0.3 }}>
-                      {typeof window !== 'undefined' ? 'Browser ready' : 'SSR mode'}
+                    <SplitFlapText
+                      words={['FRENCH TOAST', 'GOOD MORNINGS', 'START HERE']}
+                      flipDuration={0.14}
+                      stagger={0.08}
+                      cycleDelay={1800}
+                      charset="alpha"
+                      flipsPerChar={12}
+                      order="center"
+                      align="center"
+                      tileStyle="board"
+                      tileColor="#8B7355"
+                      textColor="#fef9f0"
+                      glare={0.6}
+                      depth={0.8}
+                      tileRadius={6}
+                      gap={4}
+                      fontSize={isMobile ? 28 : 42}
+                      loop
+                      padTo={13}
+                      intro
+                    />
+                    <p style={{ 
+                      fontSize: isMobile ? '0.7rem' : '0.85rem', 
+                      color: '#8B7355', 
+                      opacity: 0.6,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      fontWeight: 600
+                    }}>
+                      Loading our story...
                     </p>
                   </div>
                 )}
-                {paperLoaded && typeof window === 'undefined' && (
-                  <div style={{ 
-                    width: isMobile ? '340px' : '850px',
-                    height: isMobile ? '480px' : '1100px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: 'rgba(255,0,0,0.1)',
-                    borderRadius: '4px'
-                  }}>
-                    <p style={{ color: 'red' }}>Window not available (SSR issue)</p>
-                  </div>
-                )}
-                {paperLoaded && typeof window !== 'undefined' && (
-                  <div style={{ position: 'relative' }}>
-                    <div style={{
-                      position: 'absolute',
-                      top: '-30px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      fontSize: '0.7rem',
-                      color: 'var(--ink-light)',
-                      opacity: 0.4
-                    }}>
-                      Component rendering...
-                    </div>
-                    <PaperCrumple
-                      src="/our-story-paper.svg"
-                      alt="Our Story — handwritten on paper"
-                      width={isMobile ? 340 : 850}
-                      height={isMobile ? 480 : 1100}
-                      sceneHeight={isMobile ? 520 : 1150}
-                      paperColor="#f7f0e2"
-                      releaseBehavior="restore"
-                      crumpleAmount={0.88}
-                      crumpleDuration={0.6}
-                      releaseDuration={0.5}
-                      foldCount={7}
-                      foldSharpness={0.5}
-                      wrinkleDepth={0.7}
-                      creaseStrength={0.2}
-                      roughness={0.95}
-                      paperTexture={0.12}
-                      lightIntensity={1.9}
-                      lightAngle={-30}
-                      shadow={true}
-                      shadowOpacity={0.1}
-                      draggable={true}
-                      dragRotation={8}
-                      dragRadius={isMobile ? 80 : 200}
-                      returnToOrigin={true}
-                      seed={13}
-                      detail={64}
-                      style={{ 
-                        background: 'transparent',
-                        width: '100%',
-                        height: 'auto',
-                      }}
-                      onError={(err) => console.error('PaperCrumple error:', err)}
-                    />
-                  </div>
+                {paperLoaded && (
+                  <PaperCrumple
+                    src="/our-story-paper.svg"
+                    alt="Our Story — handwritten on paper"
+                    width={isMobile ? 340 : 850}
+                    height={isMobile ? 480 : 1100}
+                    sceneHeight={isMobile ? 520 : 1150}
+                    paperColor="#f7f0e2"
+                    releaseBehavior="restore"
+                    crumpleAmount={0.88}
+                    crumpleDuration={0.6}
+                    releaseDuration={0.5}
+                    foldCount={7}
+                    foldSharpness={0.5}
+                    wrinkleDepth={0.7}
+                    creaseStrength={0.2}
+                    roughness={0.95}
+                    paperTexture={0.12}
+                    lightIntensity={1.9}
+                    lightAngle={-30}
+                    shadow={true}
+                    shadowOpacity={0.1}
+                    draggable={true}
+                    dragRotation={8}
+                    dragRadius={isMobile ? 80 : 200}
+                    returnToOrigin={true}
+                    seed={13}
+                    detail={64}
+                    style={{ 
+                      background: 'transparent',
+                      width: '100%',
+                      height: 'auto',
+                    }}
+                  />
                 )}
               </ScrollReveal>
             </div>
