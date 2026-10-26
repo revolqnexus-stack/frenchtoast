@@ -504,6 +504,138 @@
   overflow: hidden;
 }
 
+/* ── E.5: Reviews — social proof testimonials ──────────────────────────────── */
+.reviews {
+  background: var(--warm-white);
+  padding-block: var(--sp-32);
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+}
+
+.reviews-header .eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--roasted);
+  opacity: 0.7;
+  margin-bottom: var(--sp-4);
+}
+
+.reviews-header h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  margin-bottom: var(--sp-3);
+}
+
+.reviews-header h2 em {
+  font-style: italic;
+  color: var(--roasted);
+}
+
+.reviews-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ink);
+}
+
+.reviews-rating-stars {
+  display: flex;
+  gap: 2px;
+  color: var(--butter);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.review-card {
+  background: var(--paper);
+  padding: var(--sp-6);
+  border-radius: var(--r-md);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med) var(--ease-out);
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(53,37,31,0.08);
+}
+
+.review-stars {
+  display: flex;
+  gap: 2px;
+  color: var(--butter);
+  font-size: 0.95rem;
+}
+
+.review-text {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  flex: 1;
+}
+
+.review-author {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--espresso);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.review-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xxs);
+  font-weight: 500;
+  color: var(--ink-light);
+}
+
+.review-verified svg {
+  width: 14px;
+  height: 14px;
+  color: #4285f4;
+}
+
+/* ── E.5: Reviews responsive ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    padding: var(--sp-5);
+  }
+}
+
 .atmosphere-header {
   display: flex;
   justify-content: space-between;
