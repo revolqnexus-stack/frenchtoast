@@ -12,14 +12,18 @@ export default function PageLoader() {
   const [visible, setVisible] = useState(true)
   const [showAurora, setShowAurora] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
-  const logoRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLDivElement>(null)
+  const lineRef = useRef<HTMLDivElement>(null)
+  const subRef = useRef<HTMLParagraphElement>(null)
   const auroraRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const overlay = overlayRef.current
-    const logo = logoRef.current
+    const text = textRef.current
+    const line = lineRef.current
+    const sub = subRef.current
     const aurora = auroraRef.current
-    if (!overlay || !logo) return
+    if (!overlay || !text || !line || !sub) return
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     
@@ -45,17 +49,20 @@ export default function PageLoader() {
 
     if (prefersReduced) {
       // Simple fade for reduced motion
-      gsap.set(logo, { opacity: 1, y: 0 })
+      gsap.set([text, line, sub], { opacity: 1, y: 0 })
       tl.to({}, { duration: 0.8 })
     } else {
       // Full animation with Aurora fade-in
-      gsap.set(logo, { opacity: 0, y: 20 })
+      gsap.set([text, line, sub], { opacity: 0 })
+      gsap.set(line, { scaleX: 0, transformOrigin: 'left center' })
       if (aurora) gsap.set(aurora, { opacity: 0 })
 
       tl
         .to(aurora, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 0)
-        .to(logo, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 0.2)
-        .to({}, { duration: 1 })
+        .to(text, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 0.1)
+        .to(line, { opacity: 1, scaleX: 1, duration: 0.7, ease: 'power3.inOut' }, 0.55)
+        .to(sub, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.8)
+        .to({}, { duration: 0.8 })
     }
   }, [])
 
@@ -81,46 +88,15 @@ export default function PageLoader() {
       {/* Film grain */}
       <div className="page-loader__grain" />
 
-      {/* Crumpled Paper Texture */}
-      <div className="page-loader__paper-texture" />
-
-      {/* Logo matching reference */}
-      <div ref={logoRef} className="page-loader__logo">
-        {/* Toast Icon (top-right) */}
-        <svg 
-          className="page-loader__toast-icon"
-          viewBox="0 0 100 100" 
-          fill="none"
-        >
-          {/* Back slice (darker) */}
-          <path 
-            d="M 58 25 C 58 20 60 15 65 13 C 70 11 75 12 78 15 L 85 50 C 86 55 84 60 80 63 C 76 66 70 66 65 64 L 58 25 Z" 
-            fill="#E3A55A"
-          />
-          {/* Front slice (main yellow) */}
-          <path 
-            d="M 45 20 C 45 15 47 10 52 8 C 57 6 62 7 65 10 L 72 45 C 73 50 71 55 67 58 C 63 61 57 61 52 59 L 45 20 Z" 
-            fill="#F2B94B"
-          />
-          {/* Crust edge highlight */}
-          <path 
-            d="M 47 19 C 47 16 48 13 51 11 C 53 10 56 10 58 12" 
-            stroke="#FCD889" 
-            strokeWidth="2" 
-            strokeLinecap="round"
-            fill="none"
-          />
-        </svg>
-
-        {/* Wordmark */}
-        <div className="page-loader__wordmark">
-          french toast
+      {/* Content (text) */}
+      <div className="page-loader__inner">
+        <div ref={textRef} className="page-loader__wordmark" style={{ transform: 'translateY(20px)' }}>
+          french<br />toast
         </div>
-        
-        {/* Subline */}
-        <div className="page-loader__subline">
-          BAKERY & KITCHEN
-        </div>
+        <div ref={lineRef} className="page-loader__line" />
+        <p ref={subRef} className="page-loader__sub" style={{ transform: 'translateY(8px)' }}>
+          BAKERY , KITCHEN & STUDIO
+        </p>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   FRENCH TOAST — Page Loader (Match Logo)
-   ─────────────────────────────────────────────────────────────────────────── */
+/* Poppins font preload */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+/* ── Page Loader ─────────────────────────────────────────────────────────── */
 .page-loader {
   position: fixed;
   inset: 0;
@@ -9,12 +9,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F5F1E8; /* Cream background */
+  background: #ebe4d8;
   overflow: hidden;
-  isolation: isolate;
 }
 
-/* ── Aurora Background ─────────────────────────────────────────────────────── */
+/* Aurora background layer */
 .page-loader__aurora {
   position: absolute;
   inset: 0;
@@ -22,128 +21,174 @@
   opacity: 0;
 }
 
-/* ── Vignette Overlay ──────────────────────────────────────────────────────── */
+/* Strong crumpled paper texture base with visible folds */
+.page-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: 
+    /* Large fold shadows */
+    radial-gradient(ellipse 400px 300px at 25% 35%, rgba(0, 0, 0, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 350px 280px at 70% 55%, rgba(0, 0, 0, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 380px 250px at 45% 75%, rgba(0, 0, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 300px 220px at 80% 25%, rgba(0, 0, 0, 0.09) 0%, transparent 55%),
+    /* Fold highlights */
+    radial-gradient(ellipse 320px 240px at 15% 60%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 280px 200px at 60% 40%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 260px 190px at 85% 70%, rgba(255, 255, 255, 0.55) 0%, transparent 50%),
+    /* Medium crumples */
+    radial-gradient(ellipse 180px 140px at 35% 20%, rgba(0, 0, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 160px 120px at 55% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 140px 110px at 20% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+    /* Age stains */
+    radial-gradient(circle at 12% 18%, rgba(139, 101, 56, 0.18) 0%, transparent 12%),
+    radial-gradient(circle at 88% 65%, rgba(120, 85, 45, 0.15) 0%, transparent 10%),
+    radial-gradient(circle at 42% 88%, rgba(130, 95, 50, 0.12) 0%, transparent 14%),
+    /* Base paper color with subtle gradient */
+    linear-gradient(135deg, #f5f1e8 0%, #ebe4d8 50%, #e8dcc4 100%);
+  pointer-events: none;
+}
+
+/* Strong crease lines across the paper */
+.page-loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    /* Major diagonal creases */
+    linear-gradient(28deg, transparent 48%, rgba(0, 0, 0, 0.08) 49%, rgba(0, 0, 0, 0.08) 51%, transparent 52%),
+    linear-gradient(-42deg, transparent 47%, rgba(255, 255, 255, 0.4) 48.5%, rgba(255, 255, 255, 0.4) 51.5%, transparent 53%),
+    linear-gradient(68deg, transparent 46%, rgba(0, 0, 0, 0.06) 48%, rgba(0, 0, 0, 0.06) 52%, transparent 54%),
+    /* Horizontal crumple line */
+    linear-gradient(180deg, transparent 53%, rgba(0, 0, 0, 0.05) 54%, rgba(0, 0, 0, 0.05) 56%, transparent 57%),
+    /* Subtle cross-hatching for paper fiber */
+    repeating-linear-gradient(
+      35deg,
+      transparent,
+      transparent 3px,
+      rgba(92, 64, 32, 0.02) 3px,
+      rgba(92, 64, 32, 0.02) 4px
+    ),
+    repeating-linear-gradient(
+      -35deg,
+      transparent,
+      transparent 3px,
+      rgba(92, 64, 32, 0.015) 3px,
+      rgba(92, 64, 32, 0.015) 4px
+    );
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Paper grain overlay */
+.page-loader__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Soft vignette */
 .page-loader__vignette {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: radial-gradient(
     circle at center,
     transparent 0%,
     transparent 40%,
-    rgba(53, 37, 31, 0.08) 100%
+    rgba(43, 43, 43, 0.08) 100%
   );
   pointer-events: none;
-  z-index: 1;
 }
 
-/* ── Film Grain Texture ────────────────────────────────────────────────────── */
-.page-loader__grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* ── Crumpled Paper Texture ────────────────────────────────────────────────── */
-.page-loader__paper-texture {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.15;
-  background-image:
-    linear-gradient(120deg, transparent 0%, rgba(53, 37, 31, 0.04) 25%, transparent 50%, rgba(53, 37, 31, 0.06) 75%, transparent 100%),
-    linear-gradient(-60deg, transparent 0%, rgba(53, 37, 31, 0.03) 20%, transparent 40%, rgba(53, 37, 31, 0.05) 60%, transparent 80%, rgba(53, 37, 31, 0.04) 100%),
-    radial-gradient(circle at 20% 30%, rgba(53, 37, 31, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(53, 37, 31, 0.06) 0%, transparent 35%),
-    radial-gradient(circle at 50% 50%, rgba(53, 37, 31, 0.03) 0%, transparent 60%);
-  background-size: 120% 120%, 150% 150%, 80% 80%, 70% 70%, 100% 100%;
-  background-position: 0% 0%, 100% 100%, 20% 30%, 80% 70%, 50% 50%;
-  mix-blend-mode: multiply;
-}
-
-/* ── Logo Container (matching reference) ───────────────────────────────────── */
-.page-loader__logo {
+.page-loader__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
   position: relative;
-  z-index: 2;
-  width: min(80vw, 640px);
-  margin: 0 auto;
+  z-index: 10;
 }
 
-/* ── Toast Icon (top-right, tilted) ────────────────────────────────────────── */
-.page-loader__toast-icon {
+/* Peach/orange circle accent */
+.page-loader__inner::before {
+  content: '';
   position: absolute;
-  width: clamp(60px, 12vw, 90px);
-  height: clamp(60px, 12vw, 90px);
-  top: -10px;
-  right: -15px;
-  transform: rotate(8deg);
+  top: -60px;
+  right: -40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4a460 0%, #e88e3a 100%);
+  opacity: 0.8;
+  animation: pulse-circle 2s ease-in-out infinite;
   z-index: 3;
 }
 
-/* ── Wordmark (heavy, tight, geometric sans) ───────────────────────────────── */
+@keyframes pulse-circle {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+
 .page-loader__wordmark {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 900; /* Extra bold */
-  font-size: clamp(3rem, 10vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em; /* Tight kerning */
-  color: #0D0D0D; /* Black from reference */
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  color: #2B2B2B;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  padding-right: 0.1em;
   text-transform: lowercase;
-  margin: 0;
-  padding: 0;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-/* ── Subline (thin, wide tracking) ─────────────────────────────────────────── */
-.page-loader__subline {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 200; /* Thin */
-  font-size: clamp(0.625rem, 1.8vw, 1rem);
-  line-height: 1;
-  letter-spacing: 0.4em; /* Very wide tracking */
-  color: #0D0D0D; /* Black from reference */
+.page-loader__line {
+  width: clamp(120px, 30vw, 260px);
+  height: 2px;
+  margin-top: clamp(1.2rem, 3vw, 2rem);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(107, 80, 64, 0.3) 40%,
+    rgba(107, 80, 64, 0.3) 60%,
+    transparent
+  );
+  position: relative;
+  z-index: 3;
+}
+
+.page-loader__sub {
+  margin-top: clamp(0.8rem, 2vw, 1.2rem);
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-top: 0.25rem;
-  padding: 0;
+  color: rgba(107, 80, 64, 0.7);
   position: relative;
-  z-index: 2;
-  /* Match wordmark left edge and stretch to same width */
-  width: 100%;
-  text-align: left;
-  padding-left: 0.05em; /* Fine-tune alignment */
+  z-index: 3;
 }
 
-/* ── Responsive Adjustments ────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .page-loader__logo {
-    width: min(90vw, 640px);
-  }
-  
-  .page-loader__toast-icon {
-    width: clamp(50px, 15vw, 70px);
-    height: clamp(50px, 15vw, 70px);
-    top: -5px;
-    right: -10px;
-  }
-  
-  .page-loader__wordmark {
-    font-size: clamp(2.5rem, 12vw, 4rem);
-  }
-  
-  .page-loader__subline {
-    font-size: clamp(0.5rem, 2.2vw, 0.8rem);
-    letter-spacing: 0.3em;
-  }
-}
-
-/* ── Reduced Motion ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .page-loader__aurora,
-  .page-loader__grain {
+  .page-loader__inner::before { 
+    animation: none;
+    opacity: 0.8;
+  }
+  
+  .page-loader__aurora {
     display: none;
   }
 }
+
+
+
