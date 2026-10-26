@@ -83,7 +83,7 @@ export default function GoogleReviews({
 
   // Auto-advance carousel
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying || reviews.length <= 1) return
 
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % reviews.length)
