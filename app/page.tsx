@@ -18,7 +18,7 @@ export default function Home() {
             <img
               src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
               alt="Strawberry French Toast with whipped cream and maple syrup"
-              fetchpriority="high"
+              fetchPriority="high"
               width="1400"
               height="933"
             />
@@ -230,17 +230,6 @@ export default function Home() {
             </a>
           </p>
         </section>
-
-        {/* Continue with remaining sections... */}
-      </main>
-
-      <Footer />
-      <WhatsAppButton />
-      <MainScripts />
-      <MotionEffects />
-    </>
-  )
-}
 
         {/* Moment Section */}
         <section className="moment" aria-labelledby="moment-heading">

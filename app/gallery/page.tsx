@@ -52,8 +52,9 @@ export default function GalleryPage() {
       })
 
       tile.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
+        const event = e as KeyboardEvent
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
           tile.dispatchEvent(new Event('click'))
         }
       })
