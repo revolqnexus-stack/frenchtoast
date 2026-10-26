@@ -367,7 +367,7 @@
 
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 .site-footer {
-  background: var(--espresso);
+  background: linear-gradient(160deg, #1a0e0a 0%, var(--espresso) 40%, var(--roasted) 100%);
   color: var(--paper);
   padding: var(--sp-20) var(--margin-h) var(--sp-10);
 }
