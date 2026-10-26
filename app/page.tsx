@@ -49,13 +49,29 @@ export default function Home() {
         {/* Hero Section */}
         <section className="hero" aria-label="Welcome to French Toast">
           <div className="hero-visual" aria-hidden="true">
-            <img
-              src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
-              alt="French Toast signature dish with fresh berries and cream"
-              fetchPriority="high"
-              width="1400"
-              height="933"
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            >
+              <source src="/hero/hero video.mp4" type="video/mp4" />
+              {/* Fallback image if video doesn't load */}
+              <img
+                src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
+                alt="French Toast signature dish"
+                width="1400"
+                height="933"
+              />
+            </video>
           </div>
 
           <div className="hero-content">

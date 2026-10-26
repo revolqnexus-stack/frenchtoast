@@ -10,14 +10,15 @@
   background: var(--espresso);
 }
 
-/* Image fills the full hero */
+/* Image/Video fills the full hero */
 .hero-visual {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.hero-visual img {
+.hero-visual img,
+.hero-visual video {
   width: 100%;
   height: 100%;
   object-fit: cover;
