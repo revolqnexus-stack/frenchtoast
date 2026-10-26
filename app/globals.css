@@ -5,4 +5,5 @@
 @import './styles/pages.css';
 @import './styles/menu-page.css';
 @import './styles/proof.css';
-@import './styles/motion.css';
+/* Motion.css temporarily disabled - was hiding content */
+/* @import './styles/motion.css'; */

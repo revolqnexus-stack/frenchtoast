@@ -18,15 +18,16 @@ export default function MenuPage() {
     dataScript.async = true
     document.body.appendChild(dataScript)
 
-    const motionScript = document.createElement('script')
-    motionScript.src = '/assets/js/motion.js'
-    motionScript.async = true
-    document.body.appendChild(motionScript)
+    // Motion.js disabled - was causing disappearing content issues
+    // const motionScript = document.createElement('script')
+    // motionScript.src = '/assets/js/motion.js'
+    // motionScript.async = true
+    // document.body.appendChild(motionScript)
 
     return () => {
       document.body.removeChild(menuScript)
       document.body.removeChild(dataScript)
-      document.body.removeChild(motionScript)
+      // document.body.removeChild(motionScript)
     }
   }, [])
 
