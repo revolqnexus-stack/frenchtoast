@@ -35,15 +35,15 @@ export default function AboutPage() {
             <div className="about-opening-inner">
               <div className="about-opening-text">
                 <h2 className="about-nook-headline">
-                  A place that
+                  A place for
                   <br />
-                  feels like <em>home.</em>
+                  <em>good mornings.</em>
                 </h2>
                 <p className="">
-                  French Toast started as a dream to create a place that felt genuinely welcoming — where the food was worth talking about and the atmosphere made you want to stay a little longer.
+                  French Toast is a breakfast and brunch café in Kochi, known for wholesome food, quality coffee, and a welcoming atmosphere.
                 </p>
                 <p className="">
-                  Today it's a favourite gathering spot in Panampilly Nagar for food lovers, early risers and anyone who believes a good meal is worth slowing down for.
+                  With locations in Panampilly Nagar and Kacheripady, we've become a favourite spot for food lovers, early risers and anyone who believes a good meal is worth slowing down for.
                 </p>
                 <p className="">Every dish is made fresh, every morning. Nothing processed, nothing rushed.</p>
               </div>
@@ -67,17 +67,17 @@ export default function AboutPage() {
           <div className="container">
             <div className="about-story-inner">
               <div className="about-story-text">
-                <p className="eyebrow">How it started</p>
+                <p className="eyebrow">What we serve</p>
                 <h2>
-                  Born from a love
+                  Made with care,
                   <br />
-                  for <em>honest food</em>
+                  <em>served with warmth</em>
                 </h2>
                 <p>
-                  The idea was simple: take the things people love most about breakfast — warmth, generosity, comfort — and make them into something worth getting out of bed for.
+                  Our menu features breakfast classics, all-day brunch options, fresh salads, hearty sandwiches, and of course — French toast prepared several ways.
                 </p>
                 <p>
-                  French toast seemed like the perfect starting point. An everyday ingredient transformed by a little care and attention. That became the philosophy for everything on the menu.
+                  We focus on fresh ingredients, quality preparation, and dishes that taste like they were made with attention. That's what brings people back.
                 </p>
                 <Link href="/menu" className="btn btn--ghost-light" style={{ marginTop: 'var(--sp-4)' }}>
                   Explore the Menu

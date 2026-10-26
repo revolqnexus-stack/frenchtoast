@@ -3,12 +3,11 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
+import Link from 'next/link'
 import { useEffect } from 'react'
-import { BUSINESS_INFO, getPrimaryLocation, getPhoneLink } from '@/config/business'
+import { BUSINESS_INFO } from '@/config/business'
 
 export default function ContactPage() {
-  const location = getPrimaryLocation()
-
   useEffect(() => {
     // Load contact form script
     const script = document.createElement('script')
@@ -84,26 +83,42 @@ export default function ContactPage() {
               {/* Info */}
               <div className="contact-info-col">
                 <div className="contact-card">
-                  <h3>Visit Us</h3>
+                  <h3>Reach Us</h3>
 
                   <div className="contact-detail">
                     <div className="contact-detail-content">
-                      <p className="contact-detail-label">Address</p>
+                      <p className="contact-detail-label">Email</p>
                       <p className="contact-detail-value">
-                        {location.address.line1},
-                        <br />
-                        {location.address.line2},
-                        <br />
-                        {location.address.city}, {location.address.state} {location.address.pincode}
+                        <a href={`mailto:${BUSINESS_INFO.contact.email}`}>
+                          {BUSINESS_INFO.contact.email}
+                        </a>
                       </p>
                     </div>
                   </div>
 
                   <div className="contact-detail">
                     <div className="contact-detail-content">
-                      <p className="contact-detail-label">Call Us</p>
+                      <p className="contact-detail-label">Locations</p>
                       <p className="contact-detail-value">
-                        <a href={getPhoneLink()}>{BUSINESS_INFO.contact.phone.display}</a>
+                        <Link href="/visit" style={{ textDecoration: 'underline' }}>
+                          View all locations & phone numbers →
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="contact-detail">
+                    <div className="contact-detail-content">
+                      <p className="contact-detail-label">Follow Us</p>
+                      <p className="contact-detail-value">
+                        <a 
+                          href={BUSINESS_INFO.contact.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: 'underline' }}
+                        >
+                          @frenchtoastindia
+                        </a>
                       </p>
                     </div>
                   </div>

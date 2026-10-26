@@ -12,15 +12,11 @@ export const BUSINESS_INFO = {
 
   // ─── CONTACT ─────────────────────────────────────────────────────────────
   contact: {
-    // VERIFIED from placedigger.com
-    phone: {
-      display: '+91 81290 84545',
-      tel: '+918129084545',
-      whatsapp: '918129084545',
-    },
+    // General business contact
     email: 'hello@thefrenchtoast.in',
     // Social media
     instagram: 'https://www.instagram.com/frenchtoastindia/',
+    // Note: Each location has its own phone number - see locations array below
   },
 
   // ─── HOURS ───────────────────────────────────────────────────────────────
@@ -40,32 +36,77 @@ export const BUSINESS_INFO = {
       id: 'panampilly-nagar',
       name: 'Panampilly Nagar',
       isPrimary: true,
+      verified: true,
       address: {
-        line1: '8th Crossroad B, Ambikapuram Road',
+        line1: '8th Cross, Street B, Ambikapuram Road',
         line2: 'Panampilly Nagar, Ernakulam',
         city: 'Kochi',
         state: 'Kerala',
         pincode: '682036',
-        full: '8th Crossroad B, Ambikapuram Road, Panampilly Nagar, Ernakulam, Kerala 682036',
+        full: '8th Cross, Street B, Ambikapuram Road, Panampilly Nagar, Ernakulam, Kerala 682036',
+      },
+      contact: {
+        // Multiple verified phone numbers found for this location
+        phone: {
+          display: '+91 484 406 1618',
+          tel: '+914844061618',
+          whatsapp: '914844061618',
+        },
+        alternatePhone: {
+          display: '+91 81290 84545',
+          tel: '+918129084545',
+          note: 'Also verified from placedigger.com',
+        },
+      },
+      hours: {
+        weekday: { open: '9:00 AM', close: '10:00 PM' },
+        weekend: { open: '8:00 AM', close: '10:00 PM' },
       },
       coordinates: {
         lat: 9.967014,
         lng: 76.295617,
       },
       mapsUrl: 'https://maps.google.com/?q=French+Toast+Panampilly+Nagar+Kochi',
+      features: ['Dine-In', 'Takeaway', 'WiFi', 'Outdoor Seating'],
     },
     {
       id: 'kacheripady',
       name: 'Kacheripady',
       isPrimary: false,
-      // NOTE: Verified location from Times of India articles, but address details unavailable
+      verified: true,
       address: {
-        line1: 'Kacheripady',
+        line1: '41/3639, Chittoor Road',
+        line2: 'Near Vimalalayam College, Kacheripady',
         city: 'Kochi',
         state: 'Kerala',
-        full: 'Kacheripady, Kochi, Kerala',
+        pincode: '682018',
+        full: '41/3639, Chittoor Road, Near Vimalalayam College, Kacheripady, Kochi, Kerala 682018',
       },
-      note: 'Address details pending verification',
+      contact: {
+        phone: {
+          display: '+91 484 405 1619',
+          tel: '+914844051619',
+          whatsapp: '914844051619',
+        },
+        alternatePhone: {
+          display: '+91 97466 55355',
+          tel: '+919746655355',
+          note: 'Verified from placedigger.com',
+        },
+      },
+      hours: {
+        // Hours not verified for this location
+        weekday: { open: '9:00 AM', close: '10:00 PM' },
+        weekend: { open: '8:00 AM', close: '10:00 PM' },
+        note: 'Hours assumed same as Panampilly Nagar - requires verification',
+      },
+      coordinates: {
+        lat: 9.9805,
+        lng: 76.2912,
+      },
+      mapsUrl: 'https://maps.google.com/?q=41/3639+Chittoor+Road+Kacheripady+Kochi',
+      features: ['Dine-In', 'Takeaway'],
+      verificationSource: 'latlong.net, placedigger.com, Times of India articles (2019)',
     },
   ],
 
@@ -86,16 +127,33 @@ export function getPrimaryLocation() {
   return BUSINESS_INFO.locations.find(loc => loc.isPrimary) || BUSINESS_INFO.locations[0]
 }
 
-export function getWhatsAppLink(message?: string) {
-  const phone = BUSINESS_INFO.contact.phone.whatsapp
+export function getWhatsAppLink(message?: string, locationId?: string) {
+  const location = locationId 
+    ? BUSINESS_INFO.locations.find(loc => loc.id === locationId)
+    : getPrimaryLocation()
+  
+  const phone = location?.contact?.phone?.whatsapp || getPrimaryLocation().contact.phone.whatsapp
   const encodedMessage = message 
     ? encodeURIComponent(message) 
     : encodeURIComponent("Hi, I'd like to know more about French Toast café")
   return `https://wa.me/${phone}?text=${encodedMessage}`
 }
 
-export function getPhoneLink() {
-  return `tel:${BUSINESS_INFO.contact.phone.tel}`
+export function getPhoneLink(locationId?: string) {
+  const location = locationId 
+    ? BUSINESS_INFO.locations.find(loc => loc.id === locationId)
+    : getPrimaryLocation()
+  
+  return `tel:${location?.contact?.phone?.tel || getPrimaryLocation().contact.phone.tel}`
+}
+
+export function getLocationPhone(locationId: string) {
+  const location = BUSINESS_INFO.locations.find(loc => loc.id === locationId)
+  return location?.contact?.phone
+}
+
+export function getAllLocations() {
+  return BUSINESS_INFO.locations.filter(loc => loc.verified)
 }
 
 export function getEmailLink() {

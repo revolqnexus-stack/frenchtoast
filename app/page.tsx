@@ -2,9 +2,12 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import Link from 'next/link'
+import { BUSINESS_INFO } from '@/config/business'
 import './home.css'
 
 export default function Home() {
+  const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
+
   return (
     <>
       <Nav transparent onDark />
@@ -23,7 +26,7 @@ export default function Home() {
           </div>
 
           <div className="hero-content">
-            <p className="hero-eyebrow">Panampilly Nagar, Kochi</p>
+            <p className="hero-eyebrow">{hasMultipleLocations ? 'Kochi' : 'Panampilly Nagar, Kochi'}</p>
 
             <h1 className="hero-headline">
               Good mornings<br />
@@ -36,7 +39,7 @@ export default function Home() {
 
             <div className="hero-actions">
               <Link href="/menu" className="btn btn--light">Explore the Menu</Link>
-              <Link href="/visit" className="btn btn--ghost-light">Find Us</Link>
+              <Link href="/visit" className="btn btn--ghost-light">{hasMultipleLocations ? 'Find a Location' : 'Find Us'}</Link>
             </div>
 
             <ul className="hero-meta" aria-label="Dining options">

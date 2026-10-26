@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import { BUSINESS_INFO, getPrimaryLocation, getWhatsAppLink, getPhoneLink } from '@/config/business'
+import { BUSINESS_INFO, getPrimaryLocation, getWhatsAppLink } from '@/config/business'
 
 export default function Footer() {
   const location = getPrimaryLocation()
   const currentYear = new Date().getFullYear()
+  const hasMultipleLocations = BUSINESS_INFO.locations.filter(loc => loc.verified).length > 1
 
   return (
     <footer className="site-footer">
@@ -21,24 +22,36 @@ export default function Footer() {
             <li><Link href="/menu">Menu</Link></li>
             <li><Link href="/about">Our Story</Link></li>
             <li><Link href="/gallery">Gallery</Link></li>
-            <li><Link href="/visit">Visit Us</Link></li>
+            <li><Link href="/visit">{hasMultipleLocations ? 'Locations' : 'Visit Us'}</Link></li>
             <li><Link href="/order">Order Online</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
         <div className="footer-col">
-          <h4>Hours</h4>
-          <address>
-            Mon – Fri<br />
-            {BUSINESS_INFO.hours.weekday.open} – {BUSINESS_INFO.hours.weekday.close}<br />
-            Sat – Sun<br />
-            {BUSINESS_INFO.hours.weekend.open} – {BUSINESS_INFO.hours.weekend.close}<br /><br />
-            <a href={getPhoneLink()}>{BUSINESS_INFO.contact.phone.display}</a>
-          </address>
+          <h4>{hasMultipleLocations ? 'Locations' : 'Hours'}</h4>
+          {hasMultipleLocations ? (
+            <address>
+              <Link href="/visit" style={{ textDecoration: 'underline' }}>
+                View all locations →
+              </Link>
+              <br /><br />
+              {location.name}:<br />
+              <a href={`tel:${location.contact.phone.tel}`}>{location.contact.phone.display}</a>
+            </address>
+          ) : (
+            <address>
+              Mon – Fri<br />
+              {location.hours.weekday.open} – {location.hours.weekday.close}<br />
+              Sat – Sun<br />
+              {location.hours.weekend.open} – {location.hours.weekend.close}<br /><br />
+              <a href={`tel:${location.contact.phone.tel}`}>{location.contact.phone.display}</a>
+            </address>
+          )}
         </div>
         <div className="footer-col">
           <h4>Visit</h4>
           <address>
+            {hasMultipleLocations && <><strong>{location.name}</strong><br /></>}
             {location.address.line1},<br />
             {location.address.line2},<br />
             {location.address.city}, {location.address.state} {location.address.pincode}
