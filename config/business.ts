@@ -50,7 +50,7 @@ export const BUSINESS_INFO = {
         phone: {
           display: '+91 484 406 1618',
           tel: '+914844061618',
-          whatsapp: '914844061618',
+          whatsapp: '919074870797',
         },
         alternatePhone: {
           display: '+91 81290 84545',

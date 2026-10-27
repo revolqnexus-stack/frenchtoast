@@ -47,6 +47,7 @@ export default function Home() {
         <section className="hero" aria-label="Welcome to French Toast">
           <div className="hero-visual" aria-hidden="true">
             <video
+              key={isMobile ? 'hero-mobile' : 'hero-desktop'}
               autoPlay
               loop
               muted
@@ -60,7 +61,10 @@ export default function Home() {
                 objectFit: 'cover'
               }}
             >
-              <source src="/hero/hero video.mp4" type="video/mp4" />
+              <source
+                src={isMobile ? '/hero/hero phone.mp4' : '/hero/hero video.mp4'}
+                type="video/mp4"
+              />
               {/* Fallback image if video doesn't load */}
               <img
                 src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
