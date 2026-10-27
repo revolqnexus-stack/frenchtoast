@@ -46,42 +46,28 @@ export default function Home() {
         {/* Hero Section */}
         <section className="hero" aria-label="Welcome to French Toast">
           <div className="hero-visual" aria-hidden="true">
-            {/* Desktop video — hidden on mobile via CSS */}
-            <video
-              className="hero-video hero-video--desktop"
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            >
-              <source src="/hero/hero video.mp4" type="video/mp4" />
-            </video>
-            {/* Mobile video — hidden on desktop via CSS */}
-            <video
-              className="hero-video hero-video--mobile"
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            >
-              <source src="/hero/hero phone.mp4" type="video/mp4" />
-            </video>
+            {mounted && (
+              <video
+                key={isMobile ? 'hero-mobile' : 'hero-desktop'}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              >
+                <source
+                  src={isMobile ? '/hero/hero phone.mp4' : '/hero/hero video.mp4'}
+                  type="video/mp4"
+                />
+              </video>
+            )}
           </div>
 
           <div className="hero-content">
