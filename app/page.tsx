@@ -46,7 +46,9 @@ export default function Home() {
         {/* Hero Section */}
         <section className="hero" aria-label="Welcome to French Toast">
           <div className="hero-visual" aria-hidden="true">
+            {/* Desktop video — hidden on mobile via CSS */}
             <video
+              className="hero-video hero-video--desktop"
               autoPlay
               loop
               muted
@@ -60,23 +62,25 @@ export default function Home() {
                 objectFit: 'cover'
               }}
             >
-              {/* Browser picks the first matching source — no JS needed */}
-              <source
-                src="/hero/hero phone.mp4"
-                media="(max-width: 768px)"
-                type="video/mp4"
-              />
-              <source
-                src="/hero/hero video.mp4"
-                type="video/mp4"
-              />
-              {/* Fallback image if video doesn't load */}
-              <img
-                src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=1400&q=85"
-                alt="French Toast signature dish"
-                width="1400"
-                height="933"
-              />
+              <source src="/hero/hero video.mp4" type="video/mp4" />
+            </video>
+            {/* Mobile video — hidden on desktop via CSS */}
+            <video
+              className="hero-video hero-video--mobile"
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            >
+              <source src="/hero/hero phone.mp4" type="video/mp4" />
             </video>
           </div>
 
