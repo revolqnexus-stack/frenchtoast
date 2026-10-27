@@ -1,16 +1,2 @@
 @import './styles/home.css';
 @import './styles/proof.css';
-
-/* ── Hero video responsive swap ─────────────────────────────────────────── */
-.hero-video--mobile {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .hero-video--desktop {
-    display: none;
-  }
-  .hero-video--mobile {
-    display: block;
-  }
-}

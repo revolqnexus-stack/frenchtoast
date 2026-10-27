@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
+import HeroVideo from './components/HeroVideo'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import FadeIn from './components/FadeIn'
@@ -46,28 +47,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="hero" aria-label="Welcome to French Toast">
           <div className="hero-visual" aria-hidden="true">
-            {mounted && (
-              <video
-                key={isMobile ? 'hero-mobile' : 'hero-desktop'}
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
-              >
-                <source
-                  src={isMobile ? '/hero/hero phone.mp4' : '/hero/hero video.mp4'}
-                  type="video/mp4"
-                />
-              </video>
-            )}
+            <HeroVideo />
           </div>
 
           <div className="hero-content">
