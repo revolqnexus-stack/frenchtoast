@@ -46,7 +46,19 @@ export default function MenuPage() {
       <Nav />
 
       <main>
-        <header className="page-hero">
+        <header className="page-hero menu-page-hero-illus">
+          {/* Scattered illustrations — right side decoration */}
+          <div className="menu-hero-art" aria-hidden="true">
+            {/* Big scatter scene — anchored right-centre */}
+            <img src="/hero/menuhero.png"  className="mhi mhi--main"  alt="" />
+            {/* Plate with cutlery — lower right */}
+            <img src="/hero/menuhero2.png" className="mhi mhi--plate" alt="" />
+            {/* Cheesecake slice — upper right corner */}
+            <img src="/hero/menuhero1.png" className="mhi mhi--cake"  alt="" />
+            {/* Full breakfast plate — mid right */}
+            <img src="/hero/menuhero3.png" className="mhi mhi--full"  alt="" />
+          </div>
+
           <div className="page-hero-inner">
             <BlurText as="p" className="eyebrow" delay={0.1} duration={0.6} stagger={0.05}>Menu</BlurText>
             <BlurText as="h1" delay={0.3} duration={0.9} stagger={0.1}>
