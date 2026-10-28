@@ -3,127 +3,141 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import MadeByRevolq from './MadeByRevolq'
-import { BUSINESS_INFO, getWhatsAppLink } from '@/config/business'
+import { BUSINESS_INFO, getPrimaryLocation, getWhatsAppLink } from '@/config/business'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const location = getPrimaryLocation()
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) setSubmitted(true)
+    if (!email) return
+    setLoading(true)
+    // Simulate submission — wire to real service when ready
+    setTimeout(() => {
+      setLoading(false)
+      setSubmitted(true)
+    }, 800)
   }
 
   return (
     <footer className="site-footer">
 
-      {/* ── Top: tagline + email signup ───────────────────────────────────── */}
-      <div className="footer-top">
-        <p className="footer-handwrite">
-          good mornings, warm toasts,<br />
-          and zero bad coffee
-        </p>
+      {/* ── Newsletter banner ─────────────────────────────────────────────── */}
+      <div className="footer-newsletter">
+        {/* Breakfast illustration — left decorative */}
+        <img
+          src="/footer/footer.png"
+          alt=""
+          aria-hidden="true"
+          className="footer-nl-art footer-nl-art--left"
+        />
 
-        <div className="footer-hero-illustration" aria-hidden="true">
-          <img src="/footer/footer.png" alt="" width="340" height="420" />
+        <div className="footer-nl-body">
+          <p className="footer-nl-handwrite">good mornings, warm toasts, and zero bad coffee</p>
+          <h2 className="footer-nl-headline">
+            stay in the loop <em>with us.</em>
+          </h2>
+          <p className="footer-nl-sub">specials, new dishes, and the occasional good morning</p>
+
+          {submitted ? (
+            <p className="footer-nl-thanks">thanks — see you at the café ☕</p>
+          ) : (
+            <form className="footer-nl-form" onSubmit={handleSubscribe} noValidate>
+              <span className="footer-nl-star" aria-hidden="true">✦</span>
+              <input
+                type="email"
+                placeholder="your e-mail"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                aria-label="Email address"
+                disabled={loading}
+              />
+              <button type="submit" disabled={loading}>
+                {loading ? '...' : 'subscribe'}
+              </button>
+              <span className="footer-nl-star" aria-hidden="true">✦</span>
+            </form>
+          )}
         </div>
 
-        <h2 className="footer-cta-headline">
-          we cook like we care: <em>always.</em>
-        </h2>
-        <p className="footer-cta-sub">follow along for daily specials & café moments</p>
-
-        {submitted ? (
-          <p className="footer-subscribe-thanks">thanks — see you at the café ☕</p>
-        ) : (
-          <form className="footer-subscribe" onSubmit={handleSubscribe}>
-            <span className="footer-subscribe-asterisk" aria-hidden="true">✦</span>
-            <input
-              type="email"
-              placeholder="your e-mail"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-              aria-label="Email address"
-            />
-            <button type="submit">subscribe</button>
-            <span className="footer-subscribe-asterisk footer-subscribe-asterisk--right" aria-hidden="true">✦</span>
-          </form>
-        )}
+        {/* Pastry scatter — right decorative */}
+        <img
+          src="/footer/footer1.png"
+          alt=""
+          aria-hidden="true"
+          className="footer-nl-art footer-nl-art--right"
+        />
       </div>
 
-      {/* ── Middle: three-column links ────────────────────────────────────── */}
-      <div className="footer-links">
-        <div className="footer-links-col">
-          <h4>explore</h4>
-          <ul>
-            <li><Link href="/menu">menu</Link></li>
-            <li><Link href="/about">our story</Link></li>
-            <li><Link href="/gallery">gallery</Link></li>
-            <li><Link href="/visit">find us</Link></li>
-            <li><Link href="/order">order online</Link></li>
+      {/* ── Three-column links ────────────────────────────────────────────── */}
+      <div className="footer-cols">
+
+        {/* Col 1 — Explore */}
+        <div className="footer-col">
+          <h3 className="footer-col__heading">Explore</h3>
+          <nav aria-label="Footer navigation">
+            <ul className="footer-col__list">
+              <li><Link href="/menu">Menu</Link></li>
+              <li><Link href="/about">Our story</Link></li>
+              <li><Link href="/gallery">Gallery</Link></li>
+              <li><Link href="/visit">Find us</Link></li>
+              <li><Link href="/order">Order online</Link></li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Col 2 — Come By */}
+        <div className="footer-col">
+          <h3 className="footer-col__heading">Come By</h3>
+          <address className="footer-col__address">
+            <p>{location.address.line1}</p>
+            <p>{location.address.line2}</p>
+            <p>{location.address.city}, {location.address.state} {location.address.pincode}</p>
+          </address>
+          <ul className="footer-col__list footer-col__list--spaced">
+            <li>
+              <span className="footer-col__label">Mon – Fri</span>
+              <span className="footer-col__val">{location.hours.weekday.open} – {location.hours.weekday.close}</span>
+            </li>
+            <li>
+              <span className="footer-col__label">Sat – Sun</span>
+              <span className="footer-col__val">{location.hours.weekend.open} – {location.hours.weekend.close}</span>
+            </li>
           </ul>
+          <a
+            href={location.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-col__cta"
+            aria-label="Get directions on Google Maps"
+          >
+            Get directions ↗
+          </a>
         </div>
 
-        <div className="footer-links-col footer-links-col--center">
-          <h4>connect</h4>
-          <div className="footer-social-icons">
-            <a
-              href={BUSINESS_INFO.contact.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              {/* Instagram */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.8"/>
-                <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.8"/>
-                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
-              </svg>
-            </a>
-            <a
-              href={getWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-            >
-              {/* WhatsApp */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
-              </svg>
-            </a>
-            <a
-              href={`mailto:${BUSINESS_INFO.contact.email}`}
-              aria-label="Email us"
-            >
-              {/* Email */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" strokeWidth="1.8"/>
-                <path d="M2 7l10 7 10-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+        {/* Col 3 — Say Hello */}
+        <div className="footer-col">
+          <h3 className="footer-col__heading">Say Hello</h3>
 
-        <div className="footer-links-col footer-links-col--right">
-          <h4>visit</h4>
-          <div className="footer-cafe-illustration" aria-hidden="true">
-            <img src="/footer/footer2.png" alt="" width="180" height="180" />
+          {/* Café storefront illustration */}
+          <div className="footer-col__illustration" aria-hidden="true">
+            <img src="/footer/footer2.png" alt="" width="160" height="160" />
           </div>
-          <ul>
-            <li><Link href="/contact">contact</Link></li>
+
+          <ul className="footer-col__list">
             <li>
               <a
-                href="https://maps.app.goo.gl/2hqY5aRCUGAccKuZ6"
+                href={BUSINESS_INFO.contact.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                directions
+                Instagram ↗
               </a>
-            </li>
-            <li>
-              <a href={`tel:+914844061618`}>call us</a>
             </li>
             <li>
               <a
@@ -131,28 +145,39 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                whatsapp
+                WhatsApp ↗
               </a>
             </li>
+            <li>
+              <a href={location.contact.phone.tel}>
+                {location.contact.phone.display}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${BUSINESS_INFO.contact.email}`}>
+                {BUSINESS_INFO.contact.email}
+              </a>
+            </li>
+            <li><Link href="/contact">Contact form</Link></li>
           </ul>
         </div>
+
       </div>
 
-      {/* ── Bottom: big wordmark + legal ──────────────────────────────────── */}
-      <div className="footer-wordmark-row">
-        {/* footer1.png — scattered pastries as background texture */}
-        <div className="footer-wordmark-bg" aria-hidden="true">
-          <img src="/footer/footer1.png" alt="" />
-        </div>
-        <Link href="/" className="footer-wordmark" aria-label="French Toast home">
+      {/* ── Divider ───────────────────────────────────────────────────────── */}
+      <div className="footer-divider" aria-hidden="true" />
+
+      {/* ── Closing wordmark ──────────────────────────────────────────────── */}
+      <div className="footer-closing">
+        <Link href="/" className="footer-wordmark" aria-label="French Toast — back to home">
           French Toast
         </Link>
       </div>
 
+      {/* ── Legal bar ─────────────────────────────────────────────────────── */}
       <div className="footer-legal">
         <span>© {currentYear} French Toast, Kochi.</span>
-        <Link href="/contact">contact</Link>
-        <span className="footer-legal-dot" aria-hidden="true">·</span>
+        <span className="footer-legal-sep" aria-hidden="true">·</span>
         <MadeByRevolq />
       </div>
 
