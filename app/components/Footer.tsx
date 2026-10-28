@@ -25,19 +25,8 @@ export default function Footer() {
           and zero bad coffee
         </p>
 
-        <div className="footer-toast-icon" aria-hidden="true">
-          {/* Toast icon — inline SVG */}
-          <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="18" y="10" width="54" height="58" rx="8" stroke="var(--paper)" strokeWidth="2.5" fill="none"/>
-            <rect x="28" y="2" width="8" height="18" rx="4" stroke="var(--paper)" strokeWidth="2.5" fill="none"/>
-            <rect x="54" y="2" width="8" height="18" rx="4" stroke="var(--paper)" strokeWidth="2.5" fill="none"/>
-            <path d="M28 38 Q45 50 62 38" stroke="var(--butter)" strokeWidth="2" fill="none" strokeLinecap="round"/>
-            <circle cx="35" cy="30" r="3" fill="var(--butter)" opacity="0.7"/>
-            <circle cx="55" cy="30" r="3" fill="var(--butter)" opacity="0.7"/>
-            <path d="M18 68 h54" stroke="var(--paper)" strokeWidth="1.5" opacity="0.3"/>
-            <path d="M25 74 h40" stroke="var(--paper)" strokeWidth="1.5" opacity="0.2"/>
-            <path d="M32 80 h26" stroke="var(--paper)" strokeWidth="1.5" opacity="0.1"/>
-          </svg>
+        <div className="footer-hero-illustration" aria-hidden="true">
+          <img src="/footer/footer.png" alt="" width="340" height="420" />
         </div>
 
         <h2 className="footer-cta-headline">
@@ -119,6 +108,9 @@ export default function Footer() {
 
         <div className="footer-links-col footer-links-col--right">
           <h4>visit</h4>
+          <div className="footer-cafe-illustration" aria-hidden="true">
+            <img src="/footer/footer2.png" alt="" width="180" height="180" />
+          </div>
           <ul>
             <li><Link href="/contact">contact</Link></li>
             <li>
@@ -148,6 +140,10 @@ export default function Footer() {
 
       {/* ── Bottom: big wordmark + legal ──────────────────────────────────── */}
       <div className="footer-wordmark-row">
+        {/* footer1.png — scattered pastries as background texture */}
+        <div className="footer-wordmark-bg" aria-hidden="true">
+          <img src="/footer/footer1.png" alt="" />
+        </div>
         <Link href="/" className="footer-wordmark" aria-label="French Toast home">
           French Toast
         </Link>

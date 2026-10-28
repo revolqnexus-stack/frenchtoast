@@ -384,6 +384,31 @@
   margin-inline: auto;
 }
 
+/* Footer illustrations */
+.footer-hero-illustration {
+  margin-bottom: var(--sp-6);
+}
+
+.footer-hero-illustration img {
+  width: clamp(180px, 30vw, 300px);
+  height: auto;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  filter: invert(1);
+}
+
+.footer-cafe-illustration {
+  margin-bottom: var(--sp-4);
+}
+
+.footer-cafe-illustration img {
+  width: clamp(120px, 18vw, 180px);
+  height: auto;
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(330deg);
+}
+
 .footer-handwrite {
   font-family: 'Caveat', cursive;
   font-size: clamp(1rem, 2.5vw, 1.35rem);
@@ -567,9 +592,29 @@
 
 /* Big wordmark row */
 .footer-wordmark-row {
+  position: relative;
   padding: clamp(2rem, 4vw, 3rem) var(--margin-h) 0;
   max-width: var(--max-content);
   margin-inline: auto;
+  overflow: hidden;
+}
+
+.footer-wordmark-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-wordmark-bg img {
+  width: clamp(220px, 35vw, 420px);
+  height: auto;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  filter: invert(1);
+  transform: rotate(8deg) translateX(5%);
 }
 
 .footer-wordmark {
